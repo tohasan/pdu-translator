@@ -1,17 +1,18 @@
 package org.tohasan.pduxml.lib.a;
 
+import org.tohasan.pduxml.lib.infra.CustomInputStream;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
 public final class bk extends org.tohasan.pduxml.lib.infra.b {
-   public bk(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
-      this.b = 330;
-      var2.b(330);
-      this.a(var2);
-      var2.a();
-   }
+    public bk(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+        this.b = 330;
+        var2.b(330);
+        this.a(var2);
+        var2.a();
+    }
 
-   public bk(int var1, org.tohasan.pduxml.lib.infra.h var2) throws XmlPduException {
-      this.b = 330;
-      this.a(var2);
-   }
+    public bk(int var1, CustomInputStream var2) throws XmlPduException {
+        this.b = 330;
+        this.a(var2);
+    }
 }

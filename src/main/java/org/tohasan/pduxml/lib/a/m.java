@@ -1,32 +1,33 @@
 package org.tohasan.pduxml.lib.a;
 
-import org.tohasan.pduxml.lib.a.P_;
+import org.tohasan.pduxml.lib.infra.CustomInputStream;
+import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
-public final class m extends org.tohasan.pduxml.lib.infra.e {
-   private P_ a;
+public final class m extends MessageByteProcessor {
+    private P_ a;
 
-   public m(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
-      this.b = 179;
-      var2.c(179);
-      this.a = new P_(217, var2);
-      var2.d(179);
-   }
+    public m(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+        this.b = 179;
+        var2.c(179);
+        this.a = new P_(217, var2);
+        var2.d(179);
+    }
 
-   public final void a(org.tohasan.pduxml.lib.infra.i var1) throws XmlPduException {
-      this.a.a(var1);
-   }
+    public final void a(org.tohasan.pduxml.lib.infra.i var1) throws XmlPduException {
+        this.a.a(var1);
+    }
 
-   public m(int var1, org.tohasan.pduxml.lib.infra.h var2) throws XmlPduException {
-      this.b = 179;
-      this.a = new P_(217, var2);
-   }
+    public m(int var1, CustomInputStream var2) throws XmlPduException {
+        this.b = 179;
+        this.a = new P_(217, var2);
+    }
 
-   public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
-      var1.a(this.b);
-      var1.a();
-      this.a.a(var1);
-      var1.b();
-      var1.b(this.b);
-   }
+    public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
+        var1.a(this.b);
+        var1.a();
+        this.a.a(var1);
+        var1.b();
+        var1.b(this.b);
+    }
 }
