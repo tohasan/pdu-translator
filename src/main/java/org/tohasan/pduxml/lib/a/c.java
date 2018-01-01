@@ -5,8 +5,6 @@ import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.Misc;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
-import java.io.ByteArrayOutputStream;
-
 public final class c extends MessageByteProcessor {
     private int a;
 
