@@ -1,6 +1,6 @@
 package org.tohasan.pduxml.lib.a;
 
-import org.tohasan.pduxml.lib.infra.CustomInputStream;
+import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.Misc;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
@@ -31,7 +31,7 @@ public final class O_ extends MessageByteProcessor {
         var2.a((ByteArrayOutputStream) var1);
     }
 
-    public O_(int var1, CustomInputStream var2) throws XmlPduException {
+    public O_(int var1, MessageInputStream var2) throws XmlPduException {
         this.b = 213;
         if ((var1 = var2.readByte()) != 1) {
             throw new XmlPduException("_AssociationResult: Illegal data size, expected " + "1" + " ,found " + var1);

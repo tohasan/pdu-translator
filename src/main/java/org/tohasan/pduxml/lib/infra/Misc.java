@@ -81,7 +81,7 @@ public class Misc {
         return var1.toString();
     }
 
-    public static StringBuffer decodeBERBitStringHexStr(CustomInputStream var0) throws XmlPduException {
+    public static StringBuffer decodeBERBitStringHexStr(MessageInputStream var0) throws XmlPduException {
         StringBuffer var5 = new StringBuffer();
         int var1 = var0.readByte();
         int var2 = var0.readByte();
@@ -112,7 +112,7 @@ public class Misc {
         return var5;
     }
 
-    public static StringBuffer decodeGraphicByteStringStr(CustomInputStream var0) throws XmlPduException {
+    public static StringBuffer decodeGraphicByteStringStr(MessageInputStream var0) throws XmlPduException {
         int var2 = var0.readByte();
 
         StringBuffer var3;
@@ -124,7 +124,7 @@ public class Misc {
         return var3;
     }
 
-    public static StringBuffer decodeObjectStr(CustomInputStream var0, boolean var1) throws XmlPduException {
+    public static StringBuffer decodeObjectStr(MessageInputStream var0, boolean var1) throws XmlPduException {
         if (var1) {
             var0.readByte(6);
         }
@@ -159,7 +159,7 @@ public class Misc {
         }
     }
 
-    public static int decodeVarLengthUnsignedInteger(CustomInputStream messageByteStream) throws XmlPduException {
+    public static int decodeVarLengthUnsignedInteger(MessageInputStream messageByteStream) throws XmlPduException {
         int messageByte = (byte) messageByteStream.readByte();
         if ((messageByte & 128) != 0) {
             switch (messageByte & 127) {

@@ -1,6 +1,6 @@
 package org.tohasan.pduxml.lib.a;
 
-import org.tohasan.pduxml.lib.infra.CustomInputStream;
+import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
 public final class S_ extends MessageProcessor {
@@ -8,7 +8,7 @@ public final class S_ extends MessageProcessor {
         super(var1, var2);
     }
 
-    public S_(int var1, CustomInputStream var2) throws XmlPduException {
+    public S_(int var1, MessageInputStream var2) throws XmlPduException {
         this.b = var1;
         var2.readByte();
         this.a(var2);

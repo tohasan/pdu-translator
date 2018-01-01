@@ -1,6 +1,6 @@
 package org.tohasan.pduxml.lib.a;
 
-import org.tohasan.pduxml.lib.infra.CustomInputStream;
+import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
@@ -32,7 +32,7 @@ public final class aF_ extends MessageByteProcessor {
         var2.d(288);
     }
 
-    public aF_(int var1, CustomInputStream var2) throws XmlPduException {
+    public aF_(int var1, MessageInputStream var2) throws XmlPduException {
         this.b = 288;
         this.a = var2.readByte();
         switch (this.a) {

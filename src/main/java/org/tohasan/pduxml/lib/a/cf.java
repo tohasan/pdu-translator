@@ -1,6 +1,6 @@
 package org.tohasan.pduxml.lib.a;
 
-import org.tohasan.pduxml.lib.infra.CustomInputStream;
+import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
@@ -15,7 +15,7 @@ public final class cf extends MessageByteProcessor {
         this.b = 297;
         if (var2.a((int) 456)) {
             this.currentByte = 2;
-            this.c = new br(456, var2);
+            this.c = new VariableNameProcessor(456, var2);
         } else if (var2.a((int) 368)) {
             this.currentByte = 4;
             this.c = new ParametrizedAccessProcessor(368, var2);
@@ -33,12 +33,12 @@ public final class cf extends MessageByteProcessor {
         }
     }
 
-    public cf(int var1, CustomInputStream messageByteStream) throws XmlPduException {
+    public cf(int var1, MessageInputStream messageByteStream) throws XmlPduException {
         this.b = 161;
         this.currentByte = messageByteStream.readByte();
         switch (this.currentByte) {
             case 2:
-                this.c = new br(456, messageByteStream);
+                this.c = new VariableNameProcessor(456, messageByteStream);
                 return;
             case 3:
             default:

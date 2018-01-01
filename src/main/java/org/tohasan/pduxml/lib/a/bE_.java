@@ -1,18 +1,18 @@
 package org.tohasan.pduxml.lib.a;
 
-import org.tohasan.pduxml.lib.infra.CustomInputStream;
+import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
 public final class bE_ extends MessageByteProcessor {
-    private ce a;
-    private ac c;
+    private SelectorProcessor a;
+    private ParameterProcessor c;
 
     public bE_(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.b = 189;
         var2.c(189);
-        this.a = new ce(190, var2);
-        this.c = new ac(172, var2);
+        this.a = new SelectorProcessor(190, var2);
+        this.c = new ParameterProcessor(172, var2);
         var2.d(189);
     }
 
@@ -21,10 +21,10 @@ public final class bE_ extends MessageByteProcessor {
         this.c.a(var1);
     }
 
-    public bE_(int var1, CustomInputStream var2) throws XmlPduException {
+    public bE_(int var1, MessageInputStream var2) throws XmlPduException {
         this.b = 189;
-        this.a = new ce(190, var2);
-        this.c = new ac(172, var2);
+        this.a = new SelectorProcessor(190, var2);
+        this.c = new ParameterProcessor(172, var2);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

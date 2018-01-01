@@ -39,7 +39,7 @@ public class d extends MessageByteProcessor {
 
     }
 
-    public d(int var1, CustomInputStream var2) throws XmlPduException {
+    public d(int var1, MessageInputStream var2) throws XmlPduException {
         this.b = var1;
         int var3 = Misc.decodeVarLengthUnsignedInteger(var2);
         StringBuffer var7 = new StringBuffer();

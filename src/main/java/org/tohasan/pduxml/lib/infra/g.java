@@ -26,7 +26,7 @@ public class g extends MessageByteProcessor {
 
     }
 
-    public final void a(CustomInputStream var1) throws XmlPduException {
+    public final void a(MessageInputStream var1) throws XmlPduException {
         int var3;
         if (this.a == -1) {
             var3 = Misc.decodeVarLengthUnsignedInteger(var1);

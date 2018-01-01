@@ -1,17 +1,17 @@
 package org.tohasan.pduxml.lib.a;
 
-import org.tohasan.pduxml.lib.infra.CustomInputStream;
+import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
-public final class ac extends MessageByteProcessor {
+public final class ParameterProcessor extends MessageByteProcessor {
     private int a;
     private MessageByteProcessor c;
 
-    public ac() {
+    public ParameterProcessor() {
     }
 
-    public ac(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public ParameterProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.b = var1;
         if (var1 != 297) {
             var2.c(var1);
@@ -61,7 +61,7 @@ public final class ac extends MessageByteProcessor {
             this.c = new aQ_(320, var2);
         } else if (var2.a((int) 449)) {
             this.a = 17;
-            this.c = new ce(449, var2);
+            this.c = new SelectorProcessor(449, var2);
         } else if (var2.a((int) 327)) {
             this.a = 18;
             this.c = new cb(327, var2);
@@ -104,7 +104,7 @@ public final class ac extends MessageByteProcessor {
 
     }
 
-    public ac(int var1, CustomInputStream var2) throws XmlPduException {
+    public ParameterProcessor(int var1, MessageInputStream var2) throws XmlPduException {
         this.b = var1;
         this.a = var2.readByte();
         switch (this.a) {
@@ -151,7 +151,7 @@ public final class ac extends MessageByteProcessor {
                 this.c = new aQ_(320, var2);
                 return;
             case 17:
-                this.c = new ce(449, var2);
+                this.c = new SelectorProcessor(449, var2);
                 return;
             case 18:
                 this.c = new cb(327, var2);

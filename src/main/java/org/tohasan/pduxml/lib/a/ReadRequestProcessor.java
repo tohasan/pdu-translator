@@ -1,6 +1,6 @@
 package org.tohasan.pduxml.lib.a;
 
-import org.tohasan.pduxml.lib.infra.CustomInputStream;
+import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.Misc;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
@@ -21,7 +21,7 @@ public final class ReadRequestProcessor extends org.tohasan.pduxml.lib.infra.j {
         var2.d(385);
     }
 
-    public ReadRequestProcessor(int var1, CustomInputStream messageByteStream) throws XmlPduException {
+    public ReadRequestProcessor(int var1, MessageInputStream messageByteStream) throws XmlPduException {
         this.b = 385;
         int numberOfRequestedItems = Misc.decodeVarLengthUnsignedInteger(messageByteStream);
         this.requestItems = new MessageByteProcessor[numberOfRequestedItems];

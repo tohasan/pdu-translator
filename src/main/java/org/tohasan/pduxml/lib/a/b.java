@@ -1,6 +1,6 @@
 package org.tohasan.pduxml.lib.a;
 
-import org.tohasan.pduxml.lib.infra.CustomInputStream;
+import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
 public final class b extends org.tohasan.pduxml.lib.infra.a {
@@ -8,7 +8,7 @@ public final class b extends org.tohasan.pduxml.lib.infra.a {
         super(var1, var2);
     }
 
-    public b(int var1, CustomInputStream var2) throws XmlPduException {
+    public b(int var1, MessageInputStream var2) throws XmlPduException {
         super(var1, var2);
     }
 }

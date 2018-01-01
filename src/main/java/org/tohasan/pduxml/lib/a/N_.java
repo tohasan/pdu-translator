@@ -1,6 +1,6 @@
 package org.tohasan.pduxml.lib.a;
 
-import org.tohasan.pduxml.lib.infra.CustomInputStream;
+import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.Misc;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
@@ -165,7 +165,7 @@ public final class N_ extends MessageByteProcessor {
         }
     }
 
-    public N_(int var1, CustomInputStream var2) throws XmlPduException {
+    public N_(int var1, MessageInputStream var2) throws XmlPduException {
         this.b = 212;
         Misc.decodeVarLengthUnsignedInteger(var2);
 

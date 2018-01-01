@@ -1,15 +1,15 @@
 package org.tohasan.pduxml.lib.a;
 
-import org.tohasan.pduxml.lib.infra.CustomInputStream;
+import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
 public final class aP_ extends MessageByteProcessor {
     private aT_ a;
-    private ce c;
+    private SelectorProcessor c;
     private ab d;
     private cb e;
-    private br f;
+    private VariableNameProcessor f;
 
     public aP_(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.b = 304;
@@ -18,10 +18,10 @@ public final class aP_ extends MessageByteProcessor {
             this.a = new aT_(341, var2);
         }
 
-        this.c = new ce(339, var2);
+        this.c = new SelectorProcessor(339, var2);
         this.d = new ab(338, var2);
         this.e = new cb(340, var2);
-        this.f = new br(453, var2);
+        this.f = new VariableNameProcessor(453, var2);
         var2.d(304);
     }
 
@@ -39,16 +39,16 @@ public final class aP_ extends MessageByteProcessor {
         this.f.a(var1);
     }
 
-    public aP_(int var1, CustomInputStream var2) throws XmlPduException {
+    public aP_(int var1, MessageInputStream var2) throws XmlPduException {
         this.b = 304;
         if (var2.readByte() != 0) {
             this.a = new aT_(341, var2);
         }
 
-        this.c = new ce(339, var2);
+        this.c = new SelectorProcessor(339, var2);
         this.d = new ab(338, var2);
         this.e = new cb(340, var2);
-        this.f = new br(453, var2);
+        this.f = new VariableNameProcessor(453, var2);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

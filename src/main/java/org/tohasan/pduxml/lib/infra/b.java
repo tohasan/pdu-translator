@@ -107,7 +107,7 @@ public class b extends MessageByteProcessor {
         }
     }
 
-    public final void a(CustomInputStream var1) throws XmlPduException {
+    public final void a(MessageInputStream var1) throws XmlPduException {
         var1.readByte(7);
         var1.readByte(96);
         var1.readByte(133);

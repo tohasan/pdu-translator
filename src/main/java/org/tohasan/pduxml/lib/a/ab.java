@@ -1,6 +1,6 @@
 package org.tohasan.pduxml.lib.a;
 
-import org.tohasan.pduxml.lib.infra.CustomInputStream;
+import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
 import java.util.BitSet;
@@ -107,7 +107,7 @@ public final class ab extends org.tohasan.pduxml.lib.infra.a {
         super.a(var1);
     }
 
-    public ab(int var1, CustomInputStream var2) throws XmlPduException {
+    public ab(int var1, MessageInputStream var2) throws XmlPduException {
         this.b = var1;
         this.c = 247;
         var2.readByte(95);
@@ -115,7 +115,7 @@ public final class ab extends org.tohasan.pduxml.lib.infra.a {
             var2.readByte();
         }
 
-        this.a((CustomInputStream) var2);
+        this.a((MessageInputStream) var2);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

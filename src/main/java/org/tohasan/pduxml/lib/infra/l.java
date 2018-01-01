@@ -20,7 +20,6 @@ public final class l {
             for (int var2 = 0; var2 < this.b; ++var2) {
                 this.a[var2] = var1[var2];
             }
-
         }
     }
 
@@ -54,7 +53,6 @@ public final class l {
             this.a[var2] = (byte) var1;
             var1 >>= 8;
         }
-
     }
 
     public final long c() {
@@ -95,14 +93,12 @@ public final class l {
         for (int var2 = 0; var2 < this.b; ++var2) {
             var1.write(this.a[var2]);
         }
-
     }
 
-    public final void a(CustomInputStream var1) throws XmlPduException {
-        for (int var2 = 0; var2 < this.b; ++var2) {
-            this.a[var2] = (byte) var1.readByte();
+    public final void a(MessageInputStream messageStream) throws XmlPduException {
+        for (int i = 0; i < this.b; i++) {
+            this.a[i] = (byte) messageStream.readByte();
         }
-
     }
 
     public final StringBuffer f() {

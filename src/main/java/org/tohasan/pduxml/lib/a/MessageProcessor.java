@@ -1,6 +1,6 @@
 package org.tohasan.pduxml.lib.a;
 
-import org.tohasan.pduxml.lib.infra.CustomInputStream;
+import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
@@ -203,7 +203,7 @@ public class MessageProcessor extends MessageByteProcessor {
             }
 
             this.currentByte = 255;
-            this.c = new ac(250, var2);
+            this.c = new ParameterProcessor(250, var2);
         }
 
         if (var1 != 297) {
@@ -212,12 +212,12 @@ public class MessageProcessor extends MessageByteProcessor {
 
     }
 
-    public MessageProcessor(int var1, CustomInputStream messageByteStream) throws XmlPduException {
+    public MessageProcessor(int var1, MessageInputStream messageByteStream) throws XmlPduException {
         this.b = 297;
         this.a(messageByteStream);
     }
 
-    public final void a(CustomInputStream messageByteStream) throws XmlPduException {
+    public final void a(MessageInputStream messageByteStream) throws XmlPduException {
         this.currentByte = messageByteStream.readByte();
         switch (this.currentByte) {
             case 1:
@@ -401,7 +401,7 @@ public class MessageProcessor extends MessageByteProcessor {
                 this.c = new av(277, messageByteStream);
                 return;
             case 255:
-                this.c = new ac(250, messageByteStream);
+                this.c = new ParameterProcessor(250, messageByteStream);
                 return;
             default:
                 throw new XmlPduException("_COSEMpdu (from pdu) : illegal tag - " + String.valueOf(this.currentByte));

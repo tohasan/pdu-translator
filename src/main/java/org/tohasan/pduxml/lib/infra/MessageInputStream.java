@@ -2,8 +2,8 @@ package org.tohasan.pduxml.lib.infra;
 
 import java.io.ByteArrayInputStream;
 
-public final class CustomInputStream extends ByteArrayInputStream {
-    public CustomInputStream(byte[] var1) {
+public final class MessageInputStream extends ByteArrayInputStream {
+    public MessageInputStream(byte[] var1) {
         super(var1);
     }
 

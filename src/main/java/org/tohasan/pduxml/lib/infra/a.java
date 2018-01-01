@@ -45,12 +45,12 @@ public class a extends MessageByteProcessor {
         var1.a(var3 + 1, 8 - var4);
     }
 
-    public a(int var1, CustomInputStream var2) throws XmlPduException {
+    public a(int var1, MessageInputStream var2) throws XmlPduException {
         this.b = var1;
         this.a(var2);
     }
 
-    protected final void a(CustomInputStream var1) throws XmlPduException {
+    protected final void a(MessageInputStream var1) throws XmlPduException {
         int var2 = var1.readByte();
         int var3 = var1.readByte();
         --var2;
