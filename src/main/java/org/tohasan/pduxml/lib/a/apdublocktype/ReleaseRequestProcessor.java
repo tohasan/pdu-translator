@@ -1,22 +1,24 @@
-package org.tohasan.pduxml.lib.a;
+package org.tohasan.pduxml.lib.a.apdublocktype;
 
+import org.tohasan.pduxml.lib.a.S_;
+import org.tohasan.pduxml.lib.a.bA_;
 import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
-public final class bz extends MessageByteProcessor {
+public final class ReleaseRequestProcessor extends MessageByteProcessor {
     private bA_ a;
     private S_ c;
 
-    public bz(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public ReleaseRequestProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 391;
         var2.c(391);
-        if (var2.a((int) 388)) {
+        if (var2.a(388)) {
             this.a = new bA_(388, var2);
         }
 
-        if (var2.a((int) 452)) {
+        if (var2.a(452)) {
             this.c = new S_(452, var2);
         }
 
@@ -43,7 +45,7 @@ public final class bz extends MessageByteProcessor {
         var1.write(var3.toByteArray(), 0, var3.size());
     }
 
-    public bz(int var1, MessageInputStream var2) throws XmlPduException {
+    public ReleaseRequestProcessor(int var1, MessageInputStream var2) throws XmlPduException {
         this.tagKey = 391;
         CommonUtils.decodeVarLengthUnsignedInteger(var2);
 

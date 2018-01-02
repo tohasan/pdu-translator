@@ -1,15 +1,16 @@
-package org.tohasan.pduxml.lib.a;
+package org.tohasan.pduxml.lib.a.apdublocktype;
 
+import org.tohasan.pduxml.lib.a.*;
 import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
-public final class M_ extends MessageByteProcessor {
+public final class AssociationRequestProcessor extends MessageByteProcessor {
     private bv a;
     private J_ c;
-    private f d;
-    private e e;
+    private org.tohasan.pduxml.lib.a.f d;
+    private org.tohasan.pduxml.lib.a.e e;
     private aU_ f;
     private aU_ g;
     private f h;
@@ -22,59 +23,59 @@ public final class M_ extends MessageByteProcessor {
     private aL_ o;
     private S_ p;
 
-    public M_(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public AssociationRequestProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 211;
         var2.c(211);
-        if (var2.a((int) 379)) {
+        if (var2.a(379)) {
             this.a = new bv(379, var2);
         }
 
         this.c = new J_(205, var2);
-        if (var2.a((int) 237)) {
+        if (var2.a(237)) {
             this.d = new f(237, var2);
         }
 
-        if (var2.a((int) 235)) {
+        if (var2.a(235)) {
             this.e = new e(235, var2);
         }
 
-        if (var2.a((int) 236)) {
+        if (var2.a(236)) {
             this.f = new aU_(236, var2);
         }
 
-        if (var2.a((int) 234)) {
+        if (var2.a(234)) {
             this.g = new aU_(234, var2);
         }
 
-        if (var2.a((int) 241)) {
+        if (var2.a(241)) {
             this.h = new f(241, var2);
         }
 
-        if (var2.a((int) 239)) {
+        if (var2.a(239)) {
             this.i = new e(239, var2);
         }
 
-        if (var2.a((int) 240)) {
+        if (var2.a(240)) {
             this.j = new aU_(240, var2);
         }
 
-        if (var2.a((int) 238)) {
+        if (var2.a(238)) {
             this.k = new aU_(238, var2);
         }
 
-        if (var2.a((int) 409)) {
+        if (var2.a(409)) {
             this.l = new b(409, var2);
         }
 
-        if (var2.a((int) 330)) {
+        if (var2.a(330)) {
             this.m = new bk(330, var2);
         }
 
-        if (var2.a((int) 242)) {
+        if (var2.a(242)) {
             this.n = new R_(242, var2);
         }
 
-        if (var2.a((int) 298)) {
+        if (var2.a(298)) {
             this.o = new aL_(298, var2);
         }
 
@@ -211,7 +212,7 @@ public final class M_ extends MessageByteProcessor {
         }
     }
 
-    public M_(int var1, MessageInputStream var2) throws XmlPduException {
+    public AssociationRequestProcessor(int var1, MessageInputStream var2) throws XmlPduException {
         this.tagKey = 211;
         CommonUtils.decodeVarLengthUnsignedInteger(var2);
 

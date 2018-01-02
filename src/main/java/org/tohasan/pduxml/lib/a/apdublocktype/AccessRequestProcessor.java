@@ -1,22 +1,24 @@
-package org.tohasan.pduxml.lib.a;
+package org.tohasan.pduxml.lib.a.apdublocktype;
 
+import org.tohasan.pduxml.lib.a.bj;
 import org.tohasan.pduxml.lib.a.datatype.OctetStringProcessor;
+import org.tohasan.pduxml.lib.a.j;
 import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
-public final class p extends MessageByteProcessor {
+public final class AccessRequestProcessor extends MessageByteProcessor {
     private bj a;
     private OctetStringProcessor c;
-    private r d;
+    private j d;
 
-    public p(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
-        this.tagKey = 182;
-        var2.c(182);
+    public AccessRequestProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+        this.tagKey = 173;
+        var2.c(173);
         this.a = new bj(325, var2);
         this.c = new OctetStringProcessor(262, var2);
-        this.d = new r(184, var2);
-        var2.d(182);
+        this.d = new j(175, var2);
+        var2.d(173);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.i var1) throws XmlPduException {
@@ -25,11 +27,11 @@ public final class p extends MessageByteProcessor {
         this.d.a(var1);
     }
 
-    public p(int var1, MessageInputStream var2) throws XmlPduException {
-        this.tagKey = 182;
+    public AccessRequestProcessor(int var1, MessageInputStream var2) throws XmlPduException {
+        this.tagKey = 173;
         this.a = new bj(325, var2);
         this.c = new OctetStringProcessor(262, var2);
-        this.d = new r(184, var2);
+        this.d = new j(175, var2);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

@@ -10,7 +10,7 @@ public final class VariableAccessSpecProcessor extends MessageByteProcessor {
     private int variableAccessSpecCode;
     private MessageByteProcessor c;
 
-    VariableAccessSpecProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public VariableAccessSpecProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 297;
         if (var2.a(456)) {
             this.variableAccessSpecCode = 2;
@@ -32,7 +32,7 @@ public final class VariableAccessSpecProcessor extends MessageByteProcessor {
         }
     }
 
-    VariableAccessSpecProcessor(int var1, MessageInputStream messageByteStream) throws XmlPduException {
+    public VariableAccessSpecProcessor(int var1, MessageInputStream messageByteStream) throws XmlPduException {
         this.tagKey = 161;
         this.variableAccessSpecCode = messageByteStream.readByte();
         VariableAccessSpecType specType = EnumUtils.fromCode(VariableAccessSpecType.class, variableAccessSpecCode);

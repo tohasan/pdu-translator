@@ -1,5 +1,6 @@
-package org.tohasan.pduxml.lib.a;
+package org.tohasan.pduxml.lib.a.apdublocktype;
 
+import org.tohasan.pduxml.lib.a.ab;
 import org.tohasan.pduxml.lib.a.datatype.IntegerProcessor;
 import org.tohasan.pduxml.lib.a.datatype.LongUnsignedProcessor;
 import org.tohasan.pduxml.lib.a.datatype.SelectorProcessor;
@@ -8,14 +9,14 @@ import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
-public final class aP_ extends MessageByteProcessor {
+public final class InitiateResponseProcessor extends MessageByteProcessor {
     private IntegerProcessor a;
     private SelectorProcessor c;
     private ab d;
     private LongUnsignedProcessor e;
     private VariableNameProcessor f;
 
-    aP_(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public InitiateResponseProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 304;
         var2.c(304);
         if (var2.a(341)) {
@@ -43,7 +44,7 @@ public final class aP_ extends MessageByteProcessor {
         this.f.a(var1);
     }
 
-    aP_(int var1, MessageInputStream var2) throws XmlPduException {
+    public InitiateResponseProcessor(int var1, MessageInputStream var2) throws XmlPduException {
         this.tagKey = 304;
         if (var2.readByte() != 0) {
             this.a = new IntegerProcessor(341, var2);

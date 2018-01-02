@@ -1,20 +1,20 @@
-package org.tohasan.pduxml.lib.a;
+package org.tohasan.pduxml.lib.a.apdublocktype;
 
 import org.tohasan.pduxml.lib.a.datatype.OctetStringProcessor;
 import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
-public final class ay extends MessageByteProcessor {
+public final class GeneralDedChipheringProcessor extends MessageByteProcessor {
     private OctetStringProcessor a;
     private OctetStringProcessor c;
 
-    public ay(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
-        this.tagKey = 280;
-        var2.c(280);
+    public GeneralDedChipheringProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+        this.tagKey = 279;
+        var2.c(279);
         this.a = new OctetStringProcessor(436, var2);
         this.c = new OctetStringProcessor(244, var2);
-        var2.d(280);
+        var2.d(279);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.i var1) throws XmlPduException {
@@ -22,8 +22,8 @@ public final class ay extends MessageByteProcessor {
         this.c.a(var1);
     }
 
-    public ay(int var1, MessageInputStream var2) throws XmlPduException {
-        this.tagKey = 280;
+    public GeneralDedChipheringProcessor(int var1, MessageInputStream var2) throws XmlPduException {
+        this.tagKey = 279;
         this.a = new OctetStringProcessor(436, var2);
         this.c = new OctetStringProcessor(244, var2);
     }

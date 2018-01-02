@@ -1,12 +1,13 @@
-package org.tohasan.pduxml.lib.a;
+package org.tohasan.pduxml.lib.a.apdublocktype;
 
+import org.tohasan.pduxml.lib.a.VariableAccessSpecProcessor;
 import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
 public final class ReadRequestProcessor extends org.tohasan.pduxml.lib.infra.j {
-    ReadRequestProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public ReadRequestProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 385;
         var2.b(385);
         var1 = var2.e(381);
@@ -21,7 +22,7 @@ public final class ReadRequestProcessor extends org.tohasan.pduxml.lib.infra.j {
         var2.d(385);
     }
 
-    ReadRequestProcessor(int var1, MessageInputStream messageByteStream) throws XmlPduException {
+    public ReadRequestProcessor(int var1, MessageInputStream messageByteStream) throws XmlPduException {
         this.tagKey = 385;
         int numberOfRequestedItems = CommonUtils.decodeVarLengthUnsignedInteger(messageByteStream);
         this.requestItems = new MessageByteProcessor[numberOfRequestedItems];

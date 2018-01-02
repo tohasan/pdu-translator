@@ -7,11 +7,11 @@ import org.tohasan.pduxml.lib.a.EnumWithCode;
  * date: 02.01.2018.
  */
 public enum VariableAccessSpecType implements EnumWithCode {
-    VARIABLE_NAME(2),
-    PARAMETRIZED_ACCESS(4),
-    BLOCK_NUMBER_ACCESS(5),
-    READ_DATA_BLOCK_ACCESS(6),
-    WRITE_DATA_BLOCK_ACCESS(7);
+    VARIABLE_NAME(0x02),
+    PARAMETRIZED_ACCESS(0x04),
+    BLOCK_NUMBER_ACCESS(0x05),
+    READ_DATA_BLOCK_ACCESS(0x06),
+    WRITE_DATA_BLOCK_ACCESS(0x07);
 
     private int code;
 

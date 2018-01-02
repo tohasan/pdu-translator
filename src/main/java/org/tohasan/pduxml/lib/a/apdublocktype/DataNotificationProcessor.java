@@ -1,16 +1,18 @@
-package org.tohasan.pduxml.lib.a;
+package org.tohasan.pduxml.lib.a.apdublocktype;
 
+import org.tohasan.pduxml.lib.a.bj;
+import org.tohasan.pduxml.lib.a.bm;
 import org.tohasan.pduxml.lib.a.datatype.OctetStringProcessor;
 import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
-public final class ai extends MessageByteProcessor {
+public final class DataNotificationProcessor extends MessageByteProcessor {
     private bj a;
     private OctetStringProcessor c;
     private bm d;
 
-    public ai(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public DataNotificationProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 257;
         var2.c(257);
         this.a = new bj(325, var2);
@@ -25,7 +27,7 @@ public final class ai extends MessageByteProcessor {
         this.d.a(var1);
     }
 
-    public ai(int var1, MessageInputStream var2) throws XmlPduException {
+    public DataNotificationProcessor(int var1, MessageInputStream var2) throws XmlPduException {
         this.tagKey = 257;
         this.a = new bj(325, var2);
         this.c = new OctetStringProcessor(262, var2);

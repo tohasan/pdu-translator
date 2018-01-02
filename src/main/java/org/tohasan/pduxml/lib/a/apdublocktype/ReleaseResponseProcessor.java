@@ -1,15 +1,17 @@
-package org.tohasan.pduxml.lib.a;
+package org.tohasan.pduxml.lib.a.apdublocktype;
 
+import org.tohasan.pduxml.lib.a.S_;
+import org.tohasan.pduxml.lib.a.bC_;
 import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
-public final class bB_ extends MessageByteProcessor {
+public final class ReleaseResponseProcessor extends MessageByteProcessor {
     private bC_ a;
     private S_ c;
 
-    public bB_(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public ReleaseResponseProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 392;
         var2.c(392);
         if (var2.a(388)) {
@@ -43,7 +45,7 @@ public final class bB_ extends MessageByteProcessor {
         var1.write(var3.toByteArray(), 0, var3.size());
     }
 
-    public bB_(int var1, MessageInputStream var2) throws XmlPduException {
+    public ReleaseResponseProcessor(int var1, MessageInputStream var2) throws XmlPduException {
         this.tagKey = 392;
         CommonUtils.decodeVarLengthUnsignedInteger(var2);
 

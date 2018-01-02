@@ -1,15 +1,16 @@
-package org.tohasan.pduxml.lib.a;
+package org.tohasan.pduxml.lib.a.apdublocktype;
 
+import org.tohasan.pduxml.lib.a.bG_;
 import org.tohasan.pduxml.lib.a.datatype.SelectorProcessor;
 import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
-public final class aa extends MessageByteProcessor {
+public final class ConfirmedServiceErrorProcessor extends MessageByteProcessor {
     private SelectorProcessor a;
     private bG_ c;
 
-    aa(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public ConfirmedServiceErrorProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 246;
         var2.c(246);
         this.a = new SelectorProcessor(410, var2);
@@ -22,7 +23,7 @@ public final class aa extends MessageByteProcessor {
         this.c.a(var1);
     }
 
-    aa(int var1, MessageInputStream var2) throws XmlPduException {
+    public ConfirmedServiceErrorProcessor(int var1, MessageInputStream var2) throws XmlPduException {
         this.tagKey = 246;
         this.a = new SelectorProcessor(410, var2);
         this.c = new bG_(411, var2);
