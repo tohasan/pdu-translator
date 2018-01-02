@@ -31,7 +31,8 @@ public enum DataType implements EnumWithCode {
     FLOAT64(0x18),
     DATETIME(0x19),
     DATE(0x1A),
-    TIME(0x1B);
+    TIME(0x1B),
+    DO_NOT_CARE(0xFF);
 
     private int code;
 

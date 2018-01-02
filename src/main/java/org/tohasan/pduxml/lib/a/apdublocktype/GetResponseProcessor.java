@@ -1,17 +1,17 @@
-package org.tohasan.pduxml.lib.a;
+package org.tohasan.pduxml.lib.a.apdublocktype;
 
+import org.tohasan.pduxml.lib.a.aG_;
+import org.tohasan.pduxml.lib.a.aH_;
+import org.tohasan.pduxml.lib.a.aI_;
 import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
-public final class aF_ extends MessageByteProcessor {
+public final class GetResponseProcessor extends MessageByteProcessor {
     private int a;
     private MessageByteProcessor c;
 
-    public aF_() {
-    }
-
-    public aF_(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public GetResponseProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 288;
         var2.c(288);
         if (var2.a(289)) {
@@ -32,7 +32,7 @@ public final class aF_ extends MessageByteProcessor {
         var2.d(288);
     }
 
-    public aF_(int var1, MessageInputStream var2) throws XmlPduException {
+    public GetResponseProcessor(int var1, MessageInputStream var2) throws XmlPduException {
         this.tagKey = 288;
         this.a = var2.readByte();
         switch (this.a) {

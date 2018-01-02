@@ -1,27 +1,27 @@
-package org.tohasan.pduxml.lib.a;
+package org.tohasan.pduxml.lib.a.apdublocktype;
 
+import org.tohasan.pduxml.lib.a.aC_;
+import org.tohasan.pduxml.lib.a.aD_;
+import org.tohasan.pduxml.lib.a.aE_;
 import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
-public final class aB_ extends MessageByteProcessor {
+public final class GetRequestProcessor extends MessageByteProcessor {
     private int a;
     private MessageByteProcessor c;
 
-    public aB_() {
-    }
-
-    public aB_(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public GetRequestProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 284;
         var2.c(284);
-        if (var2.a((int) 286)) {
+        if (var2.a(286)) {
             this.a = 1;
             this.c = new aD_(286, var2);
-        } else if (var2.a((int) 285)) {
+        } else if (var2.a(285)) {
             this.a = 2;
             this.c = new aC_(285, var2);
         } else {
-            if (!var2.a((int) 287)) {
+            if (!var2.a(287)) {
                 throw new XmlPduException("_GetRequest: illegal choice");
             }
 
@@ -32,7 +32,7 @@ public final class aB_ extends MessageByteProcessor {
         var2.d(284);
     }
 
-    public aB_(int var1, MessageInputStream var2) throws XmlPduException {
+    public GetRequestProcessor(int var1, MessageInputStream var2) throws XmlPduException {
         this.tagKey = 284;
         this.a = var2.readByte();
         switch (this.a) {
