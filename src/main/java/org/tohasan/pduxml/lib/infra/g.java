@@ -43,6 +43,6 @@ public class g extends MessageByteProcessor {
     }
 
     public final void a(n var1) throws XmlPduException {
-        var1.a(this.b, 454, Misc.byteArraytoHexStr(this.c), 1);
+        var1.a(this.tagKey, 454, Misc.byteArraytoHexStr(this.c), 1);
     }
 }

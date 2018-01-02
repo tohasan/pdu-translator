@@ -9,7 +9,7 @@ public final class ab extends org.tohasan.pduxml.lib.infra.a {
     private int c;
 
     public ab(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
-        this.b = var1;
+        this.tagKey = var1;
         this.c = 247;
         BitSet var5 = new BitSet(24);
         int var3 = var2.b();
@@ -108,7 +108,7 @@ public final class ab extends org.tohasan.pduxml.lib.infra.a {
     }
 
     public ab(int var1, MessageInputStream var2) throws XmlPduException {
-        this.b = var1;
+        this.tagKey = var1;
         this.c = 247;
         var2.readByte(95);
         if (var2.b() == 31) {

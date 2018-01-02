@@ -6,8 +6,8 @@ import org.tohasan.pduxml.lib.infra.Misc;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
 public final class ReadRequestProcessor extends org.tohasan.pduxml.lib.infra.j {
-    public ReadRequestProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
-        this.b = 385;
+    ReadRequestProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+        this.tagKey = 385;
         var2.b(385);
         var1 = var2.e(381);
         this.requestItems = new MessageByteProcessor[var1];
@@ -21,8 +21,8 @@ public final class ReadRequestProcessor extends org.tohasan.pduxml.lib.infra.j {
         var2.d(385);
     }
 
-    public ReadRequestProcessor(int var1, MessageInputStream messageByteStream) throws XmlPduException {
-        this.b = 385;
+    ReadRequestProcessor(int var1, MessageInputStream messageByteStream) throws XmlPduException {
+        this.tagKey = 385;
         int numberOfRequestedItems = Misc.decodeVarLengthUnsignedInteger(messageByteStream);
         this.requestItems = new MessageByteProcessor[numberOfRequestedItems];
 

@@ -1,48 +1,45 @@
 package org.tohasan.pduxml.lib.a;
 
-import org.tohasan.pduxml.lib.infra.MessageInputStream;
-import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
-import org.tohasan.pduxml.lib.infra.Misc;
-import org.tohasan.pduxml.lib.infra.XmlPduException;
+import org.tohasan.pduxml.lib.infra.*;
 
 public final class aU_ extends MessageByteProcessor {
     private int a;
 
     public aU_(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
-        this.b = var1;
+        this.tagKey = var1;
         var2.b(var1);
         byte[] var4;
         if ((var4 = Misc.hexStrToByteArray(var2.f(454))).length != 1) {
             throw new XmlPduException("_InvocationId: Illegal data size, expected " + "1" + " ,found " + var4.length);
         } else {
-            org.tohasan.pduxml.lib.infra.l var3;
-            (var3 = new org.tohasan.pduxml.lib.infra.l(1, 2)).a(var4);
+            ValueProcessor var3;
+            (var3 = new ValueProcessor(1, 2)).process(var4);
             this.a = var3.b();
             var2.a();
         }
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.i var1) throws XmlPduException {
-        org.tohasan.pduxml.lib.infra.l var2;
-        (var2 = new org.tohasan.pduxml.lib.infra.l(1, 2)).a(this.a);
+        ValueProcessor var2;
+        (var2 = new ValueProcessor(1, 2)).process(this.a);
         var1.write(1);
-        var2.a(var1);
+        var2.process(var1);
     }
 
     public aU_(int var1, MessageInputStream var2) throws XmlPduException {
-        this.b = var1;
+        this.tagKey = var1;
         if ((var1 = var2.readByte()) != 1) {
             throw new XmlPduException("_InvocationId: Illegal data size, expected " + "1" + " ,found " + var1);
         } else {
-            org.tohasan.pduxml.lib.infra.l var3;
-            (var3 = new org.tohasan.pduxml.lib.infra.l(1, 2)).a(var2);
+            ValueProcessor var3;
+            (var3 = new ValueProcessor(1, 2)).process(var2);
             this.a = var3.b();
         }
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
-        org.tohasan.pduxml.lib.infra.l var2;
-        (var2 = new org.tohasan.pduxml.lib.infra.l(1, 2)).a(this.a);
-        var1.a(this.b, 454, var2.f(), 1);
+        ValueProcessor var2;
+        (var2 = new ValueProcessor(1, 2)).process(this.a);
+        var1.a(this.tagKey, 454, var2.f(), 1);
     }
 }

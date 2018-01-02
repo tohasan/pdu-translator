@@ -1,5 +1,6 @@
 package org.tohasan.pduxml.lib.a;
 
+import org.tohasan.pduxml.lib.a.datatype.LongUnsignedProcessor;
 import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
@@ -12,7 +13,7 @@ public final class bU_ extends MessageByteProcessor {
     }
 
     public bU_(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
-        this.b = 297;
+        this.tagKey = 297;
         if (var2.a((int) 250)) {
             this.a = 0;
             this.c = new ParameterProcessor(250, var2);
@@ -24,14 +25,14 @@ public final class bU_ extends MessageByteProcessor {
             this.c = new af(255, var2);
         } else if (var2.a((int) 225)) {
             this.a = 3;
-            this.c = new cb(225, var2);
+            this.c = new LongUnsignedProcessor(225, var2);
         } else {
             throw new XmlPduException("_SingleReadResponse: illegal choice");
         }
     }
 
     public bU_(int var1, MessageInputStream var2) throws XmlPduException {
-        this.b = 150;
+        this.tagKey = 150;
         this.a = var2.readByte();
         switch (this.a) {
             case 0:
@@ -44,7 +45,7 @@ public final class bU_ extends MessageByteProcessor {
                 this.c = new af(255, var2);
                 return;
             case 3:
-                this.c = new cb(225, var2);
+                this.c = new LongUnsignedProcessor(225, var2);
                 return;
             default:
                 throw new XmlPduException("_SingleReadResponse (from pdu) : illegal tag - " + String.valueOf(this.a));
@@ -57,12 +58,12 @@ public final class bU_ extends MessageByteProcessor {
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
-        if (this.b != 297) {
-            var1.a(this.b);
+        if (this.tagKey != 297) {
+            var1.a(this.tagKey);
             var1.a();
             this.c.a(var1);
             var1.b();
-            var1.b(this.b);
+            var1.b(this.tagKey);
         } else {
             this.c.a(var1);
         }

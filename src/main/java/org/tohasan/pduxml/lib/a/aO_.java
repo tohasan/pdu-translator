@@ -1,35 +1,36 @@
 package org.tohasan.pduxml.lib.a;
 
+import org.tohasan.pduxml.lib.a.datatype.*;
 import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
 public final class aO_ extends MessageByteProcessor {
-    private bs a;
-    private X_ c;
-    private aT_ d;
-    private SelectorProcessor e;
+    private OctetStringProcessor a;
+    private BooleanProcessor c;
+    private IntegerProcessor d;
+    private UnsignedProcessor e;
     private ab f;
-    private cb g;
+    private LongUnsignedProcessor g;
 
     public aO_(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
-        this.b = 303;
+        this.tagKey = 303;
         var2.c(303);
         if (var2.a((int) 264)) {
-            this.a = new bs(264, var2);
+            this.a = new OctetStringProcessor(264, var2);
         }
 
         if (var2.a((int) 402)) {
-            this.c = new X_(402, var2);
+            this.c = new BooleanProcessor(402, var2);
         }
 
         if (var2.a((int) 378)) {
-            this.d = new aT_(378, var2);
+            this.d = new IntegerProcessor(378, var2);
         }
 
-        this.e = new SelectorProcessor(376, var2);
+        this.e = new UnsignedProcessor(376, var2);
         this.f = new ab(375, var2);
-        this.g = new cb(377, var2);
+        this.g = new LongUnsignedProcessor(377, var2);
         var2.d(303);
     }
 
@@ -61,26 +62,26 @@ public final class aO_ extends MessageByteProcessor {
     }
 
     public aO_(int var1, MessageInputStream var2) throws XmlPduException {
-        this.b = 303;
+        this.tagKey = 303;
         if (var2.readByte() != 0) {
-            this.a = new bs(264, var2);
+            this.a = new OctetStringProcessor(264, var2);
         }
 
         if (var2.readByte() != 0) {
-            this.c = new X_(402, var2);
+            this.c = new BooleanProcessor(402, var2);
         }
 
         if (var2.readByte() != 0) {
-            this.d = new aT_(378, var2);
+            this.d = new IntegerProcessor(378, var2);
         }
 
-        this.e = new SelectorProcessor(376, var2);
+        this.e = new UnsignedProcessor(376, var2);
         this.f = new ab(375, var2);
-        this.g = new cb(377, var2);
+        this.g = new LongUnsignedProcessor(377, var2);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
-        var1.a(this.b);
+        var1.a(this.tagKey);
         var1.a();
         if (this.a != null) {
             this.a.a(var1);
@@ -98,6 +99,6 @@ public final class aO_ extends MessageByteProcessor {
         this.f.a(var1);
         this.g.a(var1);
         var1.b();
-        var1.b(this.b);
+        var1.b(this.tagKey);
     }
 }

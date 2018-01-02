@@ -1,22 +1,24 @@
 package org.tohasan.pduxml.lib.a;
 
+import org.tohasan.pduxml.lib.a.datatype.LongUnsignedProcessor;
+import org.tohasan.pduxml.lib.a.datatype.OctetStringProcessor;
 import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
 public final class av extends MessageByteProcessor {
     private V_ a;
-    private cb c;
-    private cb d;
-    private bs e;
+    private LongUnsignedProcessor c;
+    private LongUnsignedProcessor d;
+    private OctetStringProcessor e;
 
     public av(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
-        this.b = 277;
+        this.tagKey = 277;
         var2.c(277);
         this.a = new V_(223, var2);
-        this.c = new cb(225, var2);
-        this.d = new cb(227, var2);
-        this.e = new bs(224, var2);
+        this.c = new LongUnsignedProcessor(225, var2);
+        this.d = new LongUnsignedProcessor(227, var2);
+        this.e = new OctetStringProcessor(224, var2);
         var2.d(277);
     }
 
@@ -28,21 +30,21 @@ public final class av extends MessageByteProcessor {
     }
 
     public av(int var1, MessageInputStream var2) throws XmlPduException {
-        this.b = 277;
+        this.tagKey = 277;
         this.a = new V_(223, var2);
-        this.c = new cb(225, var2);
-        this.d = new cb(227, var2);
-        this.e = new bs(224, var2);
+        this.c = new LongUnsignedProcessor(225, var2);
+        this.d = new LongUnsignedProcessor(227, var2);
+        this.e = new OctetStringProcessor(224, var2);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
-        var1.a(this.b);
+        var1.a(this.tagKey);
         var1.a();
         this.a.a(var1);
         this.c.a(var1);
         this.d.a(var1);
         this.e.a(var1);
         var1.b();
-        var1.b(this.b);
+        var1.b(this.tagKey);
     }
 }

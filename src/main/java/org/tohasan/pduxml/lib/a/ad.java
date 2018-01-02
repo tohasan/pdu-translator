@@ -8,7 +8,7 @@ public final class ad extends MessageByteProcessor {
     private int a;
 
     public ad(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
-        this.b = var1;
+        this.tagKey = var1;
         var2.b(var1);
         String var3;
         if ((var3 = var2.f(454).toString()).equals("Success")) {
@@ -57,7 +57,7 @@ public final class ad extends MessageByteProcessor {
     }
 
     public ad(int var1, MessageInputStream var2) throws XmlPduException {
-        this.b = var1;
+        this.tagKey = var1;
         this.a = var2.readByte();
     }
 
@@ -116,6 +116,6 @@ public final class ad extends MessageByteProcessor {
                 throw new XmlPduException("_DataAccessResult: case range");
         }
 
-        var1.a(this.b, 454, var2, 1);
+        var1.a(this.tagKey, 454, var2, 1);
     }
 }

@@ -10,7 +10,7 @@ public final class P_ extends MessageByteProcessor {
     private bo d;
 
     public P_(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
-        this.b = 217;
+        this.tagKey = 217;
         var2.c(217);
         this.a = new Z_(245, var2);
         this.c = new bp(305, var2);
@@ -25,19 +25,19 @@ public final class P_ extends MessageByteProcessor {
     }
 
     public P_(int var1, MessageInputStream var2) throws XmlPduException {
-        this.b = 217;
+        this.tagKey = 217;
         this.a = new Z_(245, var2);
         this.c = new bp(305, var2);
         this.d = new bo(219, var2);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
-        var1.a(this.b);
+        var1.a(this.tagKey);
         var1.a();
         this.a.a(var1);
         this.c.a(var1);
         this.d.a(var1);
         var1.b();
-        var1.b(this.b);
+        var1.b(this.tagKey);
     }
 }

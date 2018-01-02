@@ -7,7 +7,7 @@ public class a extends MessageByteProcessor {
     }
 
     public a(int var1, m var2) throws XmlPduException {
-        this.b = var1;
+        this.tagKey = var1;
         this.a = var2.f(454).toString();
         var2.a();
     }
@@ -46,7 +46,7 @@ public class a extends MessageByteProcessor {
     }
 
     public a(int var1, MessageInputStream var2) throws XmlPduException {
-        this.b = var1;
+        this.tagKey = var1;
         this.a(var2);
     }
 
@@ -81,6 +81,6 @@ public class a extends MessageByteProcessor {
     }
 
     public void a(n var1) throws XmlPduException {
-        var1.a(this.b, 454, new StringBuffer(this.a), 1);
+        var1.a(this.tagKey, 454, new StringBuffer(this.a), 1);
     }
 }

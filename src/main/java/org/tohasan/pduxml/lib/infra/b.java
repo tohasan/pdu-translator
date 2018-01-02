@@ -164,6 +164,6 @@ public class b extends MessageByteProcessor {
 
     public final void a(n var1) throws XmlPduException {
         StringBuffer var2 = new StringBuffer(a(this.c));
-        var1.a(this.b, 454, var2, 1);
+        var1.a(this.tagKey, 454, var2, 1);
     }
 }

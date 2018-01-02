@@ -7,7 +7,7 @@ import org.tohasan.pduxml.lib.infra.XmlPduException;
 
 public final class bc extends org.tohasan.pduxml.lib.infra.j {
     public bc(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
-        this.b = var1;
+        this.tagKey = var1;
         var2.b(var1);
         int var3 = var2.e(381);
         this.requestItems = new MessageByteProcessor[var3];
@@ -22,7 +22,7 @@ public final class bc extends org.tohasan.pduxml.lib.infra.j {
     }
 
     public bc(int var1, MessageInputStream var2) throws XmlPduException {
-        this.b = var1;
+        this.tagKey = var1;
         var1 = Misc.decodeVarLengthUnsignedInteger(var2);
         this.requestItems = new MessageByteProcessor[var1];
 

@@ -17,19 +17,19 @@ public abstract class j extends MessageByteProcessor {
             var4 = k.a;
         }
 
-        var1.a(this.b, 381, Misc.intToHex(var4, true), 0);
+        var1.a(this.tagKey, 381, Misc.intToHex(var4, true), 0);
         var1.a();
 
         for (int var5 = 0; var5 < var4; ++var5) {
             MessageByteProcessor var3 = this.requestItems[var5];
             if (var2 == 1) {
-                var3.b = 297;
+                var3.tagKey = 297;
             }
 
             var3.a(var1);
         }
 
         var1.b();
-        var1.b(this.b);
+        var1.b(this.tagKey);
     }
 }

@@ -9,7 +9,7 @@ public final class S_ extends MessageProcessor {
     }
 
     public S_(int var1, MessageInputStream var2) throws XmlPduException {
-        this.b = var1;
+        this.tagKey = var1;
         var2.readByte();
         this.a(var2);
     }
