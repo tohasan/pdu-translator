@@ -1,4 +1,4 @@
-package org.tohasan.pduxml.lib.a;
+package org.tohasan.pduxml.lib.a.variableaccessspec;
 
 import org.tohasan.pduxml.lib.infra.*;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
@@ -6,7 +6,7 @@ import org.tohasan.pduxml.lib.utils.CommonUtils;
 public final class VariableNameProcessor extends MessageByteProcessor {
     private int a;
 
-    VariableNameProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public VariableNameProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = var1;
         var2.b(var1);
         byte[] var4;
@@ -26,7 +26,7 @@ public final class VariableNameProcessor extends MessageByteProcessor {
         var2.process(var1);
     }
 
-    VariableNameProcessor(int tagKey, MessageInputStream messageStream) throws XmlPduException {
+    public VariableNameProcessor(int tagKey, MessageInputStream messageStream) throws XmlPduException {
         this.tagKey = tagKey;
         ValueProcessor valueProcessor = new ValueProcessor(2, 1);
         valueProcessor.process(messageStream);

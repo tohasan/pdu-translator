@@ -3,10 +3,10 @@ package org.tohasan.pduxml.lib.a.datatype;
 import org.tohasan.pduxml.lib.infra.*;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
-public final class UnsignedProcessor extends MessageByteProcessor {
+public final class SelectorProcessor extends MessageByteProcessor {
     private int a;
 
-    public UnsignedProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public SelectorProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = var1;
         var2.b(var1);
         byte[] var4;
@@ -21,7 +21,7 @@ public final class UnsignedProcessor extends MessageByteProcessor {
         }
     }
 
-    public UnsignedProcessor(int tagKey, MessageInputStream messageStream) throws XmlPduException {
+    public SelectorProcessor(int tagKey, MessageInputStream messageStream) throws XmlPduException {
         this.tagKey = tagKey;
         ValueProcessor valueProcessor = new ValueProcessor(1, 2);
         valueProcessor.process(messageStream);

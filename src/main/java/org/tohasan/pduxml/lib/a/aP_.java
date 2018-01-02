@@ -2,26 +2,27 @@ package org.tohasan.pduxml.lib.a;
 
 import org.tohasan.pduxml.lib.a.datatype.IntegerProcessor;
 import org.tohasan.pduxml.lib.a.datatype.LongUnsignedProcessor;
-import org.tohasan.pduxml.lib.a.datatype.UnsignedProcessor;
+import org.tohasan.pduxml.lib.a.datatype.SelectorProcessor;
+import org.tohasan.pduxml.lib.a.variableaccessspec.VariableNameProcessor;
 import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
 public final class aP_ extends MessageByteProcessor {
     private IntegerProcessor a;
-    private UnsignedProcessor c;
+    private SelectorProcessor c;
     private ab d;
     private LongUnsignedProcessor e;
     private VariableNameProcessor f;
 
-    public aP_(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    aP_(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 304;
         var2.c(304);
-        if (var2.a((int) 341)) {
+        if (var2.a(341)) {
             this.a = new IntegerProcessor(341, var2);
         }
 
-        this.c = new UnsignedProcessor(339, var2);
+        this.c = new SelectorProcessor(339, var2);
         this.d = new ab(338, var2);
         this.e = new LongUnsignedProcessor(340, var2);
         this.f = new VariableNameProcessor(453, var2);
@@ -42,13 +43,13 @@ public final class aP_ extends MessageByteProcessor {
         this.f.a(var1);
     }
 
-    public aP_(int var1, MessageInputStream var2) throws XmlPduException {
+    aP_(int var1, MessageInputStream var2) throws XmlPduException {
         this.tagKey = 304;
         if (var2.readByte() != 0) {
             this.a = new IntegerProcessor(341, var2);
         }
 
-        this.c = new UnsignedProcessor(339, var2);
+        this.c = new SelectorProcessor(339, var2);
         this.d = new ab(338, var2);
         this.e = new LongUnsignedProcessor(340, var2);
         this.f = new VariableNameProcessor(453, var2);

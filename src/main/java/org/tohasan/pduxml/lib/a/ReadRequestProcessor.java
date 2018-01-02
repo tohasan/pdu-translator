@@ -15,7 +15,7 @@ public final class ReadRequestProcessor extends org.tohasan.pduxml.lib.infra.j {
         var2.a();
 
         while (var2.a == 1 && var1 < this.requestItems.length) {
-            this.requestItems[var1++] = new cf(297, var2);
+            this.requestItems[var1++] = new VariableAccessSpecProcessor(297, var2);
         }
 
         var2.d(385);
@@ -27,7 +27,7 @@ public final class ReadRequestProcessor extends org.tohasan.pduxml.lib.infra.j {
         this.requestItems = new MessageByteProcessor[numberOfRequestedItems];
 
         for (int i = 0; i < numberOfRequestedItems; i++) {
-            this.requestItems[i] = new cf(161, messageByteStream);
+            this.requestItems[i] = new VariableAccessSpecProcessor(161, messageByteStream);
         }
     }
 

@@ -1,14 +1,14 @@
-package org.tohasan.pduxml.lib.a;
+package org.tohasan.pduxml.lib.a.variableaccessspec;
 
 import org.tohasan.pduxml.lib.a.datatype.LongUnsignedProcessor;
 import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
-public final class W_ extends MessageByteProcessor {
+public final class BlockNumberAccessProcessor extends MessageByteProcessor {
     private LongUnsignedProcessor a;
 
-    public W_(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public BlockNumberAccessProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 226;
         var2.c(226);
         this.a = new LongUnsignedProcessor(225, var2);
@@ -19,7 +19,7 @@ public final class W_ extends MessageByteProcessor {
         this.a.a(var1);
     }
 
-    public W_(int var1, MessageInputStream var2) throws XmlPduException {
+    public BlockNumberAccessProcessor(int var1, MessageInputStream var2) throws XmlPduException {
         this.tagKey = 226;
         this.a = new LongUnsignedProcessor(225, var2);
     }

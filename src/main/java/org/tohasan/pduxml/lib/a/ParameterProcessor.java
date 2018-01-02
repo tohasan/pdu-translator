@@ -63,7 +63,7 @@ public final class ParameterProcessor extends MessageByteProcessor {
             this.c = new LongProcessor(320, var2);
         } else if (var2.a(449)) {
             this.paramTypeCode = 17;
-            this.c = new UnsignedProcessor(449, var2);
+            this.c = new SelectorProcessor(449, var2);
         } else if (var2.a(327)) {
             this.paramTypeCode = 18;
             this.c = new LongUnsignedProcessor(327, var2);
@@ -165,7 +165,7 @@ public final class ParameterProcessor extends MessageByteProcessor {
                 this.c = new LongProcessor(320, messageStream);
                 return;
             case UNSIGNED:
-                this.c = new UnsignedProcessor(449, messageStream);
+                this.c = new SelectorProcessor(449, messageStream);
                 return;
             case LONG_UNSIGNED:
                 this.c = new LongUnsignedProcessor(327, messageStream);

@@ -9,26 +9,26 @@ public final class aO_ extends MessageByteProcessor {
     private OctetStringProcessor a;
     private BooleanProcessor c;
     private IntegerProcessor d;
-    private UnsignedProcessor e;
+    private SelectorProcessor e;
     private ab f;
     private LongUnsignedProcessor g;
 
-    public aO_(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    aO_(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 303;
         var2.c(303);
-        if (var2.a((int) 264)) {
+        if (var2.a(264)) {
             this.a = new OctetStringProcessor(264, var2);
         }
 
-        if (var2.a((int) 402)) {
+        if (var2.a(402)) {
             this.c = new BooleanProcessor(402, var2);
         }
 
-        if (var2.a((int) 378)) {
+        if (var2.a(378)) {
             this.d = new IntegerProcessor(378, var2);
         }
 
-        this.e = new UnsignedProcessor(376, var2);
+        this.e = new SelectorProcessor(376, var2);
         this.f = new ab(375, var2);
         this.g = new LongUnsignedProcessor(377, var2);
         var2.d(303);
@@ -61,7 +61,7 @@ public final class aO_ extends MessageByteProcessor {
         this.g.a(var1);
     }
 
-    public aO_(int var1, MessageInputStream var2) throws XmlPduException {
+    aO_(int var1, MessageInputStream var2) throws XmlPduException {
         this.tagKey = 303;
         if (var2.readByte() != 0) {
             this.a = new OctetStringProcessor(264, var2);
@@ -75,7 +75,7 @@ public final class aO_ extends MessageByteProcessor {
             this.d = new IntegerProcessor(378, var2);
         }
 
-        this.e = new UnsignedProcessor(376, var2);
+        this.e = new SelectorProcessor(376, var2);
         this.f = new ab(375, var2);
         this.g = new LongUnsignedProcessor(377, var2);
     }

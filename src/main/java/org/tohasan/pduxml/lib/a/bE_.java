@@ -1,18 +1,18 @@
 package org.tohasan.pduxml.lib.a;
 
-import org.tohasan.pduxml.lib.a.datatype.UnsignedProcessor;
+import org.tohasan.pduxml.lib.a.datatype.SelectorProcessor;
 import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
 public final class bE_ extends MessageByteProcessor {
-    private UnsignedProcessor a;
+    private SelectorProcessor a;
     private ParameterProcessor c;
 
-    public bE_(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    bE_(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 189;
         var2.c(189);
-        this.a = new UnsignedProcessor(190, var2);
+        this.a = new SelectorProcessor(190, var2);
         this.c = new ParameterProcessor(172, var2);
         var2.d(189);
     }
@@ -22,9 +22,9 @@ public final class bE_ extends MessageByteProcessor {
         this.c.a(var1);
     }
 
-    public bE_(int var1, MessageInputStream var2) throws XmlPduException {
+    bE_(int var1, MessageInputStream var2) throws XmlPduException {
         this.tagKey = 189;
-        this.a = new UnsignedProcessor(190, var2);
+        this.a = new SelectorProcessor(190, var2);
         this.c = new ParameterProcessor(172, var2);
     }
 
