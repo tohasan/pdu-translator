@@ -2,7 +2,7 @@ package org.tohasan.pduxml.lib.a;
 
 import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
-import org.tohasan.pduxml.lib.infra.Misc;
+import org.tohasan.pduxml.lib.utils.CommonUtils;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
 public final class ReadRequestProcessor extends org.tohasan.pduxml.lib.infra.j {
@@ -23,7 +23,7 @@ public final class ReadRequestProcessor extends org.tohasan.pduxml.lib.infra.j {
 
     ReadRequestProcessor(int var1, MessageInputStream messageByteStream) throws XmlPduException {
         this.tagKey = 385;
-        int numberOfRequestedItems = Misc.decodeVarLengthUnsignedInteger(messageByteStream);
+        int numberOfRequestedItems = CommonUtils.decodeVarLengthUnsignedInteger(messageByteStream);
         this.requestItems = new MessageByteProcessor[numberOfRequestedItems];
 
         for (int i = 0; i < numberOfRequestedItems; i++) {

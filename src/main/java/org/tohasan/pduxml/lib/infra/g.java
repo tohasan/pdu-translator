@@ -1,11 +1,13 @@
 package org.tohasan.pduxml.lib.infra;
 
+import org.tohasan.pduxml.lib.utils.CommonUtils;
+
 public class g extends MessageByteProcessor {
     private byte[] c;
     public int a;
 
     public final void a(m var1) throws XmlPduException {
-        this.c = Misc.hexStrToByteArray(var1.f(454));
+        this.c = CommonUtils.hexStrToByteArray(var1.f(454));
         if (this.a != -1 && this.c.length != this.a) {
             throw new XmlPduException("OctetString: Illegal data size, expected " + String.valueOf(this.a) + " found " + this.c.length);
         }
@@ -14,7 +16,7 @@ public class g extends MessageByteProcessor {
     public final void a(i var1) throws XmlPduException {
         int var2;
         if (this.a == -1) {
-            Misc.encodeVarLengthUnsignedInteger(var1, this.c.length);
+            CommonUtils.encodeVarLengthUnsignedInteger(var1, this.c.length);
             var2 = this.c.length;
         } else {
             var2 = this.a;
@@ -29,7 +31,7 @@ public class g extends MessageByteProcessor {
     public final void a(MessageInputStream var1) throws XmlPduException {
         int var3;
         if (this.a == -1) {
-            var3 = Misc.decodeVarLengthUnsignedInteger(var1);
+            var3 = CommonUtils.decodeVarLengthUnsignedInteger(var1);
         } else {
             var3 = this.a;
         }
@@ -43,6 +45,6 @@ public class g extends MessageByteProcessor {
     }
 
     public final void a(n var1) throws XmlPduException {
-        var1.a(this.tagKey, 454, Misc.byteArraytoHexStr(this.c), 1);
+        var1.a(this.tagKey, 454, CommonUtils.byteArraytoHexStr(this.c), 1);
     }
 }

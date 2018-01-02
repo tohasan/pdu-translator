@@ -1,6 +1,7 @@
 package org.tohasan.pduxml.lib.a.datatype;
 
 import org.tohasan.pduxml.lib.infra.*;
+import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public final class IntegerProcessor extends MessageByteProcessor {
     private int a;
@@ -9,7 +10,7 @@ public final class IntegerProcessor extends MessageByteProcessor {
         this.tagKey = var1;
         var2.b(var1);
         byte[] var4;
-        if ((var4 = Misc.hexStrToByteArray(var2.f(454))).length != 1) {
+        if ((var4 = CommonUtils.hexStrToByteArray(var2.f(454))).length != 1) {
             throw new XmlPduException("_Integer8: Illegal data size, expected " + "1" + " ,found " + var4.length);
         } else {
             ValueProcessor var3;

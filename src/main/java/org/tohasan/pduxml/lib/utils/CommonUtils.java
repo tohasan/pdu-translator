@@ -1,6 +1,10 @@
-package org.tohasan.pduxml.lib.infra;
+package org.tohasan.pduxml.lib.utils;
 
-public class Misc {
+import org.tohasan.pduxml.lib.infra.MessageInputStream;
+import org.tohasan.pduxml.lib.infra.XmlPduException;
+import org.tohasan.pduxml.lib.infra.i;
+
+public class CommonUtils {
     public static StringBuffer AXDRBitStringToBinHexStr(byte[] var0, int var1) throws XmlPduException {
         int var2 = 0;
         int var3 = 0;

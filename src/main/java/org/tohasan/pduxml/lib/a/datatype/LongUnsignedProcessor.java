@@ -1,6 +1,7 @@
 package org.tohasan.pduxml.lib.a.datatype;
 
 import org.tohasan.pduxml.lib.infra.*;
+import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 import java.io.ByteArrayOutputStream;
 
@@ -11,7 +12,7 @@ public final class LongUnsignedProcessor extends MessageByteProcessor {
         this.tagKey = var1;
         var2.b(var1);
         byte[] var4;
-        if ((var4 = Misc.hexStrToByteArray(var2.f(454))).length != 2) {
+        if ((var4 = CommonUtils.hexStrToByteArray(var2.f(454))).length != 2) {
             throw new XmlPduException("_Unsigned16: Illegal data size, expected " + "2" + " ,found " + var4.length);
         } else {
             ValueProcessor var3;

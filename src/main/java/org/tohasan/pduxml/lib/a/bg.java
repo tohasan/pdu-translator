@@ -2,7 +2,7 @@ package org.tohasan.pduxml.lib.a;
 
 import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
-import org.tohasan.pduxml.lib.infra.Misc;
+import org.tohasan.pduxml.lib.utils.CommonUtils;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
 public final class bg extends org.tohasan.pduxml.lib.infra.j {
@@ -23,7 +23,7 @@ public final class bg extends org.tohasan.pduxml.lib.infra.j {
 
     public bg(int var1, MessageInputStream var2) throws XmlPduException {
         this.tagKey = 316;
-        var1 = Misc.decodeVarLengthUnsignedInteger(var2);
+        var1 = CommonUtils.decodeVarLengthUnsignedInteger(var2);
         this.requestItems = new MessageByteProcessor[var1];
 
         for (int var3 = 0; var3 < var1; ++var3) {

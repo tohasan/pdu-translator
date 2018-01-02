@@ -3,7 +3,7 @@ package org.tohasan.pduxml.lib.a.datatype;
 import org.tohasan.pduxml.lib.a.ParameterProcessor;
 import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
-import org.tohasan.pduxml.lib.infra.Misc;
+import org.tohasan.pduxml.lib.utils.CommonUtils;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
 public final class ArrayProcessor extends org.tohasan.pduxml.lib.infra.j {
@@ -24,7 +24,7 @@ public final class ArrayProcessor extends org.tohasan.pduxml.lib.infra.j {
 
     public ArrayProcessor(int tagKey, MessageInputStream messageStream) throws XmlPduException {
         this.tagKey = 210;
-        tagKey = Misc.decodeVarLengthUnsignedInteger(messageStream);
+        tagKey = CommonUtils.decodeVarLengthUnsignedInteger(messageStream);
         this.requestItems = new MessageByteProcessor[tagKey];
 
         for (int var3 = 0; var3 < tagKey; ++var3) {

@@ -1,5 +1,7 @@
 package org.tohasan.pduxml.lib.infra;
 
+import org.tohasan.pduxml.lib.utils.CommonUtils;
+
 public class d extends MessageByteProcessor {
     private String a;
 
@@ -13,7 +15,7 @@ public class d extends MessageByteProcessor {
         int var3 = this.a.length();
         int var4 = 0;
         int var5 = 0;
-        Misc.encodeVarLengthUnsignedInteger(var1, var3);
+        CommonUtils.encodeVarLengthUnsignedInteger(var1, var3);
 
         for (int var2 = 0; var2 < var3; ++var2) {
             if (this.a.charAt(var2) != 48 && this.a.charAt(var2) != 49) {
@@ -41,7 +43,7 @@ public class d extends MessageByteProcessor {
 
     public d(int var1, MessageInputStream var2) throws XmlPduException {
         this.tagKey = var1;
-        int var3 = Misc.decodeVarLengthUnsignedInteger(var2);
+        int var3 = CommonUtils.decodeVarLengthUnsignedInteger(var2);
         StringBuffer var7 = new StringBuffer();
         var1 = (var3 + 7) / 8;
         var3 = (8 - var3 % 8) % 8;

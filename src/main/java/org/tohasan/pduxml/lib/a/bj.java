@@ -1,6 +1,7 @@
 package org.tohasan.pduxml.lib.a;
 
 import org.tohasan.pduxml.lib.infra.*;
+import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public final class bj extends MessageByteProcessor {
     private int a;
@@ -9,7 +10,7 @@ public final class bj extends MessageByteProcessor {
         this.tagKey = 325;
         var2.b(325);
         byte[] var4;
-        if ((var4 = Misc.hexStrToByteArray(var2.f(454))).length != 4) {
+        if ((var4 = CommonUtils.hexStrToByteArray(var2.f(454))).length != 4) {
             throw new XmlPduException("_LongInvokeIdAndPriority: Illegal data size, expected " + "4" + " ,found " + var4.length);
         } else {
             ValueProcessor var3;

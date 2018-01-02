@@ -1,5 +1,7 @@
 package org.tohasan.pduxml.lib.infra;
 
+import org.tohasan.pduxml.lib.utils.CommonUtils;
+
 import java.io.ByteArrayOutputStream;
 
 public final class ValueProcessor {
@@ -102,6 +104,6 @@ public final class ValueProcessor {
     }
 
     public final StringBuffer f() {
-        return Misc.byteArraytoHexStr(this.a);
+        return CommonUtils.byteArraytoHexStr(this.a);
     }
 }

@@ -1,7 +1,6 @@
 package org.tohasan.pduxml.lib.infra;
 
-import org.tohasan.pduxml.lib.infra.Misc;
-import org.tohasan.pduxml.lib.infra.XmlPduException;
+import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public final class m {
     private static char b = 32;
@@ -263,7 +262,7 @@ public final class m {
     }
 
     public final int e(int var1) throws XmlPduException {
-        return Misc.hexToInt(this.f(381));
+        return CommonUtils.hexToInt(this.f(381));
     }
 
     public final StringBuffer f(int var1) throws XmlPduException {

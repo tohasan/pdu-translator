@@ -1,6 +1,7 @@
 package org.tohasan.pduxml.lib.a.datatype;
 
 import org.tohasan.pduxml.lib.infra.*;
+import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 import java.io.ByteArrayOutputStream;
 
@@ -11,7 +12,7 @@ public final class Long64Processor extends MessageByteProcessor {
         this.tagKey = 321;
         var2.b(321);
         byte[] var4;
-        if ((var4 = Misc.hexStrToByteArray(var2.f(454))).length != 8) {
+        if ((var4 = CommonUtils.hexStrToByteArray(var2.f(454))).length != 8) {
             throw new XmlPduException("_Integer64: Illegal data size, expected " + "8" + " ,found " + var4.length);
         } else {
             ValueProcessor var3;

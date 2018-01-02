@@ -2,7 +2,7 @@ package org.tohasan.pduxml.lib.a;
 
 import org.tohasan.pduxml.lib.infra.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
-import org.tohasan.pduxml.lib.infra.Misc;
+import org.tohasan.pduxml.lib.utils.CommonUtils;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
 
 public final class N_ extends MessageByteProcessor {
@@ -158,7 +158,7 @@ public final class N_ extends MessageByteProcessor {
                         var3.a(var2, (byte) (var3.size() - var2 - 1));
                     }
 
-                    Misc.encodeVarLengthUnsignedInteger(var1, var3.size());
+                    CommonUtils.encodeVarLengthUnsignedInteger(var1, var3.size());
                     var1.write(var3.toByteArray(), 0, var3.size());
                 }
             }
@@ -167,7 +167,7 @@ public final class N_ extends MessageByteProcessor {
 
     public N_(int var1, MessageInputStream var2) throws XmlPduException {
         this.tagKey = 212;
-        Misc.decodeVarLengthUnsignedInteger(var2);
+        CommonUtils.decodeVarLengthUnsignedInteger(var2);
 
         while (var2.c() > 0) {
             switch (var1 = var2.readByte()) {
