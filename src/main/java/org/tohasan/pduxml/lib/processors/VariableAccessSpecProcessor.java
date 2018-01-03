@@ -4,7 +4,7 @@ import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.variableaccessspec.*;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.infra.XmlPduException;
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 import org.tohasan.pduxml.lib.utils.EnumUtils;
 
 public final class VariableAccessSpecProcessor extends MessageByteProcessor {

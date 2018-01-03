@@ -1,11 +1,10 @@
 package org.tohasan.pduxml.lib.processors;
 
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 import org.tohasan.pduxml.lib.infra.*;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
-
-import java.io.ByteArrayOutputStream;
 
 public final class bo extends MessageByteProcessor {
     private int a;

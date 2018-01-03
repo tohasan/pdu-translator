@@ -1,4 +1,4 @@
-package org.tohasan.pduxml.lib.infra;
+package org.tohasan.pduxml.lib.exceptions;
 
 public class XmlPduException extends Exception {
     public XmlPduException(String var1) {

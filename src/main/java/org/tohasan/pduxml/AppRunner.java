@@ -1,7 +1,7 @@
 package org.tohasan.pduxml;
 
 
-import org.tohasan.pduxml.lib.infra.XmlPduException;
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 import static org.tohasan.pduxml.lib.XmlPduInterface.PduToXml;
 

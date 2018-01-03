@@ -1,5 +1,7 @@
 package org.tohasan.pduxml.lib.infra;
 
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+
 public final class n {
     public StringBuffer a = new StringBuffer();
     private int b = 0;

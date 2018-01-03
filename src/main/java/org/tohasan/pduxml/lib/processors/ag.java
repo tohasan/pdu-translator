@@ -5,7 +5,7 @@ import org.tohasan.pduxml.lib.processors.datatype.BooleanProcessor;
 import org.tohasan.pduxml.lib.processors.datatype.DoubleLongUnsignedProcessor;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
-import org.tohasan.pduxml.lib.infra.XmlPduException;
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 public final class ag extends MessageByteProcessor {
     private BooleanProcessor a;

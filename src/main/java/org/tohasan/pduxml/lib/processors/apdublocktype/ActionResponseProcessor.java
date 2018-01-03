@@ -7,7 +7,7 @@ import org.tohasan.pduxml.lib.processors.F_;
 import org.tohasan.pduxml.lib.processors.G_;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
-import org.tohasan.pduxml.lib.infra.XmlPduException;
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 public final class ActionResponseProcessor extends MessageByteProcessor {
     private int a;

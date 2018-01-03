@@ -2,7 +2,7 @@ package org.tohasan.pduxml.lib.processors;
 
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
-import org.tohasan.pduxml.lib.infra.XmlPduException;
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 import java.util.BitSet;
 

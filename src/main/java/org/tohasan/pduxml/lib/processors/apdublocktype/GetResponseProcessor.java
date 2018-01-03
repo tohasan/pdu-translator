@@ -6,7 +6,7 @@ import org.tohasan.pduxml.lib.processors.aH_;
 import org.tohasan.pduxml.lib.processors.aI_;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
-import org.tohasan.pduxml.lib.infra.XmlPduException;
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 public final class GetResponseProcessor extends MessageByteProcessor {
     private int a;

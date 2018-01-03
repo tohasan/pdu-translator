@@ -4,7 +4,7 @@ import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.datatype.*;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.infra.XmlPduException;
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 import org.tohasan.pduxml.lib.utils.EnumUtils;
 
 public final class ParameterProcessor extends MessageByteProcessor {

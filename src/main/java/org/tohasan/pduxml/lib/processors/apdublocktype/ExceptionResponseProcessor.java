@@ -5,7 +5,7 @@ import org.tohasan.pduxml.lib.processors.aq;
 import org.tohasan.pduxml.lib.processors.ar;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
-import org.tohasan.pduxml.lib.infra.XmlPduException;
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 public final class ExceptionResponseProcessor extends MessageByteProcessor {
     private ar a;

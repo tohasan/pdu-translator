@@ -5,7 +5,7 @@ import org.tohasan.pduxml.lib.processors.apdublocktype.*;
 import org.tohasan.pduxml.lib.processors.datatype.OctetStringProcessor;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.infra.XmlPduException;
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 import org.tohasan.pduxml.lib.utils.EnumUtils;
 
 public class MessageProcessor extends MessageByteProcessor {

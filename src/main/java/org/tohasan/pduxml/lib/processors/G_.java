@@ -3,7 +3,7 @@ package org.tohasan.pduxml.lib.processors;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
-import org.tohasan.pduxml.lib.infra.XmlPduException;
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 public final class G_ extends MessageByteProcessor {
     private aV_ a;

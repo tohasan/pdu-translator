@@ -1,7 +1,7 @@
 package org.tohasan.pduxml.lib.processors;
 
 import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.infra.XmlPduException;
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 public final class R_ extends org.tohasan.pduxml.lib.infra.c {
     public R_(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {

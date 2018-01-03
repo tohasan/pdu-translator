@@ -1,11 +1,10 @@
 package org.tohasan.pduxml.lib.processors.datatype;
 
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 import org.tohasan.pduxml.lib.infra.*;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
-
-import java.io.ByteArrayOutputStream;
 
 public final class Float32Processor extends MessageByteProcessor {
     private float a;

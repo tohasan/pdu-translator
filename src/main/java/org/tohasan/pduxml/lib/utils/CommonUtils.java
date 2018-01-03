@@ -1,7 +1,7 @@
 package org.tohasan.pduxml.lib.utils;
 
 import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.infra.XmlPduException;
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 
 public class CommonUtils {

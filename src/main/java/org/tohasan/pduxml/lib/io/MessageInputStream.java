@@ -1,6 +1,6 @@
 package org.tohasan.pduxml.lib.io;
 
-import org.tohasan.pduxml.lib.infra.XmlPduException;
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 import java.io.ByteArrayInputStream;
 

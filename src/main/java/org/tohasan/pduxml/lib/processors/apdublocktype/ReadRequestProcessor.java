@@ -4,7 +4,7 @@ import org.tohasan.pduxml.lib.processors.VariableAccessSpecProcessor;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
-import org.tohasan.pduxml.lib.infra.XmlPduException;
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 public final class ReadRequestProcessor extends org.tohasan.pduxml.lib.infra.j {
     public ReadRequestProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {

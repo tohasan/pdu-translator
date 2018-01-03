@@ -6,7 +6,7 @@ import org.tohasan.pduxml.lib.processors.datatype.LongUnsignedProcessor;
 import org.tohasan.pduxml.lib.processors.datatype.OctetStringProcessor;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
-import org.tohasan.pduxml.lib.infra.XmlPduException;
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 public final class ReadDataBlockAccessProcessor extends MessageByteProcessor {
     private BooleanProcessor a;
