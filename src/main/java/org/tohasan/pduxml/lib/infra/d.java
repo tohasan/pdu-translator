@@ -1,5 +1,7 @@
 package org.tohasan.pduxml.lib.infra;
 
+import org.tohasan.pduxml.lib.io.MessageInputStream;
+import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public class d extends MessageByteProcessor {
@@ -11,7 +13,7 @@ public class d extends MessageByteProcessor {
         var2.a();
     }
 
-    public final void a(i var1) throws XmlPduException {
+    public final void a(MessageOutputStream var1) throws XmlPduException {
         int var3 = this.a.length();
         int var4 = 0;
         int var5 = 0;
@@ -44,7 +46,7 @@ public class d extends MessageByteProcessor {
     public d(int var1, MessageInputStream var2) throws XmlPduException {
         this.tagKey = var1;
         int var3 = CommonUtils.decodeVarLengthUnsignedInteger(var2);
-        StringBuffer var7 = new StringBuffer();
+        StringBuilder var7 = new StringBuilder();
         var1 = (var3 + 7) / 8;
         var3 = (8 - var3 % 8) % 8;
 

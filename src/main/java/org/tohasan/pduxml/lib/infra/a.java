@@ -1,5 +1,8 @@
 package org.tohasan.pduxml.lib.infra;
 
+import org.tohasan.pduxml.lib.io.MessageInputStream;
+import org.tohasan.pduxml.lib.io.MessageOutputStream;
+
 public class a extends MessageByteProcessor {
     public String a;
 
@@ -12,7 +15,7 @@ public class a extends MessageByteProcessor {
         var2.a();
     }
 
-    public void a(i var1) throws XmlPduException {
+    public void a(MessageOutputStream var1) throws XmlPduException {
         int var4 = 0;
         int var5 = 0;
         var1.write(0);
@@ -54,7 +57,7 @@ public class a extends MessageByteProcessor {
         int var2 = var1.readByte();
         int var3 = var1.readByte();
         --var2;
-        StringBuffer var7 = new StringBuffer();
+        StringBuilder var7 = new StringBuilder();
 
         while (var2 > 0) {
             int var5 = var1.readByte();

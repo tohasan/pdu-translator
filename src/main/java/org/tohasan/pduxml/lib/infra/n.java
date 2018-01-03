@@ -1,7 +1,5 @@
 package org.tohasan.pduxml.lib.infra;
 
-import org.tohasan.pduxml.lib.infra.XmlPduException;
-
 public final class n {
     public StringBuffer a = new StringBuffer();
     private int b = 0;
@@ -27,20 +25,27 @@ public final class n {
     }
 
     public final void a(int var1) throws XmlPduException {
-        this.a("<" + org.tohasan.pduxml.lib.a.a.a(var1) + ">");
+        this.a("<" + org.tohasan.pduxml.lib.processors.a.a(var1) + ">");
     }
 
     public final void b(int var1) throws XmlPduException {
-        this.a("</" + org.tohasan.pduxml.lib.a.a.a(var1) + ">");
+        this.a("</" + org.tohasan.pduxml.lib.processors.a.a(var1) + ">");
     }
 
     public final void a(int var1, int var2, StringBuffer var3, int var4) throws XmlPduException {
         StringBuffer var5;
-        (var5 = new StringBuffer()).append("<" + org.tohasan.pduxml.lib.a.a.a(var1) + " " + org.tohasan.pduxml.lib.a.a.a(var2));
+        (var5 = new StringBuffer()).append("<")
+                .append(org.tohasan.pduxml.lib.processors.a.a(var1))
+                .append(" ")
+                .append(org.tohasan.pduxml.lib.processors.a.a(var2));
         if (var4 == 1) {
-            var5.append("=\"" + var3 + "\" />");
+            var5.append("=\"")
+                    .append(var3)
+                    .append("\" />");
         } else {
-            var5.append("=\"" + var3 + "\" >");
+            var5.append("=\"")
+                    .append(var3)
+                    .append("\" >");
         }
 
         this.a(var5.toString());

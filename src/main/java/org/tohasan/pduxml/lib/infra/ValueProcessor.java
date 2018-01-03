@@ -1,5 +1,6 @@
 package org.tohasan.pduxml.lib.infra;
 
+import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 import java.io.ByteArrayOutputStream;

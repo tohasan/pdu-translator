@@ -1,5 +1,8 @@
 package org.tohasan.pduxml.lib.infra;
 
+import org.tohasan.pduxml.lib.io.MessageInputStream;
+import org.tohasan.pduxml.lib.io.MessageOutputStream;
+
 import java.util.Enumeration;
 import java.util.Hashtable;
 
@@ -50,7 +53,7 @@ public class b extends MessageByteProcessor {
         }
     }
 
-    public final void a(i var1) throws XmlPduException {
+    public final void a(MessageOutputStream var1) throws XmlPduException {
         var1.write(7);
         var1.write(96);
         var1.write(133);

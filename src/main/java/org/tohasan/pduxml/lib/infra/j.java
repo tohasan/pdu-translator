@@ -1,11 +1,12 @@
 package org.tohasan.pduxml.lib.infra;
 
+import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public abstract class j extends MessageByteProcessor {
     public MessageByteProcessor[] requestItems;
 
-    public final void a(i var1) throws XmlPduException {
+    public final void a(MessageOutputStream var1) throws XmlPduException {
         CommonUtils.encodeVarLengthUnsignedInteger(var1, this.requestItems.length);
 
         for (MessageByteProcessor requestItem : this.requestItems) {

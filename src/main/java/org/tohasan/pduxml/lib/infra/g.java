@@ -1,5 +1,7 @@
 package org.tohasan.pduxml.lib.infra;
 
+import org.tohasan.pduxml.lib.io.MessageInputStream;
+import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public class g extends MessageByteProcessor {
@@ -13,7 +15,7 @@ public class g extends MessageByteProcessor {
         }
     }
 
-    public final void a(i var1) throws XmlPduException {
+    public final void a(MessageOutputStream var1) throws XmlPduException {
         int var2;
         if (this.a == -1) {
             CommonUtils.encodeVarLengthUnsignedInteger(var1, this.c.length);

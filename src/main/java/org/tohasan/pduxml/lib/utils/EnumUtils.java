@@ -1,6 +1,6 @@
 package org.tohasan.pduxml.lib.utils;
 
-import org.tohasan.pduxml.lib.a.EnumWithCode;
+import org.tohasan.pduxml.lib.processors.EnumWithCode;
 
 /**
  * author: IgorKaSan

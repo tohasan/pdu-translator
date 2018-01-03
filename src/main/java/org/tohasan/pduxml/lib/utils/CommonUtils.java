@@ -1,8 +1,8 @@
 package org.tohasan.pduxml.lib.utils;
 
-import org.tohasan.pduxml.lib.infra.MessageInputStream;
+import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.infra.XmlPduException;
-import org.tohasan.pduxml.lib.infra.i;
+import org.tohasan.pduxml.lib.io.MessageOutputStream;
 
 public class CommonUtils {
     public static StringBuffer AXDRBitStringToBinHexStr(byte[] var0, int var1) throws XmlPduException {
@@ -70,9 +70,9 @@ public class CommonUtils {
     public static StringBuffer byteArraytoHexStr(byte[] var0) {
         StringBuffer var1 = new StringBuffer();
 
-        for (int var2 = 0; var2 < var0.length; ++var2) {
-            var1.append(toHexChar(var0[var2] >>> 4 & 15));
-            var1.append(toHexChar(var0[var2] & 15));
+        for (byte aVar0 : var0) {
+            var1.append(toHexChar(aVar0 >>> 4 & 15));
+            var1.append(toHexChar(aVar0 & 15));
         }
 
         return var1;
@@ -179,7 +179,7 @@ public class CommonUtils {
         }
     }
 
-    public static void encodeBitStringByteStr(StringBuffer var0, i var1, boolean var2) throws XmlPduException {
+    public static void encodeBitStringByteStr(StringBuffer var0, MessageOutputStream var1, boolean var2) throws XmlPduException {
         if (var2) {
             var1.write(3);
         }
@@ -187,7 +187,7 @@ public class CommonUtils {
         packBERBitString(var0, var1);
     }
 
-    public static void encodeGraphicByteStr(StringBuffer var0, i var1, boolean var2) {
+    public static void encodeGraphicByteStr(StringBuffer var0, MessageOutputStream var1, boolean var2) {
         if (var2) {
             var1.write(19);
         }
@@ -200,7 +200,7 @@ public class CommonUtils {
 
     }
 
-    public static void encodeObjectByteStr(StringBuffer var0, i var1, boolean var2) throws XmlPduException {
+    public static void encodeObjectByteStr(StringBuffer var0, MessageOutputStream var1, boolean var2) throws XmlPduException {
         if (var2) {
             var1.write(6);
         }
@@ -229,7 +229,7 @@ public class CommonUtils {
         }
     }
 
-    public static void encodeVarLengthUnsignedInteger(i var0, int var1) throws XmlPduException {
+    public static void encodeVarLengthUnsignedInteger(MessageOutputStream var0, int var1) throws XmlPduException {
         if (var1 <= 127) {
             var0.write(var1);
         } else if (var1 <= 255) {
@@ -343,7 +343,7 @@ public class CommonUtils {
         return var2;
     }
 
-    public static void packBERBitString(StringBuffer var0, i var1) throws XmlPduException {
+    public static void packBERBitString(StringBuffer var0, MessageOutputStream var1) throws XmlPduException {
         byte[] var2 = new byte[]{(byte) -128, (byte) 64, (byte) 32, (byte) 16, (byte) 8, (byte) 4, (byte) 2, (byte) 1};
         int var4 = 0;
         int var5 = 0;
