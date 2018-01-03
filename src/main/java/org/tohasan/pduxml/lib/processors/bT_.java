@@ -20,13 +20,13 @@ public final class bT_ extends MessageByteProcessor {
         var2.d(149);
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
-        this.a.a(var1);
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+        this.a.a(messageOutputStream);
         if (this.c != null) {
-            var1.write(1);
-            this.c.a(var1);
+            messageOutputStream.write(1);
+            this.c.a(messageOutputStream);
         } else {
-            var1.write(0);
+            messageOutputStream.write(0);
         }
     }
 

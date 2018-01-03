@@ -19,9 +19,9 @@ public final class UnconfirmedWriteRequestProcessor extends MessageByteProcessor
         var2.d(448);
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
-        this.a.a(var1);
-        this.c.a(var1);
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+        this.a.a(messageOutputStream);
+        this.c.a(messageOutputStream);
     }
 
     public UnconfirmedWriteRequestProcessor(MessageInputStream messageInputStream) throws XmlPduException {

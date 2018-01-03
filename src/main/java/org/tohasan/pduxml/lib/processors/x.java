@@ -22,14 +22,14 @@ public final class x extends MessageByteProcessor {
         var2.d(194);
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
-        this.a.a(var1);
-        this.c.a(var1);
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+        this.a.a(messageOutputStream);
+        this.c.a(messageOutputStream);
         if (this.d != null) {
-            var1.write(1);
-            this.d.a(var1);
+            messageOutputStream.write(1);
+            this.d.a(messageOutputStream);
         } else {
-            var1.write(0);
+            messageOutputStream.write(0);
         }
     }
 

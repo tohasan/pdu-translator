@@ -23,11 +23,11 @@ public final class aU_ extends MessageByteProcessor {
         }
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
         ValueProcessor var2;
         (var2 = new ValueProcessor(1, 2)).process(this.a);
-        var1.write(1);
-        var2.process(var1);
+        messageOutputStream.write(1);
+        var2.process(messageOutputStream);
     }
 
     public aU_(int var1, MessageInputStream var2) throws XmlPduException {

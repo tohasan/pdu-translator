@@ -16,8 +16,8 @@ public final class BlockNumberAccessProcessor extends MessageByteProcessor {
         var2.d(226);
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
-        this.a.a(var1);
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+        this.a.a(messageOutputStream);
     }
 
     public BlockNumberAccessProcessor(int var1, MessageInputStream var2) throws XmlPduException {

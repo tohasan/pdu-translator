@@ -16,12 +16,12 @@ public class a extends MessageByteProcessor {
         var2.a();
     }
 
-    public void a(MessageOutputStream var1) throws XmlPduException {
+    public void a(MessageOutputStream messageOutputStream) throws XmlPduException {
         int var4 = 0;
         int var5 = 0;
-        var1.write(0);
-        int var3 = var1.size() - 1;
-        var1.write(0);
+        messageOutputStream.write(0);
+        int var3 = messageOutputStream.size() - 1;
+        messageOutputStream.write(0);
 
         for (int var2 = 0; var2 < this.a.length(); ++var2) {
             if (this.a.charAt(var2) != 48 && this.a.charAt(var2) != 49) {
@@ -29,7 +29,7 @@ public class a extends MessageByteProcessor {
             }
 
             if (var4 == 8) {
-                var1.write((byte) var5);
+                messageOutputStream.write((byte) var5);
                 var4 = 0;
                 var5 = 0;
             }
@@ -42,11 +42,11 @@ public class a extends MessageByteProcessor {
         }
 
         if (var4 > 0) {
-            var1.write(var5);
+            messageOutputStream.write(var5);
         }
 
-        var1.a(var3, var1.size() - var3 - 1);
-        var1.a(var3 + 1, 8 - var4);
+        messageOutputStream.a(var3, messageOutputStream.size() - var3 - 1);
+        messageOutputStream.a(var3 + 1, 8 - var4);
     }
 
     public a(int var1, MessageInputStream var2) throws XmlPduException {

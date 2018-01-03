@@ -12,12 +12,12 @@ public class c extends MessageByteProcessor {
         this.a = CommonUtils.hexStrToByteArray(var1.f(454));
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
-        CommonUtils.encodeVarLengthUnsignedInteger(var1, this.a.length);
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+        CommonUtils.encodeVarLengthUnsignedInteger(messageOutputStream, this.a.length);
         int var2 = this.a.length;
 
         for (byte anA : this.a) {
-            var1.write(anA);
+            messageOutputStream.write(anA);
         }
     }
 

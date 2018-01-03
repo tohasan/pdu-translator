@@ -20,8 +20,8 @@ public final class aW_ extends MessageByteProcessor {
         }
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
-        var1.write((byte) this.a);
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+        messageOutputStream.write((byte) this.a);
     }
 
     public aW_(int var1, MessageInputStream var2) throws XmlPduException {

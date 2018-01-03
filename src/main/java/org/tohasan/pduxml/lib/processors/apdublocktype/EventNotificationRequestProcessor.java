@@ -25,16 +25,16 @@ public final class EventNotificationRequestProcessor extends MessageByteProcesso
         var2.d(272);
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
         if (this.a != null) {
-            var1.write(1);
-            this.a.a(var1);
+            messageOutputStream.write(1);
+            this.a.a(messageOutputStream);
         } else {
-            var1.write(0);
+            messageOutputStream.write(0);
         }
 
-        this.c.a(var1);
-        this.d.a(var1);
+        this.c.a(messageOutputStream);
+        this.d.a(messageOutputStream);
     }
 
     public EventNotificationRequestProcessor(MessageInputStream messageInputStream) throws XmlPduException {

@@ -31,18 +31,18 @@ public final class InitiateResponseProcessor extends MessageByteProcessor {
         var2.d(304);
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
         if (this.a != null) {
-            var1.write(1);
-            this.a.a(var1);
+            messageOutputStream.write(1);
+            this.a.a(messageOutputStream);
         } else {
-            var1.write(0);
+            messageOutputStream.write(0);
         }
 
-        this.c.a(var1);
-        this.d.a(var1);
-        this.e.a(var1);
-        this.f.a(var1);
+        this.c.a(messageOutputStream);
+        this.d.a(messageOutputStream);
+        this.e.a(messageOutputStream);
+        this.f.a(messageOutputStream);
     }
 
     public InitiateResponseProcessor(MessageInputStream messageInputStream) throws XmlPduException {

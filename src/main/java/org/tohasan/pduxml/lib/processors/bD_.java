@@ -27,31 +27,31 @@ public final class bD_ extends MessageByteProcessor {
         var2.d(404);
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
-        var1.write(0);
-        int var2 = var1.size() - 1;
-        var1.write(this.a);
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+        messageOutputStream.write(0);
+        int var2 = messageOutputStream.size() - 1;
+        messageOutputStream.write(this.a);
         int var3;
         switch (this.a) {
             case 161:
-                var1.write(0);
-                var3 = var1.size() - 1;
-                var1.write(2);
-                this.c.a(var1);
-                var1.a(var3, (byte) (var1.size() - var3 - 1));
+                messageOutputStream.write(0);
+                var3 = messageOutputStream.size() - 1;
+                messageOutputStream.write(2);
+                this.c.a(messageOutputStream);
+                messageOutputStream.a(var3, (byte) (messageOutputStream.size() - var3 - 1));
                 break;
             case 162:
-                var1.write(0);
-                var3 = var1.size() - 1;
-                var1.write(2);
-                this.c.a(var1);
-                var1.a(var3, (byte) (var1.size() - var3 - 1));
+                messageOutputStream.write(0);
+                var3 = messageOutputStream.size() - 1;
+                messageOutputStream.write(2);
+                this.c.a(messageOutputStream);
+                messageOutputStream.a(var3, (byte) (messageOutputStream.size() - var3 - 1));
                 break;
             default:
                 throw new XmlPduException("_ResultSourceDiagnostic : illegal Tag ".concat(Integer.toString(this.a)));
         }
 
-        var1.a(var2, (byte) (var1.size() - var2 - 1));
+        messageOutputStream.a(var2, (byte) (messageOutputStream.size() - var2 - 1));
     }
 
     public bD_(int var1, MessageInputStream var2) throws XmlPduException {

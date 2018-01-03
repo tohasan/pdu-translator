@@ -37,8 +37,8 @@ public final class bi extends MessageByteProcessor {
         var2.a();
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
-        var1.write((byte) this.a);
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+        messageOutputStream.write((byte) this.a);
     }
 
     public bi(int var1, MessageInputStream var2) throws XmlPduException {

@@ -425,9 +425,9 @@ public class MessageProcessor extends MessageByteProcessor {
         }
     }
 
-    public void a(MessageOutputStream var1) throws XmlPduException {
-        var1.write((byte) this.apduBlockTypeCode);
-        this.processor.a(var1);
+    public void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+        messageOutputStream.write((byte) this.apduBlockTypeCode);
+        this.processor.a(messageOutputStream);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

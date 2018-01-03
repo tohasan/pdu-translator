@@ -16,17 +16,17 @@ public class g extends MessageByteProcessor {
         }
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
         int var2;
         if (this.a == -1) {
-            CommonUtils.encodeVarLengthUnsignedInteger(var1, this.c.length);
+            CommonUtils.encodeVarLengthUnsignedInteger(messageOutputStream, this.c.length);
             var2 = this.c.length;
         } else {
             var2 = this.a;
         }
 
         for (int var3 = 0; var3 < var2; ++var3) {
-            var1.write(this.c[var3]);
+            messageOutputStream.write(this.c[var3]);
         }
 
     }

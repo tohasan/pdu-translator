@@ -29,10 +29,10 @@ public final class AccessResponseProcessor extends MessageByteProcessor {
         this.d = new r(184, messageInputStream);
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
-        this.a.a(var1);
-        this.c.a(var1);
-        this.d.a(var1);
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+        this.a.a(messageOutputStream);
+        this.c.a(messageOutputStream);
+        this.d.a(messageOutputStream);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

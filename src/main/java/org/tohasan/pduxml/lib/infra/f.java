@@ -9,7 +9,7 @@ public class f extends MessageByteProcessor {
         var2.c(var1);
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
     }
 
     public f(int var1) {

@@ -26,7 +26,7 @@ public final class ReleaseResponseProcessor extends MessageByteProcessor {
         var2.d(392);
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
         MessageOutputStream var3 = new MessageOutputStream();
         if (this.a != null) {
             var3.write(128);
@@ -42,8 +42,8 @@ public final class ReleaseResponseProcessor extends MessageByteProcessor {
             var3.a(var2, (byte) (var3.size() - var2 - 1));
         }
 
-        CommonUtils.encodeVarLengthUnsignedInteger(var1, var3.size());
-        var1.write(var3.toByteArray(), 0, var3.size());
+        CommonUtils.encodeVarLengthUnsignedInteger(messageOutputStream, var3.size());
+        messageOutputStream.write(var3.toByteArray(), 0, var3.size());
     }
 
     public ReleaseResponseProcessor(MessageInputStream messageInputStream) throws XmlPduException {

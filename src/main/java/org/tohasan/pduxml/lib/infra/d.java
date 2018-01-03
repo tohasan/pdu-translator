@@ -14,11 +14,11 @@ public class d extends MessageByteProcessor {
         var2.a();
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
         int var3 = this.a.length();
         int var4 = 0;
         int var5 = 0;
-        CommonUtils.encodeVarLengthUnsignedInteger(var1, var3);
+        CommonUtils.encodeVarLengthUnsignedInteger(messageOutputStream, var3);
 
         for (int var2 = 0; var2 < var3; ++var2) {
             if (this.a.charAt(var2) != 48 && this.a.charAt(var2) != 49) {
@@ -26,7 +26,7 @@ public class d extends MessageByteProcessor {
             }
 
             if (var4 == 8) {
-                var1.write((byte) var5);
+                messageOutputStream.write((byte) var5);
                 var4 = 0;
                 var5 = 0;
             }
@@ -39,7 +39,7 @@ public class d extends MessageByteProcessor {
         }
 
         if (var4 > 0) {
-            var1.write(var5);
+            messageOutputStream.write(var5);
         }
 
     }

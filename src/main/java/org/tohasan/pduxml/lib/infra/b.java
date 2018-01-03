@@ -54,53 +54,53 @@ public class b extends MessageByteProcessor {
         }
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
-        var1.write(7);
-        var1.write(96);
-        var1.write(133);
-        var1.write(116);
-        var1.write(5);
-        var1.write(8);
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+        messageOutputStream.write(7);
+        messageOutputStream.write(96);
+        messageOutputStream.write(133);
+        messageOutputStream.write(116);
+        messageOutputStream.write(5);
+        messageOutputStream.write(8);
         switch (this.c) {
             case 0:
-                var1.write(1);
-                var1.write(1);
+                messageOutputStream.write(1);
+                messageOutputStream.write(1);
                 return;
             case 1:
-                var1.write(1);
-                var1.write(2);
+                messageOutputStream.write(1);
+                messageOutputStream.write(2);
                 return;
             case 2:
-                var1.write(1);
-                var1.write(3);
+                messageOutputStream.write(1);
+                messageOutputStream.write(3);
                 return;
             case 3:
-                var1.write(1);
-                var1.write(4);
+                messageOutputStream.write(1);
+                messageOutputStream.write(4);
                 return;
             case 10:
-                var1.write(2);
-                var1.write(0);
+                messageOutputStream.write(2);
+                messageOutputStream.write(0);
                 return;
             case 11:
-                var1.write(2);
-                var1.write(1);
+                messageOutputStream.write(2);
+                messageOutputStream.write(1);
                 return;
             case 12:
-                var1.write(2);
-                var1.write(2);
+                messageOutputStream.write(2);
+                messageOutputStream.write(2);
                 return;
             case 13:
-                var1.write(2);
-                var1.write(3);
+                messageOutputStream.write(2);
+                messageOutputStream.write(3);
                 return;
             case 14:
-                var1.write(2);
-                var1.write(4);
+                messageOutputStream.write(2);
+                messageOutputStream.write(4);
                 return;
             case 15:
-                var1.write(2);
-                var1.write(5);
+                messageOutputStream.write(2);
+                messageOutputStream.write(5);
             case 4:
             case 5:
             case 6:

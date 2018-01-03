@@ -15,10 +15,10 @@ public final class S_ extends MessageProcessor {
         this.a(var2);
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
-        var1.write(0);
-        int var2 = var1.size() - 1;
-        super.a(var1);
-        var1.a(var2, var1.size() - var2 - 1);
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+        messageOutputStream.write(0);
+        int var2 = messageOutputStream.size() - 1;
+        super.a(messageOutputStream);
+        messageOutputStream.a(var2, messageOutputStream.size() - var2 - 1);
     }
 }

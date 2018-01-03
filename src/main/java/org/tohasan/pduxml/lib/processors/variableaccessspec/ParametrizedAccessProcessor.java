@@ -28,10 +28,10 @@ public final class ParametrizedAccessProcessor extends MessageByteProcessor {
         this.parameterProcessor = new ParameterProcessor(367, messageByteStream);
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
-        this.variableNameProcessor.a(var1);
-        this.selectorProcessor.a(var1);
-        this.parameterProcessor.a(var1);
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+        this.variableNameProcessor.a(messageOutputStream);
+        this.selectorProcessor.a(messageOutputStream);
+        this.parameterProcessor.a(messageOutputStream);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

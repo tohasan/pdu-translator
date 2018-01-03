@@ -30,10 +30,10 @@ public final class EnumProcessor extends MessageByteProcessor {
         this.a = valueProcessor.b();
     }
 
-    public final void a(MessageOutputStream var1) {
+    public final void a(MessageOutputStream messageOutputStream) {
         ValueProcessor valueProcessor = new ValueProcessor(1, 2);
         valueProcessor.process(this.a);
-        valueProcessor.process(var1);
+        valueProcessor.process(messageOutputStream);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

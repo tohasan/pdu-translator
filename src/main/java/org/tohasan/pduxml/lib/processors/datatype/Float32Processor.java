@@ -23,10 +23,10 @@ public final class Float32Processor extends MessageByteProcessor {
         }
     }
 
-    public final void a(MessageOutputStream var1) {
+    public final void a(MessageOutputStream messageOutputStream) {
         ValueProcessor var2;
         (var2 = new ValueProcessor(4, 3)).process(this.a);
-        var2.process(var1);
+        var2.process(messageOutputStream);
     }
 
     public Float32Processor(int var1, MessageInputStream var2) throws XmlPduException {

@@ -51,9 +51,9 @@ public final class u extends MessageByteProcessor {
         }
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
-        var1.write((byte) this.a);
-        this.c.a(var1);
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+        messageOutputStream.write((byte) this.a);
+        this.c.a(messageOutputStream);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

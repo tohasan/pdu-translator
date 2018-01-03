@@ -25,10 +25,10 @@ public final class bt extends MessageByteProcessor {
         }
     }
 
-    public final void a(MessageOutputStream var1) {
+    public final void a(MessageOutputStream messageOutputStream) {
         ValueProcessor var2;
         (var2 = new ValueProcessor(1, 2)).process(this.a);
-        var2.process((ByteArrayOutputStream) var1);
+        var2.process((ByteArrayOutputStream) messageOutputStream);
     }
 
     public bt(int var1, MessageInputStream var2) throws XmlPduException {

@@ -18,9 +18,9 @@ public final class I_ extends MessageByteProcessor {
         var2.d(204);
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
-        this.a.a(var1);
-        this.c.a(var1);
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+        this.a.a(messageOutputStream);
+        this.c.a(messageOutputStream);
     }
 
     public I_(int var1, MessageInputStream var2) throws XmlPduException {

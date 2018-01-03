@@ -102,10 +102,10 @@ public final class ab extends org.tohasan.pduxml.lib.infra.a {
         this.a = var8.toString();
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
-        var1.write(95);
-        var1.write(31);
-        super.a(var1);
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+        messageOutputStream.write(95);
+        messageOutputStream.write(31);
+        super.a(messageOutputStream);
     }
 
     public ab(int var1, MessageInputStream var2) throws XmlPduException {

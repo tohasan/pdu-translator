@@ -20,10 +20,10 @@ public final class bQ_ extends MessageByteProcessor {
         var2.d(426);
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
-        this.a.a(var1);
-        this.c.a(var1);
-        this.d.a(var1);
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+        this.a.a(messageOutputStream);
+        this.c.a(messageOutputStream);
+        this.d.a(messageOutputStream);
     }
 
     public bQ_(int var1, MessageInputStream var2) throws XmlPduException {

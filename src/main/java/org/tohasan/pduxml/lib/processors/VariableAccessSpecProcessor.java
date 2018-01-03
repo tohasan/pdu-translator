@@ -63,9 +63,9 @@ public final class VariableAccessSpecProcessor extends MessageByteProcessor {
         }
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
-        var1.write((byte) this.variableAccessSpecCode);
-        this.processor.a(var1);
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+        messageOutputStream.write((byte) this.variableAccessSpecCode);
+        this.processor.a(messageOutputStream);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
