@@ -1,11 +1,11 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
-import org.tohasan.pduxml.lib.processors.MessageItemsProcessor;
 import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.processors.bV_;
+import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
+import org.tohasan.pduxml.lib.processors.MessageItemsProcessor;
+import org.tohasan.pduxml.lib.processors.writeresponse.SingleWriteResponseProcessor;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public final class WriteResponseProcessor extends MessageItemsProcessor {
@@ -18,7 +18,7 @@ public final class WriteResponseProcessor extends MessageItemsProcessor {
         var2.a();
 
         while (var2.a == 1 && var1 < this.items.length) {
-            this.items[var1++] = new bV_(297, var2);
+            this.items[var1++] = new SingleWriteResponseProcessor(var2);
         }
 
         var2.d(463);
@@ -30,7 +30,7 @@ public final class WriteResponseProcessor extends MessageItemsProcessor {
         this.items = new MessageByteProcessor[numberOfItems];
 
         for (int i = 0; i < numberOfItems; i++) {
-            this.items[i] = new bV_(151, messageInputStream);
+            this.items[i] = new SingleWriteResponseProcessor(messageInputStream);
         }
     }
 

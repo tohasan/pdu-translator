@@ -1,11 +1,11 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
-import org.tohasan.pduxml.lib.processors.*;
+import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
+import org.tohasan.pduxml.lib.processors.setrequest.*;
 
 public final class SetRequestProcessor extends MessageByteProcessor {
     private int a;
@@ -16,23 +16,23 @@ public final class SetRequestProcessor extends MessageByteProcessor {
         var2.c(417);
         if (var2.a(418)) {
             this.a = 1;
-            this.c = new bI_(418, var2);
+            this.c = new SetRequestNormalProcessor(var2);
         } else if (var2.a(420)) {
             this.a = 2;
-            this.c = new bK_(420, var2);
+            this.c = new SetRequestWithFirstDataBlockProcessor(var2);
         } else if (var2.a(419)) {
             this.a = 3;
-            this.c = new bJ_(419, var2);
+            this.c = new SetRequestWithDataBlockProcessor(var2);
         } else if (var2.a(421)) {
             this.a = 4;
-            this.c = new bL_(421, var2);
+            this.c = new SetRequestWithListProcessor(var2);
         } else {
             if (!var2.a(422)) {
                 throw new XmlPduException("_SetRequest: illegal choice");
             }
 
             this.a = 5;
-            this.c = new bM_(422, var2);
+            this.c = new SetRequestWithListAndWithFirstDatablockProcessor(var2);
         }
 
         var2.d(417);
@@ -43,19 +43,19 @@ public final class SetRequestProcessor extends MessageByteProcessor {
         this.a = messageInputStream.readByte();
         switch (this.a) {
             case 1:
-                this.c = new bI_(418, messageInputStream);
+                this.c = new SetRequestNormalProcessor(messageInputStream);
                 return;
             case 2:
-                this.c = new bK_(420, messageInputStream);
+                this.c = new SetRequestWithFirstDataBlockProcessor(messageInputStream);
                 return;
             case 3:
-                this.c = new bJ_(419, messageInputStream);
+                this.c = new SetRequestWithDataBlockProcessor(messageInputStream);
                 return;
             case 4:
-                this.c = new bL_(421, messageInputStream);
+                this.c = new SetRequestWithListProcessor(messageInputStream);
                 return;
             case 5:
-                this.c = new bM_(422, messageInputStream);
+                this.c = new SetRequestWithListAndWithFirstDatablockProcessor(messageInputStream);
                 return;
             default:
                 throw new XmlPduException("_SetRequest (from pdu) : illegal tag - " + String.valueOf(this.a));

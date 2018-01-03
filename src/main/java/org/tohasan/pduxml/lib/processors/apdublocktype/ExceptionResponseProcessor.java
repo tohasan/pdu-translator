@@ -1,29 +1,29 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
-import org.tohasan.pduxml.lib.processors.aq;
-import org.tohasan.pduxml.lib.processors.ar;
+import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
+import org.tohasan.pduxml.lib.processors.exceptionresponse.ServiceErrorProcessor;
+import org.tohasan.pduxml.lib.processors.exceptionresponse.StateErrorProcessor;
 
 public final class ExceptionResponseProcessor extends MessageByteProcessor {
-    private ar a;
-    private aq c;
+    private StateErrorProcessor a;
+    private ServiceErrorProcessor c;
 
     public ExceptionResponseProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 273;
         var2.c(273);
-        this.a = new ar(430, var2);
-        this.c = new aq(411, var2);
+        this.a = new StateErrorProcessor(var2);
+        this.c = new ServiceErrorProcessor(var2);
         var2.d(273);
     }
 
     public ExceptionResponseProcessor(MessageInputStream messageInputStream) throws XmlPduException {
         this.tagKey = 273;
-        this.a = new ar(430, messageInputStream);
-        this.c = new aq(411, messageInputStream);
+        this.a = new StateErrorProcessor(messageInputStream);
+        this.c = new ServiceErrorProcessor(messageInputStream);
     }
 
     public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {

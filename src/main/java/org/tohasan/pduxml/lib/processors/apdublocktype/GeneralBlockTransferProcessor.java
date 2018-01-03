@@ -1,16 +1,16 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
-import org.tohasan.pduxml.lib.processors.V_;
+import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import org.tohasan.pduxml.lib.processors.datatype.LongUnsignedProcessor;
 import org.tohasan.pduxml.lib.processors.datatype.OctetStringProcessor;
+import org.tohasan.pduxml.lib.processors.generalblocktransfer.BlockControlProcessor;
 
 public final class GeneralBlockTransferProcessor extends MessageByteProcessor {
-    private V_ a;
+    private BlockControlProcessor a;
     private LongUnsignedProcessor c;
     private LongUnsignedProcessor d;
     private OctetStringProcessor e;
@@ -18,7 +18,7 @@ public final class GeneralBlockTransferProcessor extends MessageByteProcessor {
     public GeneralBlockTransferProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 277;
         var2.c(277);
-        this.a = new V_(223, var2);
+        this.a = new BlockControlProcessor(var2);
         this.c = new LongUnsignedProcessor(225, var2);
         this.d = new LongUnsignedProcessor(227, var2);
         this.e = new OctetStringProcessor(224, var2);
@@ -27,7 +27,7 @@ public final class GeneralBlockTransferProcessor extends MessageByteProcessor {
 
     public GeneralBlockTransferProcessor(MessageInputStream messageInputStream) throws XmlPduException {
         this.tagKey = 277;
-        this.a = new V_(223, messageInputStream);
+        this.a = new BlockControlProcessor(messageInputStream);
         this.c = new LongUnsignedProcessor(225, messageInputStream);
         this.d = new LongUnsignedProcessor(227, messageInputStream);
         this.e = new OctetStringProcessor(224, messageInputStream);

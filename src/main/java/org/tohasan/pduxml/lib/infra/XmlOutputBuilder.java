@@ -1,6 +1,7 @@
 package org.tohasan.pduxml.lib.infra;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+import org.tohasan.pduxml.lib.processors.TagMap;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public final class XmlOutputBuilder {
@@ -17,7 +18,7 @@ public final class XmlOutputBuilder {
     }
 
     public final void appendTag(int var1) throws XmlPduException {
-        this.appendWithNewLine("<" + org.tohasan.pduxml.lib.processors.a.a(var1) + ">");
+        this.appendWithNewLine("<" + TagMap.getKeyByValue(var1) + ">");
     }
 
     public final void appendWithNewLine(String var1) {
@@ -37,14 +38,14 @@ public final class XmlOutputBuilder {
     }
 
     public final void b(int var1) throws XmlPduException {
-        this.appendWithNewLine("</" + org.tohasan.pduxml.lib.processors.a.a(var1) + ">");
+        this.appendWithNewLine("</" + TagMap.getKeyByValue(var1) + ">");
     }
 
     private void appendTag(int tagKey, int attrKey, StringBuffer attrValue, boolean emptyTag) throws XmlPduException {
         String tagStr = "<" +
-                org.tohasan.pduxml.lib.processors.a.a(tagKey) +
+                TagMap.getKeyByValue(tagKey) +
                 " " +
-                org.tohasan.pduxml.lib.processors.a.a(attrKey) +
+                TagMap.getKeyByValue(attrKey) +
                 "=\"" +
                 attrValue +
                 (emptyTag ? "\" />" : "\" >");

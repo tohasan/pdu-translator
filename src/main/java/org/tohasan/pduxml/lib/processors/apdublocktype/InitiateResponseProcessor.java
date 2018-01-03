@@ -1,20 +1,20 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
-import org.tohasan.pduxml.lib.processors.ab;
+import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import org.tohasan.pduxml.lib.processors.datatype.IntegerProcessor;
 import org.tohasan.pduxml.lib.processors.datatype.LongUnsignedProcessor;
 import org.tohasan.pduxml.lib.processors.datatype.SelectorProcessor;
+import org.tohasan.pduxml.lib.processors.initiate.ConformanceProcessor;
 import org.tohasan.pduxml.lib.processors.variableaccessspec.VariableNameProcessor;
 
 public final class InitiateResponseProcessor extends MessageByteProcessor {
     private IntegerProcessor a;
     private SelectorProcessor c;
-    private ab d;
+    private ConformanceProcessor d;
     private LongUnsignedProcessor e;
     private VariableNameProcessor f;
 
@@ -26,7 +26,7 @@ public final class InitiateResponseProcessor extends MessageByteProcessor {
         }
 
         this.c = new SelectorProcessor(339, var2);
-        this.d = new ab(338, var2);
+        this.d = new ConformanceProcessor(338, var2);
         this.e = new LongUnsignedProcessor(340, var2);
         this.f = new VariableNameProcessor(453, var2);
         var2.d(304);
@@ -48,12 +48,13 @@ public final class InitiateResponseProcessor extends MessageByteProcessor {
 
     public InitiateResponseProcessor(MessageInputStream messageInputStream) throws XmlPduException {
         this.tagKey = 304;
+
         if (messageInputStream.readByte() != 0) {
             this.a = new IntegerProcessor(341, messageInputStream);
         }
 
         this.c = new SelectorProcessor(339, messageInputStream);
-        this.d = new ab(338, messageInputStream);
+        this.d = new ConformanceProcessor(338, messageInputStream);
         this.e = new LongUnsignedProcessor(340, messageInputStream);
         this.f = new VariableNameProcessor(453, messageInputStream);
     }

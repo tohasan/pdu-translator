@@ -1,25 +1,25 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
-import org.tohasan.pduxml.lib.processors.bj;
-import org.tohasan.pduxml.lib.processors.bm;
+import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
+import org.tohasan.pduxml.lib.processors.common.LongInvokeIdAndPriorityProcessor;
+import org.tohasan.pduxml.lib.processors.datanotification.NotificationBodyProcessor;
 import org.tohasan.pduxml.lib.processors.datatype.OctetStringProcessor;
 
 public final class DataNotificationProcessor extends MessageByteProcessor {
-    private bj a;
+    private LongInvokeIdAndPriorityProcessor a;
     private OctetStringProcessor c;
-    private bm d;
+    private NotificationBodyProcessor d;
 
     public DataNotificationProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 257;
         var2.c(257);
-        this.a = new bj(325, var2);
+        this.a = new LongInvokeIdAndPriorityProcessor(var2);
         this.c = new OctetStringProcessor(262, var2);
-        this.d = new bm(351, var2);
+        this.d = new NotificationBodyProcessor(var2);
         var2.d(257);
     }
 
@@ -31,9 +31,9 @@ public final class DataNotificationProcessor extends MessageByteProcessor {
 
     public DataNotificationProcessor(MessageInputStream messageInputStream) throws XmlPduException {
         this.tagKey = 257;
-        this.a = new bj(325, messageInputStream);
+        this.a = new LongInvokeIdAndPriorityProcessor(messageInputStream);
         this.c = new OctetStringProcessor(262, messageInputStream);
-        this.d = new bm(351, messageInputStream);
+        this.d = new NotificationBodyProcessor(messageInputStream);
     }
 
     public final void a(XmlOutputBuilder var1) throws XmlPduException {

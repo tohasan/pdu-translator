@@ -1,12 +1,12 @@
 package org.tohasan.pduxml.lib.processors.datatype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
-import org.tohasan.pduxml.lib.processors.MessageItemsProcessor;
 import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.infra.m;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.processors.ParameterProcessor;
+import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
+import org.tohasan.pduxml.lib.processors.MessageItemsProcessor;
+import org.tohasan.pduxml.lib.processors.common.ParameterProcessor;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public final class StructureProcessor extends MessageItemsProcessor {

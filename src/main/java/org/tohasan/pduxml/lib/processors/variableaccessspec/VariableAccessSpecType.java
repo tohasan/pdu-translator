@@ -1,6 +1,6 @@
 package org.tohasan.pduxml.lib.processors.variableaccessspec;
 
-import org.tohasan.pduxml.lib.processors.EnumWithCode;
+import org.tohasan.pduxml.lib.processors.common.EnumWithCode;
 
 /**
  * author: IgorKaSan

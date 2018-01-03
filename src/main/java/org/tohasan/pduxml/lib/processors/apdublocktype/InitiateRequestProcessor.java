@@ -1,24 +1,25 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
-import org.tohasan.pduxml.lib.processors.ab;
+import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import org.tohasan.pduxml.lib.processors.datatype.*;
+import org.tohasan.pduxml.lib.processors.initiate.ConformanceProcessor;
 
 public final class InitiateRequestProcessor extends MessageByteProcessor {
     private OctetStringProcessor a;
     private BooleanProcessor c;
     private IntegerProcessor d;
     private SelectorProcessor e;
-    private ab f;
+    private ConformanceProcessor f;
     private LongUnsignedProcessor g;
 
     public InitiateRequestProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 303;
         var2.c(303);
+
         if (var2.a(264)) {
             this.a = new OctetStringProcessor(264, var2);
         }
@@ -32,9 +33,28 @@ public final class InitiateRequestProcessor extends MessageByteProcessor {
         }
 
         this.e = new SelectorProcessor(376, var2);
-        this.f = new ab(375, var2);
+        this.f = new ConformanceProcessor(375, var2);
         this.g = new LongUnsignedProcessor(377, var2);
         var2.d(303);
+    }
+
+    public InitiateRequestProcessor(MessageInputStream messageInputStream) throws XmlPduException {
+        this.tagKey = 303;
+        if (messageInputStream.readByte() != 0) {
+            this.a = new OctetStringProcessor(264, messageInputStream);
+        }
+
+        if (messageInputStream.readByte() != 0) {
+            this.c = new BooleanProcessor(402, messageInputStream);
+        }
+
+        if (messageInputStream.readByte() != 0) {
+            this.d = new IntegerProcessor(378, messageInputStream);
+        }
+
+        this.e = new SelectorProcessor(376, messageInputStream);
+        this.f = new ConformanceProcessor(375, messageInputStream);
+        this.g = new LongUnsignedProcessor(377, messageInputStream);
     }
 
     public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
@@ -62,25 +82,6 @@ public final class InitiateRequestProcessor extends MessageByteProcessor {
         this.e.a(messageOutputStream);
         this.f.a(messageOutputStream);
         this.g.a(messageOutputStream);
-    }
-
-    public InitiateRequestProcessor(MessageInputStream messageInputStream) throws XmlPduException {
-        this.tagKey = 303;
-        if (messageInputStream.readByte() != 0) {
-            this.a = new OctetStringProcessor(264, messageInputStream);
-        }
-
-        if (messageInputStream.readByte() != 0) {
-            this.c = new BooleanProcessor(402, messageInputStream);
-        }
-
-        if (messageInputStream.readByte() != 0) {
-            this.d = new IntegerProcessor(378, messageInputStream);
-        }
-
-        this.e = new SelectorProcessor(376, messageInputStream);
-        this.f = new ab(375, messageInputStream);
-        this.g = new LongUnsignedProcessor(377, messageInputStream);
     }
 
     public final void a(XmlOutputBuilder var1) throws XmlPduException {

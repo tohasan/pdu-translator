@@ -1,27 +1,27 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
-import org.tohasan.pduxml.lib.processors.S_;
-import org.tohasan.pduxml.lib.processors.bA_;
+import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
+import org.tohasan.pduxml.lib.processors.common.UserInformationProcessor;
+import org.tohasan.pduxml.lib.processors.releaserequest.ReasonProcessor;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public final class ReleaseRequestProcessor extends MessageByteProcessor {
-    private bA_ a;
-    private S_ c;
+    private ReasonProcessor a;
+    private UserInformationProcessor c;
 
     public ReleaseRequestProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 391;
         var2.c(391);
         if (var2.a(388)) {
-            this.a = new bA_(388, var2);
+            this.a = new ReasonProcessor(var2);
         }
 
         if (var2.a(452)) {
-            this.c = new S_(452, var2);
+            this.c = new UserInformationProcessor(452, var2);
         }
 
         var2.d(391);
@@ -35,7 +35,7 @@ public final class ReleaseRequestProcessor extends MessageByteProcessor {
         while (messageInputStream.c() > 0) {
             switch (var1 = messageInputStream.readByte()) {
                 case 128:
-                    this.a = new bA_(388, messageInputStream);
+                    this.a = new ReasonProcessor(messageInputStream);
                     break;
                 case 190:
                     messageInputStream.readByte();
@@ -43,7 +43,7 @@ public final class ReleaseRequestProcessor extends MessageByteProcessor {
                         throw new XmlPduException("_ReleaseRequest: Unexpected tag2 ".concat(Integer.toString(var1)));
                     }
 
-                    this.c = new S_(452, messageInputStream);
+                    this.c = new UserInformationProcessor(452, messageInputStream);
                     break;
                 default:
                     throw new XmlPduException("_ReleaseRequest: Unexpected tag1 ".concat(Integer.toString(var1)));

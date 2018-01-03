@@ -1,12 +1,12 @@
 package org.tohasan.pduxml.lib.processors.variableaccessspec;
 
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
-import org.tohasan.pduxml.lib.io.MessageOutputStream;
-import org.tohasan.pduxml.lib.processors.ParameterProcessor;
-import org.tohasan.pduxml.lib.processors.datatype.SelectorProcessor;
-import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.io.MessageInputStream;
+import org.tohasan.pduxml.lib.io.MessageOutputStream;
+import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
+import org.tohasan.pduxml.lib.processors.common.ParameterProcessor;
+import org.tohasan.pduxml.lib.processors.datatype.SelectorProcessor;
 
 public final class ParametrizedAccessProcessor extends MessageByteProcessor {
     private VariableNameProcessor variableNameProcessor;

@@ -1,30 +1,54 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
-import org.tohasan.pduxml.lib.processors.S_;
-import org.tohasan.pduxml.lib.processors.bC_;
+import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
+import org.tohasan.pduxml.lib.processors.common.UserInformationProcessor;
+import org.tohasan.pduxml.lib.processors.releaseresponse.ReasonProcessor;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public final class ReleaseResponseProcessor extends MessageByteProcessor {
-    private bC_ a;
-    private S_ c;
+    private ReasonProcessor a;
+    private UserInformationProcessor c;
 
     public ReleaseResponseProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 392;
         var2.c(392);
         if (var2.a(388)) {
-            this.a = new bC_(388, var2);
+            this.a = new ReasonProcessor(var2);
         }
 
         if (var2.a(452)) {
-            this.c = new S_(452, var2);
+            this.c = new UserInformationProcessor(452, var2);
         }
 
         var2.d(392);
+    }
+
+    public ReleaseResponseProcessor(MessageInputStream messageInputStream) throws XmlPduException {
+        this.tagKey = 392;
+        CommonUtils.decodeVarLengthUnsignedInteger(messageInputStream);
+
+        int var1;
+        while (messageInputStream.c() > 0) {
+            switch (var1 = messageInputStream.readByte()) {
+                case 128:
+                    this.a = new ReasonProcessor(messageInputStream);
+                    break;
+                case 190:
+                    messageInputStream.readByte();
+                    if ((var1 = messageInputStream.readByte()) != 4) {
+                        throw new XmlPduException("_ReleaseResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
+                    }
+
+                    this.c = new UserInformationProcessor(452, messageInputStream);
+                    break;
+                default:
+                    throw new XmlPduException("_ReleaseResponse: Unexpected tag1 ".concat(Integer.toString(var1)));
+            }
+        }
     }
 
     public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
@@ -45,31 +69,6 @@ public final class ReleaseResponseProcessor extends MessageByteProcessor {
 
         CommonUtils.encodeVarLengthUnsignedInteger(messageOutputStream, var3.size());
         messageOutputStream.write(var3.toByteArray(), 0, var3.size());
-    }
-
-    public ReleaseResponseProcessor(MessageInputStream messageInputStream) throws XmlPduException {
-        this.tagKey = 392;
-        CommonUtils.decodeVarLengthUnsignedInteger(messageInputStream);
-
-        int var1;
-        while (messageInputStream.c() > 0) {
-            switch (var1 = messageInputStream.readByte()) {
-                case 128:
-                    this.a = new bC_(388, messageInputStream);
-                    break;
-                case 190:
-                    messageInputStream.readByte();
-                    if ((var1 = messageInputStream.readByte()) != 4) {
-                        throw new XmlPduException("_ReleaseResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
-                    }
-
-                    this.c = new S_(452, messageInputStream);
-                    break;
-                default:
-                    throw new XmlPduException("_ReleaseResponse: Unexpected tag1 ".concat(Integer.toString(var1)));
-            }
-        }
-
     }
 
     public final void a(XmlOutputBuilder var1) throws XmlPduException {

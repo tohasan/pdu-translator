@@ -1,11 +1,11 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
-import org.tohasan.pduxml.lib.processors.MessageItemsProcessor;
 import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.processors.VariableAccessSpecProcessor;
+import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
+import org.tohasan.pduxml.lib.processors.MessageItemsProcessor;
+import org.tohasan.pduxml.lib.processors.common.VariableAccessSpecProcessor;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public final class ReadRequestProcessor extends MessageItemsProcessor {

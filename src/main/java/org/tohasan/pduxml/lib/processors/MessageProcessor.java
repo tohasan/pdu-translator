@@ -5,15 +5,13 @@ import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.apdublocktype.*;
+import org.tohasan.pduxml.lib.processors.common.ParameterProcessor;
 import org.tohasan.pduxml.lib.processors.datatype.OctetStringProcessor;
 import org.tohasan.pduxml.lib.utils.EnumUtils;
 
 public class MessageProcessor extends MessageByteProcessor {
     private int apduBlockTypeCode;
     private MessageByteProcessor processor;
-
-    MessageProcessor() {
-    }
 
     public MessageProcessor(int tagKey, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = tagKey;
@@ -195,7 +193,7 @@ public class MessageProcessor extends MessageByteProcessor {
             this.processor = new GeneralDedChipheringProcessor(var2);
         } else if (var2.a(278)) {
             this.apduBlockTypeCode = 221;
-            this.processor = new GeneralChilpheringProcessor(var2);
+            this.processor = new GeneralChipheringProcessor(var2);
         } else if (var2.a(282)) {
             this.apduBlockTypeCode = 223;
             this.processor = new GeneralSigningProcessor(var2);
@@ -217,7 +215,7 @@ public class MessageProcessor extends MessageByteProcessor {
 
     }
 
-    public MessageProcessor(int var1, MessageInputStream messageByteStream) throws XmlPduException {
+    public MessageProcessor(MessageInputStream messageByteStream) throws XmlPduException {
         this.tagKey = 297;
         this.a(messageByteStream);
     }
@@ -406,7 +404,7 @@ public class MessageProcessor extends MessageByteProcessor {
                 this.processor = new GeneralDedChipheringProcessor(messageInputStream);
                 return;
             case GENERAL_CHIPHERING:
-                this.processor = new GeneralChilpheringProcessor(messageInputStream);
+                this.processor = new GeneralChipheringProcessor(messageInputStream);
                 return;
             case GENERAL_SIGNING:
                 this.processor = new GeneralSigningProcessor(messageInputStream);

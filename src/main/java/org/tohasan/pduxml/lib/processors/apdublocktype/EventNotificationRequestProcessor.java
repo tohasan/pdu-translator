@@ -1,17 +1,17 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
-import org.tohasan.pduxml.lib.processors.P_;
-import org.tohasan.pduxml.lib.processors.ParameterProcessor;
+import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
+import org.tohasan.pduxml.lib.processors.common.AttributeDescriptorProcessor;
+import org.tohasan.pduxml.lib.processors.common.ParameterProcessor;
 import org.tohasan.pduxml.lib.processors.datatype.OctetStringProcessor;
 
 public final class EventNotificationRequestProcessor extends MessageByteProcessor {
     private OctetStringProcessor a;
-    private P_ c;
+    private AttributeDescriptorProcessor c;
     private ParameterProcessor d;
 
     public EventNotificationRequestProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
@@ -21,7 +21,7 @@ public final class EventNotificationRequestProcessor extends MessageByteProcesso
             this.a = new OctetStringProcessor(442, var2);
         }
 
-        this.c = new P_(217, var2);
+        this.c = new AttributeDescriptorProcessor(var2);
         this.d = new ParameterProcessor(220, var2);
         var2.d(272);
     }
@@ -44,7 +44,7 @@ public final class EventNotificationRequestProcessor extends MessageByteProcesso
             this.a = new OctetStringProcessor(442, messageInputStream);
         }
 
-        this.c = new P_(217, messageInputStream);
+        this.c = new AttributeDescriptorProcessor(messageInputStream);
         this.d = new ParameterProcessor(220, messageInputStream);
     }
 

@@ -18,7 +18,7 @@ public final class XmlPduTranslator {
 
     public static StringBuffer pduToXml(byte[] message) throws XmlPduException {
         MessageInputStream inputStream = new MessageInputStream(message);
-        MessageProcessor messageProcessor = new MessageProcessor(297, inputStream);
+        MessageProcessor messageProcessor = new MessageProcessor(inputStream);
         XmlOutputBuilder var1 = new XmlOutputBuilder();
         messageProcessor.a(var1);
         return var1.buffer;

@@ -1,6 +1,7 @@
 package org.tohasan.pduxml.lib.infra;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+import org.tohasan.pduxml.lib.processors.TagMap;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public final class m {
@@ -44,8 +45,7 @@ public final class m {
 
     public final boolean a(int var1) throws XmlPduException {
         if (this.a == 1) {
-            StringBuffer var2 = this.j;
-            if (org.tohasan.pduxml.lib.processors.a.a(this.j.toString()) == var1) {
+            if (TagMap.get(this.j.toString()) == var1) {
                 return true;
             }
         }
@@ -55,28 +55,23 @@ public final class m {
 
     public final boolean a(int var1, int var2, int var3, int var4, int var5) throws XmlPduException {
         if (this.a == 1) {
-            StringBuffer var6 = this.j;
-            if (org.tohasan.pduxml.lib.processors.a.a(this.j.toString()) == 304) {
+            if (TagMap.get(this.j.toString()) == 304) {
                 return true;
             }
 
-            var6 = this.j;
-            if (org.tohasan.pduxml.lib.processors.a.a(this.j.toString()) == 246) {
+            if (TagMap.get(this.j.toString()) == 246) {
                 return true;
             }
 
-            var6 = this.j;
-            if (org.tohasan.pduxml.lib.processors.a.a(this.j.toString()) == 487) {
+            if (TagMap.get(this.j.toString()) == 487) {
                 return true;
             }
 
-            var6 = this.j;
-            if (org.tohasan.pduxml.lib.processors.a.a(this.j.toString()) == 482) {
+            if (TagMap.get(this.j.toString()) == 482) {
                 return true;
             }
 
-            var6 = this.j;
-            if (org.tohasan.pduxml.lib.processors.a.a(this.j.toString()) == 280) {
+            if (TagMap.get(this.j.toString()) == 280) {
                 return true;
             }
         }
@@ -86,18 +81,15 @@ public final class m {
 
     public final boolean a(int var1, int var2, int var3) throws XmlPduException {
         if (this.a == 1) {
-            StringBuffer var4 = this.j;
-            if (org.tohasan.pduxml.lib.processors.a.a(this.j.toString()) == 303) {
+            if (TagMap.get(this.j.toString()) == 303) {
                 return true;
             }
 
-            var4 = this.j;
-            if (org.tohasan.pduxml.lib.processors.a.a(this.j.toString()) == 486) {
+            if (TagMap.get(this.j.toString()) == 486) {
                 return true;
             }
 
-            var4 = this.j;
-            if (org.tohasan.pduxml.lib.processors.a.a(this.j.toString()) == 280) {
+            if (TagMap.get(this.j.toString()) == 280) {
                 return true;
             }
         }
@@ -145,8 +137,7 @@ public final class m {
 
                                 if (a(var6.g.charAt(var6.h))) {
                                     var6.a(var6.k);
-                                    StringBuffer var3 = var6.k;
-                                    var6.m = org.tohasan.pduxml.lib.processors.a.a(var6.k.toString());
+                                    var6.m = TagMap.get(var6.k.toString());
                                     var6.c();
                                     if (var6.g.charAt(var6.h) != 61) {
                                         break;
@@ -160,16 +151,15 @@ public final class m {
                                     }
 
                                     char var4 = var7;
-                                    m var8 = var6;
                                     var6.l.setLength(0);
                                     ++var6.h;
 
-                                    for (char var5 = var6.g.charAt(var6.h); var5 != var4 && var5 != 0; var5 = var8.g.charAt(var8.h)) {
-                                        var8.l.append(var5);
-                                        ++var8.h;
+                                    for (char var5 = var6.g.charAt(var6.h); var5 != var4 && var5 != 0; var5 = var6.g.charAt(var6.h)) {
+                                        var6.l.append(var5);
+                                        ++var6.h;
                                     }
 
-                                    ++var8.h;
+                                    ++var6.h;
                                     var6.c();
                                 }
 
@@ -213,8 +203,7 @@ public final class m {
     }
 
     public final int b() throws XmlPduException {
-        StringBuffer var1 = this.j;
-        return org.tohasan.pduxml.lib.processors.a.a(this.j.toString());
+        return TagMap.get(this.j.toString());
     }
 
     private void c() {
@@ -236,13 +225,12 @@ public final class m {
 
     public final void b(int var1) throws XmlPduException {
         if (this.a == 1) {
-            StringBuffer var2 = this.j;
-            if (org.tohasan.pduxml.lib.processors.a.a(this.j.toString()) == var1) {
+            if (TagMap.get(this.j.toString()) == var1) {
                 return;
             }
         }
 
-        throw new XmlPduException("Start tag: " + org.tohasan.pduxml.lib.processors.a.a(var1) + " expected");
+        throw new XmlPduException("Start tag: " + TagMap.getKeyByValue(var1) + " expected");
     }
 
     public final void c(int var1) throws XmlPduException {
@@ -252,14 +240,13 @@ public final class m {
 
     public final void d(int var1) throws XmlPduException {
         if (this.a == 2) {
-            StringBuffer var2 = this.j;
-            if (org.tohasan.pduxml.lib.processors.a.a(this.j.toString()) == var1) {
+            if (TagMap.get(this.j.toString()) == var1) {
                 this.a();
                 return;
             }
         }
 
-        throw new XmlPduException("Stop tag: " + org.tohasan.pduxml.lib.processors.a.a(var1) + " expected");
+        throw new XmlPduException("Stop tag: " + TagMap.getKeyByValue(var1) + " expected");
     }
 
     public final int e(int var1) throws XmlPduException {
@@ -270,11 +257,11 @@ public final class m {
         if (this.a == 1 && this.m == var1) {
             return this.l;
         } else {
-            throw new XmlPduException("\"" + org.tohasan.pduxml.lib.processors.a.a(var1) + "\" expected");
+            throw new XmlPduException("\"" + TagMap.getKeyByValue(var1) + "\" expected");
         }
     }
 
     public static void g(int var0) throws XmlPduException {
-        throw new XmlPduException("Unexpected keyword " + org.tohasan.pduxml.lib.processors.a.a(var0));
+        throw new XmlPduException("Unexpected keyword " + TagMap.getKeyByValue(var0));
     }
 }

@@ -1,11 +1,11 @@
 package org.tohasan.pduxml.lib.processors.datatype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.*;
+import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
-import org.tohasan.pduxml.lib.processors.ValueProcessor;
+import org.tohasan.pduxml.lib.processors.common.ValueProcessor;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public final class LongUnsignedProcessor extends MessageByteProcessor {

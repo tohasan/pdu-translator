@@ -1,67 +1,68 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
-import org.tohasan.pduxml.lib.processors.*;
+import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
+import org.tohasan.pduxml.lib.processors.association.*;
+import org.tohasan.pduxml.lib.processors.common.UserInformationProcessor;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public final class AssociationResponseProcessor extends MessageByteProcessor {
-    private bv a;
-    private J_ c;
-    private O_ d;
-    private bD_ e;
-    private org.tohasan.pduxml.lib.processors.f f;
-    private e g;
-    private aU_ h;
-    private aU_ i;
-    private b j;
-    private bk k;
-    private R_ l;
-    private S_ m;
+    private ProtocolVersionProcessor a;
+    private ApplicationContextNameProcessor c;
+    private AssociationResultProcessor d;
+    private ResultSourceDiagnosticProcessor e;
+    private ApTitleProcessor apTitleProcessor;
+    private AeQualifierProcessor g;
+    private InvocationIdProcessor h;
+    private InvocationIdProcessor i;
+    private AcseRequirementProcessor j;
+    private MechanismNameProcessor k;
+    private AuthenticationValueProcessor l;
+    private UserInformationProcessor m;
 
     public AssociationResponseProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 212;
         var2.c(212);
         if (var2.a(379)) {
-            this.a = new bv(379, var2);
+            this.a = new ProtocolVersionProcessor(var2);
         }
 
-        this.c = new J_(205, var2);
-        this.d = new O_(213, var2);
-        this.e = new bD_(404, var2);
+        this.c = new ApplicationContextNameProcessor(var2);
+        this.d = new AssociationResultProcessor(var2);
+        this.e = new ResultSourceDiagnosticProcessor(var2);
         if (var2.a(400)) {
-            this.f = new f(400, var2);
+            this.apTitleProcessor = new ApTitleProcessor(400, var2);
         }
 
         if (var2.a(398)) {
-            this.g = new e(398, var2);
+            this.g = new AeQualifierProcessor(398, var2);
         }
 
         if (var2.a(399)) {
-            this.h = new aU_(399, var2);
+            this.h = new InvocationIdProcessor(399, var2);
         }
 
         if (var2.a(397)) {
-            this.i = new aU_(397, var2);
+            this.i = new InvocationIdProcessor(397, var2);
         }
 
         if (var2.a(396)) {
-            this.j = new b(396, var2);
+            this.j = new AcseRequirementProcessor(396, var2);
         }
 
         if (var2.a(330)) {
-            this.k = new bk(330, var2);
+            this.k = new MechanismNameProcessor(var2);
         }
 
         if (var2.a(401)) {
-            this.l = new R_(401, var2);
+            this.l = new AuthenticationValueProcessor(401, var2);
         }
 
         if (var2.a(304, 246, 487, 482, 280)) {
-            this.m = new S_(297, var2);
+            this.m = new UserInformationProcessor(297, var2);
         }
 
         var2.d(212);
@@ -75,13 +76,13 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
         while (messageInputStream.c() > 0) {
             switch (var1 = messageInputStream.readByte()) {
                 case 128:
-                    this.a = new bv(379, messageInputStream);
+                    this.a = new ProtocolVersionProcessor(messageInputStream);
                     break;
                 case 136:
-                    this.j = new b(396, messageInputStream);
+                    this.j = new AcseRequirementProcessor(396, messageInputStream);
                     break;
                 case 137:
-                    this.k = new bk(330, messageInputStream);
+                    this.k = new MechanismNameProcessor(messageInputStream);
                     break;
                 case 161:
                     messageInputStream.readByte();
@@ -89,7 +90,7 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
                         throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
                     }
 
-                    this.c = new J_(205, messageInputStream);
+                    this.c = new ApplicationContextNameProcessor(messageInputStream);
                     break;
                 case 162:
                     messageInputStream.readByte();
@@ -97,10 +98,10 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
                         throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
                     }
 
-                    this.d = new O_(messageInputStream);
+                    this.d = new AssociationResultProcessor(messageInputStream);
                     break;
                 case 163:
-                    this.e = new bD_(404, messageInputStream);
+                    this.e = new ResultSourceDiagnosticProcessor(messageInputStream);
                     break;
                 case 164:
                     messageInputStream.readByte();
@@ -108,7 +109,7 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
                         throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
                     }
 
-                    this.f = new f(400, messageInputStream);
+                    this.apTitleProcessor = new ApTitleProcessor(400, messageInputStream);
                     break;
                 case 165:
                     messageInputStream.readByte();
@@ -116,7 +117,7 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
                         throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
                     }
 
-                    this.g = new e(398, messageInputStream);
+                    this.g = new AeQualifierProcessor(398, messageInputStream);
                     break;
                 case 166:
                     messageInputStream.readByte();
@@ -124,7 +125,7 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
                         throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
                     }
 
-                    this.h = new aU_(399, messageInputStream);
+                    this.h = new InvocationIdProcessor(399, messageInputStream);
                     break;
                 case 167:
                     messageInputStream.readByte();
@@ -132,7 +133,7 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
                         throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
                     }
 
-                    this.i = new aU_(397, messageInputStream);
+                    this.i = new InvocationIdProcessor(397, messageInputStream);
                     break;
                 case 170:
                     messageInputStream.readByte();
@@ -140,7 +141,7 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
                         throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
                     }
 
-                    this.l = new R_(401, messageInputStream);
+                    this.l = new AuthenticationValueProcessor(401, messageInputStream);
                     break;
                 case 190:
                     messageInputStream.readByte();
@@ -148,7 +149,7 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
                         throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
                     }
 
-                    this.m = new S_(297, messageInputStream);
+                    this.m = new UserInformationProcessor(297, messageInputStream);
                     break;
                 default:
                     throw new XmlPduException("_AssociationResponse: Unexpected tag1 ".concat(Integer.toString(var1)));
@@ -187,12 +188,12 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
                 } else {
                     var3.write(163);
                     this.e.a(var3);
-                    if (this.f != null) {
+                    if (this.apTitleProcessor != null) {
                         var3.write(164);
                         var3.write(0);
                         var2 = var3.size() - 1;
                         var3.write(4);
-                        this.f.a(var3);
+                        this.apTitleProcessor.a(var3);
                         var3.a(var2, (byte) (var3.size() - var2 - 1));
                     }
 
@@ -268,8 +269,8 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
         this.c.a(var1);
         this.d.a(var1);
         this.e.a(var1);
-        if (this.f != null) {
-            this.f.a(var1);
+        if (this.apTitleProcessor != null) {
+            this.apTitleProcessor.a(var1);
         }
 
         if (this.g != null) {

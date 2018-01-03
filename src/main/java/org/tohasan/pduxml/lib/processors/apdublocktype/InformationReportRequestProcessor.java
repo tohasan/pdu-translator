@@ -1,18 +1,18 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
-import org.tohasan.pduxml.lib.processors.bc;
-import org.tohasan.pduxml.lib.processors.bh;
+import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
+import org.tohasan.pduxml.lib.processors.common.ListOfDataProcessor;
+import org.tohasan.pduxml.lib.processors.common.ListOfVariableAccessSpecificationProcessor;
 import org.tohasan.pduxml.lib.processors.datatype.OctetStringProcessor;
 
 public final class InformationReportRequestProcessor extends MessageByteProcessor {
     private OctetStringProcessor a;
-    private bh c;
-    private bc d;
+    private ListOfVariableAccessSpecificationProcessor c;
+    private ListOfDataProcessor d;
 
     public InformationReportRequestProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 301;
@@ -21,19 +21,20 @@ public final class InformationReportRequestProcessor extends MessageByteProcesso
             this.a = new OctetStringProcessor(249, var2);
         }
 
-        this.c = new bh(var2);
-        this.d = new bc(315, var2);
+        this.c = new ListOfVariableAccessSpecificationProcessor(var2);
+        this.d = new ListOfDataProcessor(315, var2);
         var2.d(301);
     }
 
     public InformationReportRequestProcessor(MessageInputStream messageInputStream) throws XmlPduException {
         this.tagKey = 301;
+
         if (messageInputStream.readByte() != 0) {
             this.a = new OctetStringProcessor(249, messageInputStream);
         }
 
-        this.c = new bh(messageInputStream);
-        this.d = new bc(315, messageInputStream);
+        this.c = new ListOfVariableAccessSpecificationProcessor(messageInputStream);
+        this.d = new ListOfDataProcessor(315, messageInputStream);
     }
 
     public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {

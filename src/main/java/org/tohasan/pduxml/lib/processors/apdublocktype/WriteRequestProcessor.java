@@ -1,22 +1,22 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
-import org.tohasan.pduxml.lib.processors.bc;
-import org.tohasan.pduxml.lib.processors.bh;
+import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
+import org.tohasan.pduxml.lib.processors.common.ListOfDataProcessor;
+import org.tohasan.pduxml.lib.processors.common.ListOfVariableAccessSpecificationProcessor;
 
 public final class WriteRequestProcessor extends MessageByteProcessor {
-    private bh a;
-    private bc c;
+    private ListOfVariableAccessSpecificationProcessor a;
+    private ListOfDataProcessor c;
 
     public WriteRequestProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 462;
         var2.c(462);
-        this.a = new bh(var2);
-        this.c = new bc(315, var2);
+        this.a = new ListOfVariableAccessSpecificationProcessor(var2);
+        this.c = new ListOfDataProcessor(315, var2);
         var2.d(462);
     }
 
@@ -27,8 +27,8 @@ public final class WriteRequestProcessor extends MessageByteProcessor {
 
     public WriteRequestProcessor(MessageInputStream var2) throws XmlPduException {
         this.tagKey = 462;
-        this.a = new bh(var2);
-        this.c = new bc(315, var2);
+        this.a = new ListOfVariableAccessSpecificationProcessor(var2);
+        this.c = new ListOfDataProcessor(315, var2);
     }
 
     public final void a(XmlOutputBuilder var1) throws XmlPduException {

@@ -3,6 +3,7 @@ package org.tohasan.pduxml.lib.infra;
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
+import org.tohasan.pduxml.lib.processors.TagMap;
 
 public class f extends MessageByteProcessor {
     public f(int var1, m var2) throws XmlPduException {
@@ -18,6 +19,6 @@ public class f extends MessageByteProcessor {
     }
 
     public final void a(XmlOutputBuilder var1) throws XmlPduException {
-        var1.appendWithNewLine("<" + org.tohasan.pduxml.lib.processors.a.a(this.tagKey) + " />");
+        var1.appendWithNewLine("<" + TagMap.getKeyByValue(this.tagKey) + " />");
     }
 }
