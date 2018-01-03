@@ -1,11 +1,11 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
+import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.ab;
 import org.tohasan.pduxml.lib.processors.datatype.*;
-import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
-import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 public final class InitiateRequestProcessor extends MessageByteProcessor {
     private OctetStringProcessor a;
@@ -15,7 +15,7 @@ public final class InitiateRequestProcessor extends MessageByteProcessor {
     private ab f;
     private LongUnsignedProcessor g;
 
-    public InitiateRequestProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public InitiateRequestProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 303;
         var2.c(303);
         if (var2.a(264)) {
@@ -63,23 +63,23 @@ public final class InitiateRequestProcessor extends MessageByteProcessor {
         this.g.a(var1);
     }
 
-    public InitiateRequestProcessor(int var1, MessageInputStream var2) throws XmlPduException {
+    public InitiateRequestProcessor(MessageInputStream messageInputStream) throws XmlPduException {
         this.tagKey = 303;
-        if (var2.readByte() != 0) {
-            this.a = new OctetStringProcessor(264, var2);
+        if (messageInputStream.readByte() != 0) {
+            this.a = new OctetStringProcessor(264, messageInputStream);
         }
 
-        if (var2.readByte() != 0) {
-            this.c = new BooleanProcessor(402, var2);
+        if (messageInputStream.readByte() != 0) {
+            this.c = new BooleanProcessor(402, messageInputStream);
         }
 
-        if (var2.readByte() != 0) {
-            this.d = new IntegerProcessor(378, var2);
+        if (messageInputStream.readByte() != 0) {
+            this.d = new IntegerProcessor(378, messageInputStream);
         }
 
-        this.e = new SelectorProcessor(376, var2);
-        this.f = new ab(375, var2);
-        this.g = new LongUnsignedProcessor(377, var2);
+        this.e = new SelectorProcessor(376, messageInputStream);
+        this.f = new ab(375, messageInputStream);
+        this.g = new LongUnsignedProcessor(377, messageInputStream);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

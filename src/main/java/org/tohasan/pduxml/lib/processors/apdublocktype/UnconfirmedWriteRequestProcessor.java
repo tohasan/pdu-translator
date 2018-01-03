@@ -1,17 +1,17 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
+import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.bc;
 import org.tohasan.pduxml.lib.processors.bh;
-import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
-import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 public final class UnconfirmedWriteRequestProcessor extends MessageByteProcessor {
     private bh a;
     private bc c;
 
-    public UnconfirmedWriteRequestProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public UnconfirmedWriteRequestProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 448;
         var2.c(448);
         this.a = new bh(317, var2);
@@ -24,10 +24,10 @@ public final class UnconfirmedWriteRequestProcessor extends MessageByteProcessor
         this.c.a(var1);
     }
 
-    public UnconfirmedWriteRequestProcessor(int var1, MessageInputStream var2) throws XmlPduException {
+    public UnconfirmedWriteRequestProcessor(MessageInputStream messageInputStream) throws XmlPduException {
         this.tagKey = 448;
-        this.a = new bh(317, var2);
-        this.c = new bc(315, var2);
+        this.a = new bh(317, messageInputStream);
+        this.c = new bc(315, messageInputStream);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

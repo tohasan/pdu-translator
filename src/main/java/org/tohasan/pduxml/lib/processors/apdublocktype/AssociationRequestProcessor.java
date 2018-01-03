@@ -1,11 +1,11 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
+import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.*;
-import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
-import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 public final class AssociationRequestProcessor extends MessageByteProcessor {
     private bv a;
@@ -24,7 +24,7 @@ public final class AssociationRequestProcessor extends MessageByteProcessor {
     private aL_ o;
     private S_ p;
 
-    public AssociationRequestProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public AssociationRequestProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 211;
         var2.c(211);
         if (var2.a(379)) {
@@ -87,7 +87,7 @@ public final class AssociationRequestProcessor extends MessageByteProcessor {
         var2.d(211);
     }
 
-    public final void a(MessageOutputStream var1) throws XmlPduException {
+    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
         MessageOutputStream var3 = new MessageOutputStream();
         if (this.a != null) {
             var3.write(128);
@@ -208,116 +208,117 @@ public final class AssociationRequestProcessor extends MessageByteProcessor {
                 var3.a(var2, (byte) (var3.size() - var2 - 1));
             }
 
-            CommonUtils.encodeVarLengthUnsignedInteger(var1, var3.size());
-            var1.write(var3.toByteArray(), 0, var3.size());
+            CommonUtils.encodeVarLengthUnsignedInteger(messageOutputStream, var3.size());
+            messageOutputStream.write(var3.toByteArray(), 0, var3.size());
         }
     }
 
-    public AssociationRequestProcessor(int var1, MessageInputStream var2) throws XmlPduException {
+    public AssociationRequestProcessor(MessageInputStream messageInputStream) throws XmlPduException {
         this.tagKey = 211;
-        CommonUtils.decodeVarLengthUnsignedInteger(var2);
+        CommonUtils.decodeVarLengthUnsignedInteger(messageInputStream);
 
-        while (var2.c() > 0) {
-            switch (var1 = var2.readByte()) {
+        int var1;
+        while (messageInputStream.c() > 0) {
+            switch (var1 = messageInputStream.readByte()) {
                 case 128:
-                    this.a = new bv(379, var2);
+                    this.a = new bv(379, messageInputStream);
                     break;
                 case 138:
-                    this.l = new b(409, var2);
+                    this.l = new b(409, messageInputStream);
                     break;
                 case 139:
-                    this.m = new bk(330, var2);
+                    this.m = new bk(330, messageInputStream);
                     break;
                 case 157:
-                    this.o = new aL_(298, var2);
+                    this.o = new aL_(298, messageInputStream);
                     break;
                 case 161:
-                    var2.readByte();
-                    if ((var1 = var2.readByte()) != 6) {
+                    messageInputStream.readByte();
+                    if ((var1 = messageInputStream.readByte()) != 6) {
                         throw new XmlPduException("_AssociationRequest: Unexpected tag2 ".concat(Integer.toString(var1)));
                     }
 
-                    this.c = new J_(205, var2);
+                    this.c = new J_(205, messageInputStream);
                     break;
                 case 162:
-                    var2.readByte();
-                    if ((var1 = var2.readByte()) != 4) {
+                    messageInputStream.readByte();
+                    if ((var1 = messageInputStream.readByte()) != 4) {
                         throw new XmlPduException("_AssociationRequest: Unexpected tag2 ".concat(Integer.toString(var1)));
                     }
 
-                    this.d = new f(237, var2);
+                    this.d = new f(237, messageInputStream);
                     break;
                 case 163:
-                    var2.readByte();
-                    if ((var1 = var2.readByte()) != 4) {
+                    messageInputStream.readByte();
+                    if ((var1 = messageInputStream.readByte()) != 4) {
                         throw new XmlPduException("_AssociationRequest: Unexpected tag2 ".concat(Integer.toString(var1)));
                     }
 
-                    this.e = new e(235, var2);
+                    this.e = new e(235, messageInputStream);
                     break;
                 case 164:
-                    var2.readByte();
-                    if ((var1 = var2.readByte()) != 2) {
+                    messageInputStream.readByte();
+                    if ((var1 = messageInputStream.readByte()) != 2) {
                         throw new XmlPduException("_AssociationRequest: Unexpected tag2 ".concat(Integer.toString(var1)));
                     }
 
-                    this.f = new aU_(236, var2);
+                    this.f = new aU_(236, messageInputStream);
                     break;
                 case 165:
-                    var2.readByte();
-                    if ((var1 = var2.readByte()) != 2) {
+                    messageInputStream.readByte();
+                    if ((var1 = messageInputStream.readByte()) != 2) {
                         throw new XmlPduException("_AssociationRequest: Unexpected tag2 ".concat(Integer.toString(var1)));
                     }
 
-                    this.g = new aU_(234, var2);
+                    this.g = new aU_(234, messageInputStream);
                     break;
                 case 166:
-                    var2.readByte();
-                    if ((var1 = var2.readByte()) != 4) {
+                    messageInputStream.readByte();
+                    if ((var1 = messageInputStream.readByte()) != 4) {
                         throw new XmlPduException("_AssociationRequest: Unexpected tag2 ".concat(Integer.toString(var1)));
                     }
 
-                    this.h = new f(241, var2);
+                    this.h = new f(241, messageInputStream);
                     break;
                 case 167:
-                    var2.readByte();
-                    if ((var1 = var2.readByte()) != 4) {
+                    messageInputStream.readByte();
+                    if ((var1 = messageInputStream.readByte()) != 4) {
                         throw new XmlPduException("_AssociationRequest: Unexpected tag2 ".concat(Integer.toString(var1)));
                     }
 
-                    this.i = new e(239, var2);
+                    this.i = new e(239, messageInputStream);
                     break;
                 case 168:
-                    var2.readByte();
-                    if ((var1 = var2.readByte()) != 2) {
+                    messageInputStream.readByte();
+                    if ((var1 = messageInputStream.readByte()) != 2) {
                         throw new XmlPduException("_AssociationRequest: Unexpected tag2 ".concat(Integer.toString(var1)));
                     }
 
-                    this.j = new aU_(240, var2);
+                    this.j = new aU_(240, messageInputStream);
                     break;
                 case 169:
-                    var2.readByte();
-                    if ((var1 = var2.readByte()) != 2) {
+                    messageInputStream.readByte();
+                    if ((var1 = messageInputStream.readByte()) != 2) {
                         throw new XmlPduException("_AssociationRequest: Unexpected tag2 ".concat(Integer.toString(var1)));
                     }
 
-                    this.k = new aU_(238, var2);
+                    this.k = new aU_(238, messageInputStream);
                     break;
                 case 172:
-                    var2.readByte();
-                    if ((var1 = var2.readByte()) != 128) {
+                    messageInputStream.readByte();
+                    if ((var1 = messageInputStream.readByte()) != 128) {
                         throw new XmlPduException("_AssociationRequest: Unexpected tag2 ".concat(Integer.toString(var1)));
                     }
 
-                    this.n = new R_(242, var2);
+                    this.n = new R_(242, messageInputStream);
                     break;
                 case 190:
-                    var2.readByte();
-                    if ((var1 = var2.readByte()) != 4) {
+                    messageInputStream.readByte();
+                    if ((var1 = messageInputStream.readByte()) != 4) {
                         throw new XmlPduException("_AssociationRequest: Unexpected tag2 ".concat(Integer.toString(var1)));
                     }
 
-                    this.p = new S_(297, var2);
+                    this.p = new S_(297, messageInputStream);
                     break;
                 default:
                     throw new XmlPduException("_AssociationRequest: Unexpected tag1 ".concat(Integer.toString(var1)));

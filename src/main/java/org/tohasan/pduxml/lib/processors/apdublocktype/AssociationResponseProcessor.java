@@ -1,11 +1,11 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
+import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.*;
-import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
-import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 public final class AssociationResponseProcessor extends MessageByteProcessor {
     private bv a;
@@ -21,7 +21,7 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
     private R_ l;
     private S_ m;
 
-    public AssociationResponseProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public AssociationResponseProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 212;
         var2.c(212);
         if (var2.a(379)) {
@@ -64,6 +64,96 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
         }
 
         var2.d(212);
+    }
+
+    public AssociationResponseProcessor(MessageInputStream messageInputStream) throws XmlPduException {
+        this.tagKey = 212;
+        CommonUtils.decodeVarLengthUnsignedInteger(messageInputStream);
+
+        int var1;
+        while (messageInputStream.c() > 0) {
+            switch (var1 = messageInputStream.readByte()) {
+                case 128:
+                    this.a = new bv(379, messageInputStream);
+                    break;
+                case 136:
+                    this.j = new b(396, messageInputStream);
+                    break;
+                case 137:
+                    this.k = new bk(330, messageInputStream);
+                    break;
+                case 161:
+                    messageInputStream.readByte();
+                    if ((var1 = messageInputStream.readByte()) != 6) {
+                        throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
+                    }
+
+                    this.c = new J_(205, messageInputStream);
+                    break;
+                case 162:
+                    messageInputStream.readByte();
+                    if ((var1 = messageInputStream.readByte()) != 2) {
+                        throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
+                    }
+
+                    this.d = new O_(213, messageInputStream);
+                    break;
+                case 163:
+                    this.e = new bD_(404, messageInputStream);
+                    break;
+                case 164:
+                    messageInputStream.readByte();
+                    if ((var1 = messageInputStream.readByte()) != 4) {
+                        throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
+                    }
+
+                    this.f = new f(400, messageInputStream);
+                    break;
+                case 165:
+                    messageInputStream.readByte();
+                    if ((var1 = messageInputStream.readByte()) != 4) {
+                        throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
+                    }
+
+                    this.g = new e(398, messageInputStream);
+                    break;
+                case 166:
+                    messageInputStream.readByte();
+                    if ((var1 = messageInputStream.readByte()) != 2) {
+                        throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
+                    }
+
+                    this.h = new aU_(399, messageInputStream);
+                    break;
+                case 167:
+                    messageInputStream.readByte();
+                    if ((var1 = messageInputStream.readByte()) != 2) {
+                        throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
+                    }
+
+                    this.i = new aU_(397, messageInputStream);
+                    break;
+                case 170:
+                    messageInputStream.readByte();
+                    if ((var1 = messageInputStream.readByte()) != 128) {
+                        throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
+                    }
+
+                    this.l = new R_(401, messageInputStream);
+                    break;
+                case 190:
+                    messageInputStream.readByte();
+                    if ((var1 = messageInputStream.readByte()) != 4) {
+                        throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
+                    }
+
+                    this.m = new S_(297, messageInputStream);
+                    break;
+                default:
+                    throw new XmlPduException("_AssociationResponse: Unexpected tag1 ".concat(Integer.toString(var1)));
+            }
+        }
+
     }
 
     public final void a(MessageOutputStream var1) throws XmlPduException {
@@ -165,95 +255,6 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
                 }
             }
         }
-    }
-
-    public AssociationResponseProcessor(int var1, MessageInputStream var2) throws XmlPduException {
-        this.tagKey = 212;
-        CommonUtils.decodeVarLengthUnsignedInteger(var2);
-
-        while (var2.c() > 0) {
-            switch (var1 = var2.readByte()) {
-                case 128:
-                    this.a = new bv(379, var2);
-                    break;
-                case 136:
-                    this.j = new b(396, var2);
-                    break;
-                case 137:
-                    this.k = new bk(330, var2);
-                    break;
-                case 161:
-                    var2.readByte();
-                    if ((var1 = var2.readByte()) != 6) {
-                        throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
-                    }
-
-                    this.c = new J_(205, var2);
-                    break;
-                case 162:
-                    var2.readByte();
-                    if ((var1 = var2.readByte()) != 2) {
-                        throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
-                    }
-
-                    this.d = new O_(213, var2);
-                    break;
-                case 163:
-                    this.e = new bD_(404, var2);
-                    break;
-                case 164:
-                    var2.readByte();
-                    if ((var1 = var2.readByte()) != 4) {
-                        throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
-                    }
-
-                    this.f = new f(400, var2);
-                    break;
-                case 165:
-                    var2.readByte();
-                    if ((var1 = var2.readByte()) != 4) {
-                        throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
-                    }
-
-                    this.g = new e(398, var2);
-                    break;
-                case 166:
-                    var2.readByte();
-                    if ((var1 = var2.readByte()) != 2) {
-                        throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
-                    }
-
-                    this.h = new aU_(399, var2);
-                    break;
-                case 167:
-                    var2.readByte();
-                    if ((var1 = var2.readByte()) != 2) {
-                        throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
-                    }
-
-                    this.i = new aU_(397, var2);
-                    break;
-                case 170:
-                    var2.readByte();
-                    if ((var1 = var2.readByte()) != 128) {
-                        throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
-                    }
-
-                    this.l = new R_(401, var2);
-                    break;
-                case 190:
-                    var2.readByte();
-                    if ((var1 = var2.readByte()) != 4) {
-                        throw new XmlPduException("_AssociationResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
-                    }
-
-                    this.m = new S_(297, var2);
-                    break;
-                default:
-                    throw new XmlPduException("_AssociationResponse: Unexpected tag1 ".concat(Integer.toString(var1)));
-            }
-        }
-
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

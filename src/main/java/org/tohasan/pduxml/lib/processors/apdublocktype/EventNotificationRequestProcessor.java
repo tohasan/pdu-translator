@@ -1,19 +1,19 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
+import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.P_;
 import org.tohasan.pduxml.lib.processors.ParameterProcessor;
 import org.tohasan.pduxml.lib.processors.datatype.OctetStringProcessor;
-import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
-import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 public final class EventNotificationRequestProcessor extends MessageByteProcessor {
     private OctetStringProcessor a;
     private P_ c;
     private ParameterProcessor d;
 
-    public EventNotificationRequestProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public EventNotificationRequestProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 272;
         var2.c(272);
         if (var2.a(442)) {
@@ -37,14 +37,14 @@ public final class EventNotificationRequestProcessor extends MessageByteProcesso
         this.d.a(var1);
     }
 
-    public EventNotificationRequestProcessor(int var1, MessageInputStream var2) throws XmlPduException {
+    public EventNotificationRequestProcessor(MessageInputStream messageInputStream) throws XmlPduException {
         this.tagKey = 272;
-        if (var2.readByte() != 0) {
-            this.a = new OctetStringProcessor(442, var2);
+        if (messageInputStream.readByte() != 0) {
+            this.a = new OctetStringProcessor(442, messageInputStream);
         }
 
-        this.c = new P_(217, var2);
-        this.d = new ParameterProcessor(220, var2);
+        this.c = new P_(217, messageInputStream);
+        this.d = new ParameterProcessor(220, messageInputStream);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

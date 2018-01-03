@@ -1,16 +1,16 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
-import org.tohasan.pduxml.lib.processors.bV_;
-import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
-import org.tohasan.pduxml.lib.utils.CommonUtils;
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
+import org.tohasan.pduxml.lib.io.MessageInputStream;
+import org.tohasan.pduxml.lib.processors.bV_;
+import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public final class WriteResponseProcessor extends org.tohasan.pduxml.lib.infra.j {
-    public WriteResponseProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public WriteResponseProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 463;
         var2.b(463);
-        var1 = var2.e(381);
+        int var1 = var2.e(381);
         this.requestItems = new MessageByteProcessor[var1];
         var1 = 0;
         var2.a();
@@ -22,15 +22,14 @@ public final class WriteResponseProcessor extends org.tohasan.pduxml.lib.infra.j
         var2.d(463);
     }
 
-    public WriteResponseProcessor(int var1, MessageInputStream var2) throws XmlPduException {
+    public WriteResponseProcessor(MessageInputStream messageInputStream) throws XmlPduException {
         this.tagKey = 463;
-        var1 = CommonUtils.decodeVarLengthUnsignedInteger(var2);
-        this.requestItems = new MessageByteProcessor[var1];
+        int numberOfItems = CommonUtils.decodeVarLengthUnsignedInteger(messageInputStream);
+        this.requestItems = new MessageByteProcessor[numberOfItems];
 
-        for (int var3 = 0; var3 < var1; ++var3) {
-            this.requestItems[var3] = new bV_(151, var2);
+        for (int i = 0; i < numberOfItems; i++) {
+            this.requestItems[i] = new bV_(151, messageInputStream);
         }
-
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

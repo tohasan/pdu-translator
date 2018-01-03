@@ -1,11 +1,11 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
+import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.aY_;
 import org.tohasan.pduxml.lib.processors.datatype.OctetStringProcessor;
-import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
-import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 public final class GeneralChilpheringProcessor extends MessageByteProcessor {
     private OctetStringProcessor a;
@@ -16,7 +16,7 @@ public final class GeneralChilpheringProcessor extends MessageByteProcessor {
     private aY_ g;
     private OctetStringProcessor h;
 
-    public GeneralChilpheringProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public GeneralChilpheringProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 278;
         var2.c(278);
         this.a = new OctetStringProcessor(444, var2);
@@ -30,6 +30,20 @@ public final class GeneralChilpheringProcessor extends MessageByteProcessor {
 
         this.h = new OctetStringProcessor(243, var2);
         var2.d(278);
+    }
+
+    public GeneralChilpheringProcessor(MessageInputStream messageInputStream) throws XmlPduException {
+        this.tagKey = 278;
+        this.a = new OctetStringProcessor(444, messageInputStream);
+        this.c = new OctetStringProcessor(360, messageInputStream);
+        this.d = new OctetStringProcessor(389, messageInputStream);
+        this.e = new OctetStringProcessor(262, messageInputStream);
+        this.f = new OctetStringProcessor(363, messageInputStream);
+        if (messageInputStream.readByte() != 0) {
+            this.g = new aY_(312, messageInputStream);
+        }
+
+        this.h = new OctetStringProcessor(243, messageInputStream);
     }
 
     public final void a(MessageOutputStream var1) throws XmlPduException {
@@ -46,20 +60,6 @@ public final class GeneralChilpheringProcessor extends MessageByteProcessor {
         }
 
         this.h.a(var1);
-    }
-
-    public GeneralChilpheringProcessor(int var1, MessageInputStream var2) throws XmlPduException {
-        this.tagKey = 278;
-        this.a = new OctetStringProcessor(444, var2);
-        this.c = new OctetStringProcessor(360, var2);
-        this.d = new OctetStringProcessor(389, var2);
-        this.e = new OctetStringProcessor(262, var2);
-        this.f = new OctetStringProcessor(363, var2);
-        if (var2.readByte() != 0) {
-            this.g = new aY_(312, var2);
-        }
-
-        this.h = new OctetStringProcessor(243, var2);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

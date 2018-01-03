@@ -1,18 +1,18 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
+import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.S_;
 import org.tohasan.pduxml.lib.processors.bC_;
-import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
-import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 public final class ReleaseResponseProcessor extends MessageByteProcessor {
     private bC_ a;
     private S_ c;
 
-    public ReleaseResponseProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public ReleaseResponseProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 392;
         var2.c(392);
         if (var2.a(388)) {
@@ -46,22 +46,23 @@ public final class ReleaseResponseProcessor extends MessageByteProcessor {
         var1.write(var3.toByteArray(), 0, var3.size());
     }
 
-    public ReleaseResponseProcessor(int var1, MessageInputStream var2) throws XmlPduException {
+    public ReleaseResponseProcessor(MessageInputStream messageInputStream) throws XmlPduException {
         this.tagKey = 392;
-        CommonUtils.decodeVarLengthUnsignedInteger(var2);
+        CommonUtils.decodeVarLengthUnsignedInteger(messageInputStream);
 
-        while (var2.c() > 0) {
-            switch (var1 = var2.readByte()) {
+        int var1;
+        while (messageInputStream.c() > 0) {
+            switch (var1 = messageInputStream.readByte()) {
                 case 128:
-                    this.a = new bC_(388, var2);
+                    this.a = new bC_(388, messageInputStream);
                     break;
                 case 190:
-                    var2.readByte();
-                    if ((var1 = var2.readByte()) != 4) {
+                    messageInputStream.readByte();
+                    if ((var1 = messageInputStream.readByte()) != 4) {
                         throw new XmlPduException("_ReleaseResponse: Unexpected tag2 ".concat(Integer.toString(var1)));
                     }
 
-                    this.c = new S_(452, var2);
+                    this.c = new S_(452, messageInputStream);
                     break;
                 default:
                     throw new XmlPduException("_ReleaseResponse: Unexpected tag1 ".concat(Integer.toString(var1)));

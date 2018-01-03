@@ -1,14 +1,14 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
+import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.ab;
 import org.tohasan.pduxml.lib.processors.datatype.IntegerProcessor;
 import org.tohasan.pduxml.lib.processors.datatype.LongUnsignedProcessor;
 import org.tohasan.pduxml.lib.processors.datatype.SelectorProcessor;
 import org.tohasan.pduxml.lib.processors.variableaccessspec.VariableNameProcessor;
-import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
-import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 public final class InitiateResponseProcessor extends MessageByteProcessor {
     private IntegerProcessor a;
@@ -17,7 +17,7 @@ public final class InitiateResponseProcessor extends MessageByteProcessor {
     private LongUnsignedProcessor e;
     private VariableNameProcessor f;
 
-    public InitiateResponseProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public InitiateResponseProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 304;
         var2.c(304);
         if (var2.a(341)) {
@@ -45,16 +45,16 @@ public final class InitiateResponseProcessor extends MessageByteProcessor {
         this.f.a(var1);
     }
 
-    public InitiateResponseProcessor(int var1, MessageInputStream var2) throws XmlPduException {
+    public InitiateResponseProcessor(MessageInputStream messageInputStream) throws XmlPduException {
         this.tagKey = 304;
-        if (var2.readByte() != 0) {
-            this.a = new IntegerProcessor(341, var2);
+        if (messageInputStream.readByte() != 0) {
+            this.a = new IntegerProcessor(341, messageInputStream);
         }
 
-        this.c = new SelectorProcessor(339, var2);
-        this.d = new ab(338, var2);
-        this.e = new LongUnsignedProcessor(340, var2);
-        this.f = new VariableNameProcessor(453, var2);
+        this.c = new SelectorProcessor(339, messageInputStream);
+        this.d = new ab(338, messageInputStream);
+        this.e = new LongUnsignedProcessor(340, messageInputStream);
+        this.f = new VariableNameProcessor(453, messageInputStream);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

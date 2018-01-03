@@ -1,16 +1,16 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
+import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.*;
-import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
-import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 public final class SetResponseProcessor extends MessageByteProcessor {
     private int a;
     private MessageByteProcessor c;
 
-    public SetResponseProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public SetResponseProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 423;
         var2.c(423);
         if (var2.a(427)) {
@@ -37,24 +37,24 @@ public final class SetResponseProcessor extends MessageByteProcessor {
         var2.d(423);
     }
 
-    public SetResponseProcessor(int var1, MessageInputStream var2) throws XmlPduException {
+    public SetResponseProcessor(MessageInputStream messageInputStream) throws XmlPduException {
         this.tagKey = 423;
-        this.a = var2.readByte();
+        this.a = messageInputStream.readByte();
         switch (this.a) {
             case 1:
-                this.c = new bR_(427, var2);
+                this.c = new bR_(427, messageInputStream);
                 return;
             case 2:
-                this.c = new bO_(424, var2);
+                this.c = new bO_(424, messageInputStream);
                 return;
             case 3:
-                this.c = new bP_(425, var2);
+                this.c = new bP_(425, messageInputStream);
                 return;
             case 4:
-                this.c = new bQ_(426, var2);
+                this.c = new bQ_(426, messageInputStream);
                 return;
             case 5:
-                this.c = new bS_(428, var2);
+                this.c = new bS_(428, messageInputStream);
                 return;
             default:
                 throw new XmlPduException("_SetResponse (from pdu) : illegal tag - " + String.valueOf(this.a));

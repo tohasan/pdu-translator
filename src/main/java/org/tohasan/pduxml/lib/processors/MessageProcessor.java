@@ -1,11 +1,11 @@
 package org.tohasan.pduxml.lib.processors;
 
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
+import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.apdublocktype.*;
 import org.tohasan.pduxml.lib.processors.datatype.OctetStringProcessor;
-import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
-import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 import org.tohasan.pduxml.lib.utils.EnumUtils;
 
 public class MessageProcessor extends MessageByteProcessor {
@@ -15,42 +15,43 @@ public class MessageProcessor extends MessageByteProcessor {
     MessageProcessor() {
     }
 
-    public MessageProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
-        this.tagKey = var1;
-        if (var1 != 297) {
-            var2.c(var1);
+    public MessageProcessor(int tagKey, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+        this.tagKey = tagKey;
+
+        if (tagKey != 297) {
+            var2.c(tagKey);
         }
 
         if (var2.a(303)) {
             this.apduBlockTypeCode = 1;
-            this.processor = new InitiateRequestProcessor(303, var2);
+            this.processor = new InitiateRequestProcessor(var2);
         } else if (var2.a(385)) {
             this.apduBlockTypeCode = 5;
-            this.processor = new ReadRequestProcessor(385, var2);
+            this.processor = new ReadRequestProcessor(var2);
         } else if (var2.a(462)) {
             this.apduBlockTypeCode = 6;
-            this.processor = new WriteRequestProcessor(462, var2);
+            this.processor = new WriteRequestProcessor(var2);
         } else if (var2.a(304)) {
             this.apduBlockTypeCode = 8;
-            this.processor = new InitiateResponseProcessor(304, var2);
+            this.processor = new InitiateResponseProcessor(var2);
         } else if (var2.a(386)) {
             this.apduBlockTypeCode = 12;
-            this.processor = new ReadResponseProcessor(386, var2);
+            this.processor = new ReadResponseProcessor(var2);
         } else if (var2.a(463)) {
             this.apduBlockTypeCode = 13;
-            this.processor = new WriteResponseProcessor(463, var2);
+            this.processor = new WriteResponseProcessor(var2);
         } else if (var2.a(246)) {
             this.apduBlockTypeCode = 14;
-            this.processor = new ConfirmedServiceErrorProcessor(246, var2);
+            this.processor = new ConfirmedServiceErrorProcessor(var2);
         } else if (var2.a(257)) {
             this.apduBlockTypeCode = 15;
-            this.processor = new DataNotificationProcessor(257, var2);
+            this.processor = new DataNotificationProcessor(var2);
         } else if (var2.a(448)) {
             this.apduBlockTypeCode = 22;
-            this.processor = new UnconfirmedWriteRequestProcessor(448, var2);
+            this.processor = new UnconfirmedWriteRequestProcessor(var2);
         } else if (var2.a(301)) {
             this.apduBlockTypeCode = 24;
-            this.processor = new InformationReportRequestProcessor(301, var2);
+            this.processor = new InformationReportRequestProcessor(var2);
         } else if (var2.a(486)) {
             this.apduBlockTypeCode = 33;
             this.processor = new OctetStringProcessor(486, var2);
@@ -107,37 +108,37 @@ public class MessageProcessor extends MessageByteProcessor {
             this.processor = new OctetStringProcessor(470, var2);
         } else if (var2.a(211)) {
             this.apduBlockTypeCode = 96;
-            this.processor = new AssociationRequestProcessor(211, var2);
+            this.processor = new AssociationRequestProcessor(var2);
         } else if (var2.a(212)) {
             this.apduBlockTypeCode = 97;
-            this.processor = new AssociationResponseProcessor(212, var2);
+            this.processor = new AssociationResponseProcessor(var2);
         } else if (var2.a(391)) {
             this.apduBlockTypeCode = 98;
-            this.processor = new ReleaseRequestProcessor(391, var2);
+            this.processor = new ReleaseRequestProcessor(var2);
         } else if (var2.a(392)) {
             this.apduBlockTypeCode = 99;
-            this.processor = new ReleaseResponseProcessor(392, var2);
+            this.processor = new ReleaseResponseProcessor(var2);
         } else if (var2.a(284)) {
             this.apduBlockTypeCode = 192;
-            this.processor = new GetRequestProcessor(284, var2);
+            this.processor = new GetRequestProcessor(var2);
         } else if (var2.a(417)) {
             this.apduBlockTypeCode = 193;
-            this.processor = new SetRequestProcessor(417, var2);
+            this.processor = new SetRequestProcessor(var2);
         } else if (var2.a(272)) {
             this.apduBlockTypeCode = 194;
-            this.processor = new EventNotificationRequestProcessor(272, var2);
+            this.processor = new EventNotificationRequestProcessor(var2);
         } else if (var2.a(192)) {
             this.apduBlockTypeCode = 195;
-            this.processor = new ActionRequestProcessor(192, var2);
+            this.processor = new ActionRequestProcessor(var2);
         } else if (var2.a(288)) {
             this.apduBlockTypeCode = 196;
-            this.processor = new GetResponseProcessor(288, var2);
+            this.processor = new GetResponseProcessor(var2);
         } else if (var2.a(423)) {
             this.apduBlockTypeCode = 197;
-            this.processor = new SetResponseProcessor(423, var2);
+            this.processor = new SetResponseProcessor(var2);
         } else if (var2.a(199)) {
             this.apduBlockTypeCode = 199;
-            this.processor = new ActionResponseProcessor(199, var2);
+            this.processor = new ActionResponseProcessor(var2);
         } else if (var2.a(483)) {
             this.apduBlockTypeCode = 200;
             this.processor = new OctetStringProcessor(483, var2);
@@ -179,28 +180,28 @@ public class MessageProcessor extends MessageByteProcessor {
             this.processor = new OctetStringProcessor(465, var2);
         } else if (var2.a(273)) {
             this.apduBlockTypeCode = 216;
-            this.processor = new ExceptionResponseProcessor(273, var2);
+            this.processor = new ExceptionResponseProcessor(var2);
         } else if (var2.a(173)) {
             this.apduBlockTypeCode = 217;
-            this.processor = new AccessRequestProcessor(173, var2);
+            this.processor = new AccessRequestProcessor(var2);
         } else if (var2.a(182)) {
             this.apduBlockTypeCode = 218;
-            this.processor = new AccessResponseProcessor(182, var2);
+            this.processor = new AccessResponseProcessor(var2);
         } else if (var2.a(280)) {
             this.apduBlockTypeCode = 219;
-            this.processor = new GeneralGloChipheringProcessor(280, var2);
+            this.processor = new GeneralGloChipheringProcessor(var2);
         } else if (var2.a(279)) {
             this.apduBlockTypeCode = 220;
-            this.processor = new GeneralDedChipheringProcessor(279, var2);
+            this.processor = new GeneralDedChipheringProcessor(var2);
         } else if (var2.a(278)) {
             this.apduBlockTypeCode = 221;
-            this.processor = new GeneralChilpheringProcessor(278, var2);
+            this.processor = new GeneralChilpheringProcessor(var2);
         } else if (var2.a(282)) {
             this.apduBlockTypeCode = 223;
-            this.processor = new GeneralSigningProcessor(282, var2);
+            this.processor = new GeneralSigningProcessor(var2);
         } else if (var2.a(277)) {
             this.apduBlockTypeCode = 224;
-            this.processor = new GeneralBlockTransferProcessor(277, var2);
+            this.processor = new GeneralBlockTransferProcessor(var2);
         } else {
             if (!var2.a(250)) {
                 throw new XmlPduException("_COSEMpdu: illegal choice");
@@ -210,8 +211,8 @@ public class MessageProcessor extends MessageByteProcessor {
             this.processor = new ParameterProcessor(250, var2);
         }
 
-        if (var1 != 297) {
-            var2.d(var1);
+        if (tagKey != 297) {
+            var2.d(tagKey);
         }
 
     }
@@ -221,8 +222,8 @@ public class MessageProcessor extends MessageByteProcessor {
         this.a(messageByteStream);
     }
 
-    public final void a(MessageInputStream messageByteStream) throws XmlPduException {
-        this.apduBlockTypeCode = messageByteStream.readByte();
+    public final void a(MessageInputStream messageInputStream) throws XmlPduException {
+        this.apduBlockTypeCode = messageInputStream.readByte();
         ApduBlockType blockType = EnumUtils.fromCode(ApduBlockType.class, this.apduBlockTypeCode);
 
         if (blockType == null) {
@@ -234,187 +235,187 @@ public class MessageProcessor extends MessageByteProcessor {
 
         switch (blockType) {
             case INITIATE_REQUEST:
-                this.processor = new InitiateRequestProcessor(303, messageByteStream);
+                this.processor = new InitiateRequestProcessor(messageInputStream);
                 return;
             case READ_REQUEST:
-                this.processor = new ReadRequestProcessor(385, messageByteStream);
+                this.processor = new ReadRequestProcessor(messageInputStream);
                 return;
             case WRITE_REQUEST:
-                this.processor = new WriteRequestProcessor(462, messageByteStream);
+                this.processor = new WriteRequestProcessor(messageInputStream);
                 return;
             case INITIATE_RESPONSE:
-                this.processor = new InitiateResponseProcessor(304, messageByteStream);
+                this.processor = new InitiateResponseProcessor(messageInputStream);
                 return;
             case READ_RESPONSE:
-                this.processor = new ReadResponseProcessor(386, messageByteStream);
+                this.processor = new ReadResponseProcessor(messageInputStream);
                 return;
             case WRITE_RESPONSE:
-                this.processor = new WriteResponseProcessor(463, messageByteStream);
+                this.processor = new WriteResponseProcessor(messageInputStream);
                 return;
             case CONFIRMED_SERVICE_ERROR:
-                this.processor = new ConfirmedServiceErrorProcessor(246, messageByteStream);
+                this.processor = new ConfirmedServiceErrorProcessor(messageInputStream);
                 return;
             case DATA_NOTIFICATION:
-                this.processor = new DataNotificationProcessor(257, messageByteStream);
+                this.processor = new DataNotificationProcessor(messageInputStream);
                 return;
             case UNCONFIRMED_WRITE_REQUEST:
-                this.processor = new UnconfirmedWriteRequestProcessor(448, messageByteStream);
+                this.processor = new UnconfirmedWriteRequestProcessor(messageInputStream);
                 return;
             case INFORMATION_REPORT_REQUEST:
-                this.processor = new InformationReportRequestProcessor(301, messageByteStream);
+                this.processor = new InformationReportRequestProcessor(messageInputStream);
                 return;
             case GLO_INITIATE_REQUEST:
-                this.processor = new OctetStringProcessor(486, messageByteStream);
+                this.processor = new OctetStringProcessor(486, messageInputStream);
                 return;
             case GLO_READ_REQUEST:
-                this.processor = new OctetStringProcessor(488, messageByteStream);
+                this.processor = new OctetStringProcessor(488, messageInputStream);
                 return;
             case GLO_WRITE_REQUEST:
-                this.processor = new OctetStringProcessor(493, messageByteStream);
+                this.processor = new OctetStringProcessor(493, messageInputStream);
                 return;
             case GLO_INITIATE_RESPONSE:
-                this.processor = new OctetStringProcessor(487, messageByteStream);
+                this.processor = new OctetStringProcessor(487, messageInputStream);
                 return;
             case GLO_READ_RESPONSE:
-                this.processor = new OctetStringProcessor(489, messageByteStream);
+                this.processor = new OctetStringProcessor(489, messageInputStream);
                 return;
             case GLO_WRITE_RESPONSE:
-                this.processor = new OctetStringProcessor(494, messageByteStream);
+                this.processor = new OctetStringProcessor(494, messageInputStream);
                 return;
             case GLO_CONFIRMED_SERVICE_ERROR:
-                this.processor = new OctetStringProcessor(482, messageByteStream);
+                this.processor = new OctetStringProcessor(482, messageInputStream);
                 return;
             case GLO_UNCONFIRMED_WRITE_REQUEST:
-                this.processor = new OctetStringProcessor(492, messageByteStream);
+                this.processor = new OctetStringProcessor(492, messageInputStream);
                 return;
             case GLO_INFORMATION_REPORT_REQUEST:
-                this.processor = new OctetStringProcessor(485, messageByteStream);
+                this.processor = new OctetStringProcessor(485, messageInputStream);
                 return;
             case DED_INITIATE_REQUEST:
-                this.processor = new OctetStringProcessor(471, messageByteStream);
+                this.processor = new OctetStringProcessor(471, messageInputStream);
                 return;
             case DED_READ_REQUEST:
-                this.processor = new OctetStringProcessor(473, messageByteStream);
+                this.processor = new OctetStringProcessor(473, messageInputStream);
                 return;
             case DED_WRITE_REQUEST:
-                this.processor = new OctetStringProcessor(478, messageByteStream);
+                this.processor = new OctetStringProcessor(478, messageInputStream);
                 return;
             case DED_INITIATE_RESPONSE:
-                this.processor = new OctetStringProcessor(472, messageByteStream);
+                this.processor = new OctetStringProcessor(472, messageInputStream);
                 return;
             case DED_READ_RESPONSE:
-                this.processor = new OctetStringProcessor(474, messageByteStream);
+                this.processor = new OctetStringProcessor(474, messageInputStream);
                 return;
             case DED_WRITE_RESPONSE:
-                this.processor = new OctetStringProcessor(479, messageByteStream);
+                this.processor = new OctetStringProcessor(479, messageInputStream);
                 return;
             case DED_CONFIRMED_SERVICE_ERROR:
-                this.processor = new OctetStringProcessor(466, messageByteStream);
+                this.processor = new OctetStringProcessor(466, messageInputStream);
                 return;
             case DED_UNCONFIRMED_WRITE_REQUEST:
-                this.processor = new OctetStringProcessor(477, messageByteStream);
+                this.processor = new OctetStringProcessor(477, messageInputStream);
                 return;
             case DED_INFORMATION_REPORT_REQUEST:
-                this.processor = new OctetStringProcessor(470, messageByteStream);
+                this.processor = new OctetStringProcessor(470, messageInputStream);
                 return;
             case ASSOCIATION_REQUEST:
-                this.processor = new AssociationRequestProcessor(211, messageByteStream);
+                this.processor = new AssociationRequestProcessor(messageInputStream);
                 return;
             case ASSOCIATION_RESPONSE:
-                this.processor = new AssociationResponseProcessor(212, messageByteStream);
+                this.processor = new AssociationResponseProcessor(messageInputStream);
                 return;
             case RELEASE_REQUEST:
-                this.processor = new ReleaseRequestProcessor(391, messageByteStream);
+                this.processor = new ReleaseRequestProcessor(messageInputStream);
                 return;
             case RELEASE_RESPONSE:
-                this.processor = new ReleaseResponseProcessor(392, messageByteStream);
+                this.processor = new ReleaseResponseProcessor(messageInputStream);
                 return;
             case GET_REQUEST:
-                this.processor = new GetRequestProcessor(284, messageByteStream);
+                this.processor = new GetRequestProcessor(messageInputStream);
                 return;
             case SET_REQUEST:
-                this.processor = new SetRequestProcessor(417, messageByteStream);
+                this.processor = new SetRequestProcessor(messageInputStream);
                 return;
             case EVENT_NOTIFICATION_REQUEST:
-                this.processor = new EventNotificationRequestProcessor(272, messageByteStream);
+                this.processor = new EventNotificationRequestProcessor(messageInputStream);
                 return;
             case ACTION_REQUEST:
-                this.processor = new ActionRequestProcessor(192, messageByteStream);
+                this.processor = new ActionRequestProcessor(messageInputStream);
                 return;
             case GET_RESPONSE:
-                this.processor = new GetResponseProcessor(288, messageByteStream);
+                this.processor = new GetResponseProcessor(messageInputStream);
                 return;
             case SET_RESPONSE:
-                this.processor = new SetResponseProcessor(423, messageByteStream);
+                this.processor = new SetResponseProcessor(messageInputStream);
                 return;
             case ACTION_RESPONSE:
-                this.processor = new ActionResponseProcessor(199, messageByteStream);
+                this.processor = new ActionResponseProcessor(messageInputStream);
                 return;
             case GLO_GET_REQUEST:
-                this.processor = new OctetStringProcessor(483, messageByteStream);
+                this.processor = new OctetStringProcessor(483, messageInputStream);
                 return;
             case GLO_SET_REQUEST:
-                this.processor = new OctetStringProcessor(490, messageByteStream);
+                this.processor = new OctetStringProcessor(490, messageInputStream);
                 return;
             case GLO_ACTION_REQUEST:
-                this.processor = new OctetStringProcessor(480, messageByteStream);
+                this.processor = new OctetStringProcessor(480, messageInputStream);
                 return;
             case GLO_GET_RESPONSE:
-                this.processor = new OctetStringProcessor(484, messageByteStream);
+                this.processor = new OctetStringProcessor(484, messageInputStream);
                 return;
             case GLO_SET_RESPONSE:
-                this.processor = new OctetStringProcessor(491, messageByteStream);
+                this.processor = new OctetStringProcessor(491, messageInputStream);
                 return;
             case GLO_ACTION_RESPONSE:
-                this.processor = new OctetStringProcessor(481, messageByteStream);
+                this.processor = new OctetStringProcessor(481, messageInputStream);
                 return;
             case DED_GET_REQUEST:
-                this.processor = new OctetStringProcessor(468, messageByteStream);
+                this.processor = new OctetStringProcessor(468, messageInputStream);
                 return;
             case DED_SET_REQUEST:
-                this.processor = new OctetStringProcessor(475, messageByteStream);
+                this.processor = new OctetStringProcessor(475, messageInputStream);
                 return;
             case DED_EVENT_NOTIFICATION_REQUEST:
-                this.processor = new OctetStringProcessor(467, messageByteStream);
+                this.processor = new OctetStringProcessor(467, messageInputStream);
                 return;
             case DED_ACTION_REQUEST:
-                this.processor = new OctetStringProcessor(464, messageByteStream);
+                this.processor = new OctetStringProcessor(464, messageInputStream);
                 return;
             case DED_GET_RESPONSE:
-                this.processor = new OctetStringProcessor(469, messageByteStream);
+                this.processor = new OctetStringProcessor(469, messageInputStream);
                 return;
             case DED_SET_RESPONSE:
-                this.processor = new OctetStringProcessor(476, messageByteStream);
+                this.processor = new OctetStringProcessor(476, messageInputStream);
                 return;
             case DED_ACTION_RESPONSE:
-                this.processor = new OctetStringProcessor(465, messageByteStream);
+                this.processor = new OctetStringProcessor(465, messageInputStream);
                 return;
             case EXCEPTION_RESPONSE:
-                this.processor = new ExceptionResponseProcessor(273, messageByteStream);
+                this.processor = new ExceptionResponseProcessor(messageInputStream);
                 return;
             case ACCESS_REQUEST:
-                this.processor = new AccessRequestProcessor(173, messageByteStream);
+                this.processor = new AccessRequestProcessor(messageInputStream);
                 return;
             case ACCESS_RESPONSE:
-                this.processor = new AccessResponseProcessor(182, messageByteStream);
+                this.processor = new AccessResponseProcessor(messageInputStream);
                 return;
             case GENERAL_GLO_CHIPHERING:
-                this.processor = new GeneralGloChipheringProcessor(280, messageByteStream);
+                this.processor = new GeneralGloChipheringProcessor(messageInputStream);
                 return;
             case GENERAL_DED_CHIPHERING:
-                this.processor = new GeneralDedChipheringProcessor(279, messageByteStream);
+                this.processor = new GeneralDedChipheringProcessor(messageInputStream);
                 return;
             case GENERAL_CHIPHERING:
-                this.processor = new GeneralChilpheringProcessor(278, messageByteStream);
+                this.processor = new GeneralChilpheringProcessor(messageInputStream);
                 return;
             case GENERAL_SIGNING:
-                this.processor = new GeneralSigningProcessor(282, messageByteStream);
+                this.processor = new GeneralSigningProcessor(messageInputStream);
                 return;
             case GENERAL_BLOCK_TRANSFER:
-                this.processor = new GeneralBlockTransferProcessor(277, messageByteStream);
+                this.processor = new GeneralBlockTransferProcessor(messageInputStream);
                 return;
             case DATA_BLOCK_RESULT:
-                this.processor = new ParameterProcessor(250, messageByteStream);
+                this.processor = new ParameterProcessor(250, messageInputStream);
                 return;
             default:
                 throw new XmlPduException(

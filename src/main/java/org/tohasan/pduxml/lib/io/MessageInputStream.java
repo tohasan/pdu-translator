@@ -9,18 +9,18 @@ public final class MessageInputStream extends ByteArrayInputStream {
         super(var1);
     }
 
+    public final void readByte(int var1) throws XmlPduException {
+        if (this.readByte() != var1) {
+            throw new XmlPduException("Illegal value " + String.valueOf(var1) + " in pdu at pos. " + this.pos);
+        }
+    }
+
     public final int readByte() throws XmlPduException {
         int var1;
         if ((var1 = super.read()) == -1) {
             throw new XmlPduException("EOS - End Of Stream reached");
         } else {
             return var1;
-        }
-    }
-
-    public final void readByte(int var1) throws XmlPduException {
-        if (this.readByte() != var1) {
-            throw new XmlPduException("Illegal value " + String.valueOf(var1) + " in pdu at pos. " + this.pos);
         }
     }
 

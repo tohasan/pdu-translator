@@ -1,16 +1,16 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
+import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
+import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.*;
-import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
-import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 public final class ActionRequestProcessor extends MessageByteProcessor {
     private int a;
     private MessageByteProcessor c;
 
-    public ActionRequestProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public ActionRequestProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 192;
         var2.c(192);
         if (var2.a(194)) {
@@ -40,27 +40,27 @@ public final class ActionRequestProcessor extends MessageByteProcessor {
         var2.d(192);
     }
 
-    public ActionRequestProcessor(int var1, MessageInputStream var2) throws XmlPduException {
+    public ActionRequestProcessor(MessageInputStream messageInputStream) throws XmlPduException {
         this.tagKey = 192;
-        this.a = var2.readByte();
+        this.a = messageInputStream.readByte();
         switch (this.a) {
             case 1:
-                this.c = new x(194, var2);
+                this.c = new x(194, messageInputStream);
                 return;
             case 2:
-                this.c = new w(193, var2);
+                this.c = new w(193, messageInputStream);
                 return;
             case 3:
-                this.c = new z(196, var2);
+                this.c = new z(196, messageInputStream);
                 return;
             case 4:
-                this.c = new y(195, var2);
+                this.c = new y(195, messageInputStream);
                 return;
             case 5:
-                this.c = new A_(197, var2);
+                this.c = new A_(197, messageInputStream);
                 return;
             case 6:
-                this.c = new B_(198, var2);
+                this.c = new B_(198, messageInputStream);
                 return;
             default:
                 throw new XmlPduException("_ActionRequest (from pdu) : illegal tag - " + String.valueOf(this.a));
