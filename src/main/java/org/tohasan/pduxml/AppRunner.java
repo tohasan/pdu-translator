@@ -3,7 +3,7 @@ package org.tohasan.pduxml;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
-import static org.tohasan.pduxml.lib.XmlPduInterface.PduToXml;
+import static org.tohasan.pduxml.lib.XmlPduTranslator.pduToXml;
 
 /**
  * author: IgorKaSan
@@ -20,7 +20,7 @@ public class AppRunner {
                         "150000000000000000150000000000000000150000000000000000150000000000000000"
         );
 
-        System.out.println(PduToXml(bytes));
+        System.out.println(pduToXml(bytes));
     }
 
     public static byte[] hexStringToByteArray(String s) {

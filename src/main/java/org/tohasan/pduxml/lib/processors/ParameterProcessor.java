@@ -25,7 +25,7 @@ public final class ParameterProcessor extends MessageByteProcessor {
             this.processor = new ArrayProcessor(210, var2);
         } else if (var2.a(434)) {
             this.paramTypeCode = 2;
-            this.processor = new StructureProcessor(434, var2);
+            this.processor = new StructureProcessor(var2);
         } else if (var2.a(233)) {
             this.paramTypeCode = 3;
             this.processor = new BooleanProcessor(233, var2);
@@ -120,7 +120,7 @@ public final class ParameterProcessor extends MessageByteProcessor {
                 this.processor = new ArrayProcessor(210, messageStream);
                 return;
             case STRUCTURE:
-                this.processor = new StructureProcessor(434, messageStream);
+                this.processor = new StructureProcessor(messageStream);
                 return;
             case BOOLEAN:
                 this.processor = new BooleanProcessor(233, messageStream);

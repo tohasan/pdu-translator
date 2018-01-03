@@ -3,13 +3,13 @@ package org.tohasan.pduxml.lib
 import org.tohasan.pduxml.AppRunner
 import spock.lang.Specification
 
-import static org.tohasan.pduxml.lib.XmlPduInterface.PduToXml
+import static XmlPduTranslator.pduToXml
 
 /**
  * author: IgorKaSan 
  * date: 01.01.2018.
  */
-class XmlPduInterfaceSpec extends Specification {
+class XmlPduTranslatorSpec extends Specification {
 
     def "read response"() {
         given:
@@ -17,7 +17,7 @@ class XmlPduInterfaceSpec extends Specification {
                 "0C01020000016401000155021D090C07E10418010E0120FF800000120420110112000" +
                         "0150000000000000000150000000000000000150000000000000000150000000000000000" +
                         "150000000000000000150000000000000000150000000000000000150000000000000000"
-        );
+        )
 
         expect:
         def expected = '''<ReadResponse Qty="01" >
@@ -27,15 +27,15 @@ class XmlPduInterfaceSpec extends Specification {
     <RawData Value="01000155021D090C07E10418010E0120FF8000001204201101120000150000000000000000150000000000000000150000000000000000150000000000000000150000000000000000150000000000000000150000000000000000150000000000000000" />
   </DataBlockResult>
 </ReadResponse>
-'''.replaceAll("\\n", "\r\n");
-        PduToXml(bytes).toString() == expected;
+'''.replaceAll("\\n", "\r\n")
+        pduToXml(bytes).toString() == expected
     }
 
     def "read request parametrized access"() {
         given:
         byte[] bytes = AppRunner.hexStringToByteArray(
                 "050104C008010204020412000809060000010000FF0F02120000090C07DA041E050E2522618000FF090CFFFFFFFFFFFFFFFFFF8000FF0100"
-        );
+        )
         
         expect:
         def expected = '''<ReadRequest Qty="01" >
@@ -58,7 +58,7 @@ class XmlPduInterfaceSpec extends Specification {
     </Parameter>
   </ParameterisedAccess>
 </ReadRequest>
-'''.replaceAll("\\n", "\r\n");
-        PduToXml(bytes).toString() == expected;
+'''.replaceAll("\\n", "\r\n")
+        pduToXml(bytes).toString() == expected
     }
 }

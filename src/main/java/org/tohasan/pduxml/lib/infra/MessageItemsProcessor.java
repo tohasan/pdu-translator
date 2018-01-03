@@ -4,28 +4,28 @@ import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
-public abstract class j extends MessageByteProcessor {
-    public MessageByteProcessor[] requestItems;
+public abstract class MessageItemsProcessor extends MessageByteProcessor {
+    public MessageByteProcessor[] items;
 
     public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
-        CommonUtils.encodeVarLengthUnsignedInteger(messageOutputStream, this.requestItems.length);
+        CommonUtils.encodeVarLengthUnsignedInteger(messageOutputStream, this.items.length);
 
-        for (MessageByteProcessor requestItem : this.requestItems) {
+        for (MessageByteProcessor requestItem : this.items) {
             requestItem.a(messageOutputStream);
         }
     }
 
     public final void a(n var1, int var2) throws XmlPduException {
-        int var4;
-        if ((var4 = this.requestItems.length) > k.a) {
-            var4 = k.a;
+        int numberOfItems = this.items.length;
+        if (k.a < numberOfItems) {
+            numberOfItems = k.a;
         }
 
-        var1.a(this.tagKey, 381, CommonUtils.intToHex(var4, true), 0);
+        var1.a(this.tagKey, 381, CommonUtils.intToHex(numberOfItems, true), 0);
         var1.a();
 
-        for (int var5 = 0; var5 < var4; ++var5) {
-            MessageByteProcessor var3 = this.requestItems[var5];
+        for (int var5 = 0; var5 < numberOfItems; ++var5) {
+            MessageByteProcessor var3 = this.items[var5];
             if (var2 == 1) {
                 var3.tagKey = 297;
             }
