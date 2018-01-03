@@ -28,11 +28,11 @@ public final class ah extends MessageByteProcessor {
         this.d.a(messageOutputStream);
     }
 
-    public ah(int var1, MessageInputStream var2) throws XmlPduException {
+    public ah(int var1, MessageInputStream messageInputStream) throws XmlPduException {
         this.tagKey = var1;
-        this.a = new BooleanProcessor(314, var2);
-        this.c = new DoubleLongUnsignedProcessor(225, var2);
-        this.d = new OctetStringProcessor(382, var2);
+        this.a = new BooleanProcessor(314, messageInputStream);
+        this.c = new DoubleLongUnsignedProcessor(225, messageInputStream);
+        this.d = new OctetStringProcessor(382, messageInputStream);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

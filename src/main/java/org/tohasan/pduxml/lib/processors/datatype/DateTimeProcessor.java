@@ -4,7 +4,7 @@ import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 public final class DateTimeProcessor extends org.tohasan.pduxml.lib.infra.g {
-    public DateTimeProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public DateTimeProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 262;
         this.a = 12;
         var2.b(262);
@@ -12,9 +12,9 @@ public final class DateTimeProcessor extends org.tohasan.pduxml.lib.infra.g {
         var2.a();
     }
 
-    public DateTimeProcessor(int tagKey, MessageInputStream messageStream) throws XmlPduException {
+    public DateTimeProcessor(MessageInputStream messageInputStream) throws XmlPduException {
         this.tagKey = 262;
         this.a = 12;
-        this.a(messageStream);
+        this.a(messageInputStream);
     }
 }

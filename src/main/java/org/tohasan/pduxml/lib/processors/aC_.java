@@ -23,10 +23,10 @@ public final class aC_ extends MessageByteProcessor {
         this.c.a(messageOutputStream);
     }
 
-    public aC_(int var1, MessageInputStream var2) throws XmlPduException {
+    public aC_(MessageInputStream messageInputStream) throws XmlPduException {
         this.tagKey = 285;
-        this.a = new aV_(308, var2);
-        this.c = new DoubleLongUnsignedProcessor(225, var2);
+        this.a = new aV_(308, messageInputStream);
+        this.c = new DoubleLongUnsignedProcessor(225, messageInputStream);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

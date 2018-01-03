@@ -9,7 +9,7 @@ import org.tohasan.pduxml.lib.utils.CommonUtils;
 public final class Long64UnsignedProcessor extends MessageByteProcessor {
     private long a;
 
-    public Long64UnsignedProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public Long64UnsignedProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 322;
         var2.b(322);
         byte[] var4;
@@ -29,11 +29,11 @@ public final class Long64UnsignedProcessor extends MessageByteProcessor {
         var2.process(messageOutputStream);
     }
 
-    public Long64UnsignedProcessor(int var1, MessageInputStream var2) throws XmlPduException {
+    public Long64UnsignedProcessor(MessageInputStream var2) throws XmlPduException {
         this.tagKey = 322;
-        ValueProcessor var3;
-        (var3 = new ValueProcessor(8, 2)).process(var2);
-        this.a = var3.c();
+        ValueProcessor valueProcessor = new ValueProcessor(8, 2);
+        valueProcessor.process(var2);
+        this.a = valueProcessor.c();
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

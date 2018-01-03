@@ -51,7 +51,7 @@ public final class ActionResponseProcessor extends MessageByteProcessor {
                 this.c = new F_(202, messageInputStream);
                 return;
             case 4:
-                this.c = new D_(200, messageInputStream);
+                this.c = new D_(messageInputStream);
                 return;
             default:
                 throw new XmlPduException("_ActionResponse (from pdu) : illegal tag - " + String.valueOf(this.a));

@@ -9,7 +9,7 @@ import org.tohasan.pduxml.lib.utils.CommonUtils;
 public final class Float64Processor extends MessageByteProcessor {
     private double a;
 
-    public Float64Processor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public Float64Processor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 275;
         var2.b(275);
         byte[] var4;
@@ -29,11 +29,11 @@ public final class Float64Processor extends MessageByteProcessor {
         var2.process(messageOutputStream);
     }
 
-    public Float64Processor(int var1, MessageInputStream var2) throws XmlPduException {
+    public Float64Processor(MessageInputStream var2) throws XmlPduException {
         this.tagKey = 275;
-        ValueProcessor var3;
-        (var3 = new ValueProcessor(8, 3)).process(var2);
-        this.a = var3.e();
+        ValueProcessor valueProcessor = new ValueProcessor(8, 3);
+        valueProcessor.process(var2);
+        this.a = valueProcessor.e();
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

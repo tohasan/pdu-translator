@@ -9,7 +9,7 @@ import org.tohasan.pduxml.lib.utils.CommonUtils;
 public final class EnumProcessor extends MessageByteProcessor {
     private int a;
 
-    public EnumProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public EnumProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 270;
         var2.b(270);
         byte[] var4;
@@ -23,7 +23,7 @@ public final class EnumProcessor extends MessageByteProcessor {
         }
     }
 
-    public EnumProcessor(int tagKey, MessageInputStream messageStream) throws XmlPduException {
+    public EnumProcessor(MessageInputStream messageStream) throws XmlPduException {
         this.tagKey = 270;
         ValueProcessor valueProcessor = new ValueProcessor(1, 2);
         valueProcessor.process(messageStream);

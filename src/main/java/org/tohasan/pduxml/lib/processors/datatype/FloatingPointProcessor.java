@@ -12,9 +12,9 @@ public final class FloatingPointProcessor extends org.tohasan.pduxml.lib.infra.g
         var2.a();
     }
 
-    public FloatingPointProcessor(int var1, MessageInputStream var2) throws XmlPduException {
+    public FloatingPointProcessor(MessageInputStream messageInputStream) throws XmlPduException {
         this.tagKey = 276;
         this.a = 4;
-        this.a(var2);
+        this.a(messageInputStream);
     }
 }

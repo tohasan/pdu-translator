@@ -29,11 +29,11 @@ public final class DoubleLongUnsignedProcessor extends MessageByteProcessor {
         var2.process(messageOutputStream);
     }
 
-    public DoubleLongUnsignedProcessor(int var1, MessageInputStream var2) throws XmlPduException {
-        this.tagKey = var1;
-        ValueProcessor var3;
-        (var3 = new ValueProcessor(4, 2)).process(var2);
-        this.a = var3.b();
+    public DoubleLongUnsignedProcessor(int tagKey, MessageInputStream messageInputStream) throws XmlPduException {
+        this.tagKey = tagKey;
+        ValueProcessor valueProcessor = new ValueProcessor(4, 2);
+        valueProcessor.process(messageInputStream);
+        this.a = valueProcessor.b();
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

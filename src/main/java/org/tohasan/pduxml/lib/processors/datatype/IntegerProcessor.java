@@ -23,22 +23,22 @@ public final class IntegerProcessor extends MessageByteProcessor {
         }
     }
 
-    public final void a(MessageOutputStream messageOutputStream) {
-        ValueProcessor var2;
-        (var2 = new ValueProcessor(1, 1)).process(this.a);
-        var2.process(messageOutputStream);
+    public IntegerProcessor(int tagKey, MessageInputStream messageInputStream) throws XmlPduException {
+        this.tagKey = tagKey;
+        ValueProcessor valueProcessor = new ValueProcessor(1, 1);
+        valueProcessor.process(messageInputStream);
+        this.a = valueProcessor.b();
     }
 
-    public IntegerProcessor(int var1, MessageInputStream var2) throws XmlPduException {
-        this.tagKey = var1;
-        ValueProcessor var3;
-        (var3 = new ValueProcessor(1, 1)).process(var2);
-        this.a = var3.b();
+    public final void a(MessageOutputStream messageOutputStream) {
+        ValueProcessor valueProcessor= new ValueProcessor(1, 1);
+        valueProcessor.process(this.a);
+        valueProcessor.process(messageOutputStream);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
-        ValueProcessor var2;
-        (var2 = new ValueProcessor(1, 1)).process(this.a);
-        var1.a(this.tagKey, 454, var2.f(), 1);
+        ValueProcessor valueProcessor = new ValueProcessor(1, 1);
+        valueProcessor.process(this.a);
+        var1.a(this.tagKey, 454, valueProcessor.f(), 1);
     }
 }

@@ -29,11 +29,11 @@ public final class DoubleLongProcessor extends MessageByteProcessor {
         var2.process(messageOutputStream);
     }
 
-    public DoubleLongProcessor(int var1, MessageInputStream var2) throws XmlPduException {
+    public DoubleLongProcessor(MessageInputStream messageInputStream) throws XmlPduException {
         this.tagKey = 268;
-        ValueProcessor var3;
-        (var3 = new ValueProcessor(4, 1)).process(var2);
-        this.a = var3.b();
+        ValueProcessor valueProcessor = new ValueProcessor(4, 1);
+        valueProcessor.process(messageInputStream);
+        this.a = valueProcessor.b();
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

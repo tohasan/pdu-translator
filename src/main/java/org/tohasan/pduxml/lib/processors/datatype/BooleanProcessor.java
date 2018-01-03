@@ -29,11 +29,11 @@ public final class BooleanProcessor extends MessageByteProcessor {
         var2.process(messageOutputStream);
     }
 
-    public BooleanProcessor(int var1, MessageInputStream var2) throws XmlPduException {
-        this.tagKey = var1;
-        ValueProcessor var3;
-        (var3 = new ValueProcessor(1, 0)).process(var2);
-        this.a = var3.process();
+    public BooleanProcessor(int tagKey, MessageInputStream messageInputStream) throws XmlPduException {
+        this.tagKey = tagKey;
+        ValueProcessor valueProcessor= new ValueProcessor(1, 0);
+        valueProcessor.process(messageInputStream);
+        this.a = valueProcessor.process();
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

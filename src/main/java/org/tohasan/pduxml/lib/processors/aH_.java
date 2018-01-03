@@ -25,7 +25,7 @@ public final class aH_ extends MessageByteProcessor {
     public aH_(int var1, MessageInputStream var2) throws XmlPduException {
         this.tagKey = 290;
         this.a = new aV_(308, var2);
-        this.c = new ag(403, var2);
+        this.c = new ag(var2);
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

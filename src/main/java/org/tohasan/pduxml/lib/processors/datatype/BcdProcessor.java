@@ -9,7 +9,7 @@ import org.tohasan.pduxml.lib.utils.CommonUtils;
 public final class BcdProcessor extends MessageByteProcessor {
     private int a;
 
-    public BcdProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public BcdProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 221;
         var2.b(221);
         byte[] var4;
@@ -23,17 +23,17 @@ public final class BcdProcessor extends MessageByteProcessor {
         }
     }
 
+    public BcdProcessor(MessageInputStream messageInputStream) throws XmlPduException {
+        this.tagKey = 221;
+        ValueProcessor valueProcessor = new ValueProcessor(1, 1);
+        valueProcessor.process(messageInputStream);
+        this.a = valueProcessor.b();
+    }
+
     public final void a(MessageOutputStream messageOutputStream) {
         ValueProcessor var2;
         (var2 = new ValueProcessor(1, 1)).process(this.a);
         var2.process(messageOutputStream);
-    }
-
-    public BcdProcessor(int var1, MessageInputStream var2) throws XmlPduException {
-        this.tagKey = 221;
-        ValueProcessor var3;
-        (var3 = new ValueProcessor(1, 1)).process(var2);
-        this.a = var3.b();
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

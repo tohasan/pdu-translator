@@ -45,13 +45,13 @@ public final class SetResponseProcessor extends MessageByteProcessor {
                 this.c = new bR_(427, messageInputStream);
                 return;
             case 2:
-                this.c = new bO_(424, messageInputStream);
+                this.c = new bO_(messageInputStream);
                 return;
             case 3:
-                this.c = new bP_(425, messageInputStream);
+                this.c = new bP_(messageInputStream);
                 return;
             case 4:
-                this.c = new bQ_(426, messageInputStream);
+                this.c = new bQ_(messageInputStream);
                 return;
             case 5:
                 this.c = new bS_(428, messageInputStream);

@@ -29,11 +29,11 @@ public final class Long64Processor extends MessageByteProcessor {
         var2.process(messageOutputStream);
     }
 
-    public Long64Processor(int var1, MessageInputStream var2) throws XmlPduException {
+    public Long64Processor(MessageInputStream var2) throws XmlPduException {
         this.tagKey = 321;
-        ValueProcessor var3;
-        (var3 = new ValueProcessor(8, 1)).process(var2);
-        this.a = var3.c();
+        ValueProcessor valueProcessor = new ValueProcessor(8, 1);
+        valueProcessor.process(var2);
+        this.a = valueProcessor.c();
     }
 
     public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {

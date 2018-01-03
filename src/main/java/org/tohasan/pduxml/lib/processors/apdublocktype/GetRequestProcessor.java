@@ -41,7 +41,7 @@ public final class GetRequestProcessor extends MessageByteProcessor {
                 this.c = new aD_(286, messageInputStream);
                 return;
             case 2:
-                this.c = new aC_(285, messageInputStream);
+                this.c = new aC_(messageInputStream);
                 return;
             case 3:
                 this.c = new aE_(287, messageInputStream);
