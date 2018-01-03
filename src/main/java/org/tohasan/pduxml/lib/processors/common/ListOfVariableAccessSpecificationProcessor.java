@@ -1,14 +1,15 @@
 package org.tohasan.pduxml.lib.processors.common;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import org.tohasan.pduxml.lib.processors.MessageItemsProcessor;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public final class ListOfVariableAccessSpecificationProcessor extends MessageItemsProcessor {
-    public ListOfVariableAccessSpecificationProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public ListOfVariableAccessSpecificationProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 317;
         var2.b(317);
         int var1 = var2.e(381);

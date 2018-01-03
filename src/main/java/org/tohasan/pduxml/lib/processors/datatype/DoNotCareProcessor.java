@@ -1,10 +1,11 @@
 package org.tohasan.pduxml.lib.processors.datatype;
 
-import org.tohasan.pduxml.lib.io.MessageInputStream;
+import org.tohasan.pduxml.lib.utils.XmlParser;
+import org.tohasan.pduxml.lib.processors.common.DoNothingProcessor;
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
-public final class DoNotCareProcessor extends org.tohasan.pduxml.lib.infra.f {
-    public DoNotCareProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+public final class DoNotCareProcessor extends DoNothingProcessor {
+    public DoNotCareProcessor(XmlParser var2) throws XmlPduException {
         super(267, var2);
     }
 

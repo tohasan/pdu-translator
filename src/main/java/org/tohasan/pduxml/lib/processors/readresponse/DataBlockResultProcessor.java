@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.readresponse;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -14,7 +15,7 @@ public final class DataBlockResultProcessor extends MessageByteProcessor {
     private LongUnsignedProcessor c;
     private OctetStringProcessor d;
 
-    DataBlockResultProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    DataBlockResultProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 255;
         var2.c(255);
         this.a = new BooleanProcessor(314, var2);

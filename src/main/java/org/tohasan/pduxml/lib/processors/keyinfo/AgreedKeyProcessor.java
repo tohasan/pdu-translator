@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.keyinfo;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -11,7 +12,7 @@ public final class AgreedKeyProcessor extends MessageByteProcessor {
     private OctetStringProcessor a;
     private OctetStringProcessor c;
 
-    public AgreedKeyProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public AgreedKeyProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 204;
         var2.c(204);
         this.a = new OctetStringProcessor(313, var2);

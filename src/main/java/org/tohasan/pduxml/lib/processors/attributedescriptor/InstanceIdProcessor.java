@@ -1,10 +1,12 @@
 package org.tohasan.pduxml.lib.processors.attributedescriptor;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+import org.tohasan.pduxml.lib.utils.XmlParser;
+import org.tohasan.pduxml.lib.processors.common.MultiByteValueProcessor;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 
-public final class InstanceIdProcessor extends org.tohasan.pduxml.lib.infra.g {
-    public InstanceIdProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+public final class InstanceIdProcessor extends MultiByteValueProcessor {
+    public InstanceIdProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 305;
         this.a = 6;
         var2.b(305);

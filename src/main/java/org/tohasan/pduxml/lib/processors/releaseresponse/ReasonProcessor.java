@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.releaseresponse;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -9,7 +10,7 @@ import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 public final class ReasonProcessor extends MessageByteProcessor {
     private int a;
 
-    public ReasonProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public ReasonProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 388;
         var2.b(388);
         String var3;

@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.common;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -12,7 +13,7 @@ public final class VariableAccessSpecProcessor extends MessageByteProcessor {
     private int variableAccessSpecCode;
     private MessageByteProcessor processor;
 
-    public VariableAccessSpecProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public VariableAccessSpecProcessor(int var1, XmlParser var2) throws XmlPduException {
         this.tagKey = 297;
         if (var2.a(456)) {
             this.variableAccessSpecCode = 2;

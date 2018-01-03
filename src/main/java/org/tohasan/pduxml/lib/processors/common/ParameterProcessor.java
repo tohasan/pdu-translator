@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.common;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -12,7 +13,7 @@ public final class ParameterProcessor extends MessageByteProcessor {
     private int paramTypeCode;
     private MessageByteProcessor processor;
 
-    public ParameterProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public ParameterProcessor(int var1, XmlParser var2) throws XmlPduException {
         this.tagKey = var1;
         if (var1 != 297) {
             var2.c(var1);

@@ -1,12 +1,13 @@
 package org.tohasan.pduxml.lib.processors.common;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageProcessor;
 
 public final class UserInformationProcessor extends MessageProcessor {
-    public UserInformationProcessor(int tagKey, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public UserInformationProcessor(int tagKey, XmlParser var2) throws XmlPduException {
         super(tagKey, var2);
     }
 

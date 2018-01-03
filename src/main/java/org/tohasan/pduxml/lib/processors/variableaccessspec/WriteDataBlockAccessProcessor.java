@@ -1,6 +1,7 @@
 package org.tohasan.pduxml.lib.processors.variableaccessspec;
 
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.datatype.BooleanProcessor;
 import org.tohasan.pduxml.lib.processors.datatype.LongUnsignedProcessor;
@@ -12,7 +13,7 @@ public final class WriteDataBlockAccessProcessor extends MessageByteProcessor {
     private BooleanProcessor a;
     private LongUnsignedProcessor c;
 
-    public WriteDataBlockAccessProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public WriteDataBlockAccessProcessor(int var1, XmlParser var2) throws XmlPduException {
         this.tagKey = 461;
         var2.c(461);
         this.a = new BooleanProcessor(314, var2);

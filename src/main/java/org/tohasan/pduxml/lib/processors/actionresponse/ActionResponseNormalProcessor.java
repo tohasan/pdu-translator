@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.actionresponse;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -14,7 +15,7 @@ public final class ActionResponseNormalProcessor extends MessageByteProcessor {
     private ResultProcessor c;
     private ReturnParametersProcessor d;
 
-    public ActionResponseNormalProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public ActionResponseNormalProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 201;
         var2.c(201);
         this.a = new InvokeIdAndPriorityProcessor(var2);

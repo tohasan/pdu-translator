@@ -1,16 +1,18 @@
-package org.tohasan.pduxml.lib.infra;
+package org.tohasan.pduxml.lib.processors.common;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
-public class g extends MessageByteProcessor {
-    private byte[] c;
+public class MultiByteValueProcessor extends MessageByteProcessor {
     public int a;
+    private byte[] c;
 
-    public final void a(m var1) throws XmlPduException {
+    public final void a(XmlParser var1) throws XmlPduException {
         this.c = CommonUtils.hexStrToByteArray(var1.f(454));
         if (this.a != -1 && this.c.length != this.a) {
             throw new XmlPduException("OctetString: Illegal data size, expected " + String.valueOf(this.a) + " found " + this.c.length);
@@ -29,26 +31,25 @@ public class g extends MessageByteProcessor {
         for (int var3 = 0; var3 < var2; ++var3) {
             messageOutputStream.write(this.c[var3]);
         }
-
-    }
-
-    public final void a(MessageInputStream var1) throws XmlPduException {
-        int var3;
-        if (this.a == -1) {
-            var3 = CommonUtils.decodeVarLengthUnsignedInteger(var1);
-        } else {
-            var3 = this.a;
-        }
-
-        this.c = new byte[var3];
-
-        for (int var2 = 0; var2 < var3; ++var2) {
-            this.c[var2] = (byte) var1.readByte();
-        }
-
     }
 
     public final void a(XmlOutputBuilder var1) throws XmlPduException {
         var1.appendEmptyTag(this.tagKey, 454, CommonUtils.byteArraytoHexStr(this.c));
+    }
+
+    public final void a(MessageInputStream messageInputStream) throws XmlPduException {
+        int valueSize;
+
+        if (this.a == -1) {
+            valueSize = CommonUtils.decodeVarLengthUnsignedInteger(messageInputStream);
+        } else {
+            valueSize = this.a;
+        }
+
+        this.c = new byte[valueSize];
+
+        for (int var2 = 0; var2 < valueSize; ++var2) {
+            this.c[var2] = (byte) messageInputStream.readByte();
+        }
     }
 }

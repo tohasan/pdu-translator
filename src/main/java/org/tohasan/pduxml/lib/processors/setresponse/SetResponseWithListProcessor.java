@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.setresponse;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -11,7 +12,7 @@ public final class SetResponseWithListProcessor extends MessageByteProcessor {
     private InvokeIdAndPriorityProcessor a;
     private ResultProcessor c;
 
-    public SetResponseWithListProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public SetResponseWithListProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 428;
         var2.c(428);
         this.a = new InvokeIdAndPriorityProcessor(var2);

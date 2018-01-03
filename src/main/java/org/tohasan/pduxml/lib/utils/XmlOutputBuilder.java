@@ -1,4 +1,4 @@
-package org.tohasan.pduxml.lib.infra;
+package org.tohasan.pduxml.lib.utils;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 import org.tohasan.pduxml.lib.processors.TagMap;

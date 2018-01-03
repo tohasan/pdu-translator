@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import org.tohasan.pduxml.lib.processors.MessageItemsProcessor;
@@ -9,7 +10,7 @@ import org.tohasan.pduxml.lib.processors.readresponse.SingleReadResponseProcesso
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public final class ReadResponseProcessor extends MessageItemsProcessor {
-    public ReadResponseProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public ReadResponseProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 386;
         var2.b(386);
         int var1 = var2.e(381);

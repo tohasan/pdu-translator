@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.generalblocktransfer;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -11,7 +12,7 @@ import org.tohasan.pduxml.lib.utils.CommonUtils;
 public final class BlockControlProcessor extends MessageByteProcessor {
     private int a;
 
-    public BlockControlProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public BlockControlProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 223;
         var2.b(223);
         byte[] var4;

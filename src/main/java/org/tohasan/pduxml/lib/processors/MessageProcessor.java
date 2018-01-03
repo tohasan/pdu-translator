@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.apdublocktype.*;
@@ -13,7 +14,7 @@ public class MessageProcessor extends MessageByteProcessor {
     private int apduBlockTypeCode;
     private MessageByteProcessor processor;
 
-    public MessageProcessor(int tagKey, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public MessageProcessor(int tagKey, XmlParser var2) throws XmlPduException {
         this.tagKey = tagKey;
 
         if (tagKey != 297) {

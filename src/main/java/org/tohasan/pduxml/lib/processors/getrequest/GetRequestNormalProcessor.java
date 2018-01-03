@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.getrequest;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -14,7 +15,7 @@ public final class GetRequestNormalProcessor extends MessageByteProcessor {
     private AttributeDescriptorProcessor c;
     private AccessSelectionProcessor d;
 
-    public GetRequestNormalProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public GetRequestNormalProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 286;
         var2.c(286);
         this.a = new InvokeIdAndPriorityProcessor(var2);

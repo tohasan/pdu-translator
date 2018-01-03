@@ -1,10 +1,9 @@
-package org.tohasan.pduxml.lib.infra;
+package org.tohasan.pduxml.lib.utils;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 import org.tohasan.pduxml.lib.processors.TagMap;
-import org.tohasan.pduxml.lib.utils.CommonUtils;
 
-public final class m {
+public final class XmlParser {
     private static char b = 32;
     private static char c = 9;
     private static char d = 13;
@@ -19,7 +18,7 @@ public final class m {
     private int m;
     public int a;
 
-    public m(StringBuffer var1) throws XmlPduException {
+    public XmlParser(StringBuffer var1) throws XmlPduException {
         this.g = var1;
         var1.append("\u0000");
         this.h = 0;
@@ -36,7 +35,6 @@ public final class m {
         while (a(this.g.charAt(this.h))) {
             var1.append(this.g.charAt(this.h++));
         }
-
     }
 
     private static boolean a(char var0) {
@@ -106,7 +104,7 @@ public final class m {
                     if (var1 != e) {
                         if (var1 == 60) {
                             ++this.h;
-                            m var6 = this;
+                            XmlParser var6 = this;
                             this.a = 0;
 
                             while (true) {

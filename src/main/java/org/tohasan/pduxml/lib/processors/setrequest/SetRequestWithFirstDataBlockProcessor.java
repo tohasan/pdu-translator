@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.setrequest;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -16,7 +17,7 @@ public final class SetRequestWithFirstDataBlockProcessor extends MessageByteProc
     private AccessSelectionProcessor d;
     private DataBlockProcessor e;
 
-    public SetRequestWithFirstDataBlockProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public SetRequestWithFirstDataBlockProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 420;
         var2.c(420);
         this.a = new InvokeIdAndPriorityProcessor(var2);

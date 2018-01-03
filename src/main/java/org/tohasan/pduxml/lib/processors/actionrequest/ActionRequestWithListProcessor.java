@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.actionrequest;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -14,7 +15,7 @@ public final class ActionRequestWithListProcessor extends MessageByteProcessor {
     private MethodDescriptorListProcessor c;
     private ListOfDataProcessor d;
 
-    public ActionRequestWithListProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public ActionRequestWithListProcessor(int var1, XmlParser var2) throws XmlPduException {
         this.tagKey = 196;
         var2.c(196);
         this.a = new InvokeIdAndPriorityProcessor(var2);

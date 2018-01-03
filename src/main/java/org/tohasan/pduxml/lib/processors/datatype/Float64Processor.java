@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.datatype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -11,7 +12,7 @@ import org.tohasan.pduxml.lib.utils.CommonUtils;
 public final class Float64Processor extends MessageByteProcessor {
     private double a;
 
-    public Float64Processor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public Float64Processor(XmlParser var2) throws XmlPduException {
         this.tagKey = 275;
         var2.b(275);
         byte[] var4;

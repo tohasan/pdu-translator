@@ -1,6 +1,8 @@
-package org.tohasan.pduxml.lib.infra;
+package org.tohasan.pduxml.lib.processors.association;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -8,7 +10,7 @@ import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import java.util.Enumeration;
 import java.util.Hashtable;
 
-public class b extends MessageByteProcessor {
+public class NameProcessor extends MessageByteProcessor {
     private static Hashtable<String, Integer> a = new Hashtable<String, Integer>() {
         {
             this.put("LN", 0);
@@ -45,7 +47,7 @@ public class b extends MessageByteProcessor {
         }
     }
 
-    public final void a(m var1) throws XmlPduException {
+    public final void a(XmlParser var1) throws XmlPduException {
         String var4 = var1.f(454).toString();
 
         try {

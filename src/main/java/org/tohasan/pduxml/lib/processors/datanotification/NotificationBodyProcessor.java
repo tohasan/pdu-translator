@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.datanotification;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -10,7 +11,7 @@ import org.tohasan.pduxml.lib.processors.common.ParameterProcessor;
 public final class NotificationBodyProcessor extends MessageByteProcessor {
     private ParameterProcessor a;
 
-    public NotificationBodyProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public NotificationBodyProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 351;
         var2.c(351);
         this.a = new ParameterProcessor(259, var2);

@@ -1,14 +1,15 @@
 package org.tohasan.pduxml.lib.processors.setresponse;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import org.tohasan.pduxml.lib.processors.MessageItemsProcessor;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public final class ResultProcessor extends MessageItemsProcessor {
-    ResultProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    ResultProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 403;
         var2.b(403);
         int var1 = var2.e(381);

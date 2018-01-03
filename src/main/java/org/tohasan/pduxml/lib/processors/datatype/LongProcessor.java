@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.datatype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -11,7 +12,7 @@ import org.tohasan.pduxml.lib.utils.CommonUtils;
 public final class LongProcessor extends MessageByteProcessor {
     private int a;
 
-    public LongProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public LongProcessor(int var1, XmlParser var2) throws XmlPduException {
         this.tagKey = 320;
         var2.b(320);
         byte[] var4;

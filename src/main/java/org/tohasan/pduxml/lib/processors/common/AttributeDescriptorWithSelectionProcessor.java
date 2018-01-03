@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.common;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -11,7 +12,7 @@ public final class AttributeDescriptorWithSelectionProcessor extends MessageByte
     private AttributeDescriptorProcessor a;
     private AccessSelectionProcessor c;
 
-    AttributeDescriptorWithSelectionProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    AttributeDescriptorWithSelectionProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 42;
         var2.c(42);
         this.a = new AttributeDescriptorProcessor(var2);

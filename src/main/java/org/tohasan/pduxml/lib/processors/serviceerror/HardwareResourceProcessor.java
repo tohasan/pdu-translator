@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.serviceerror;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -9,7 +10,7 @@ import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 public final class HardwareResourceProcessor extends MessageByteProcessor {
     private int a;
 
-    public HardwareResourceProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public HardwareResourceProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 295;
         var2.b(295);
         String var3;

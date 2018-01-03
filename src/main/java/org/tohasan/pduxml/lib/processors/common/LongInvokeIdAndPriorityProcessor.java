@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.common;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -10,7 +11,7 @@ import org.tohasan.pduxml.lib.utils.CommonUtils;
 public final class LongInvokeIdAndPriorityProcessor extends MessageByteProcessor {
     private int a;
 
-    public LongInvokeIdAndPriorityProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public LongInvokeIdAndPriorityProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 325;
         var2.b(325);
         byte[] var4;

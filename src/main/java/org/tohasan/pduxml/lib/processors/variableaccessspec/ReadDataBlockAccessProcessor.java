@@ -1,6 +1,7 @@
 package org.tohasan.pduxml.lib.processors.variableaccessspec;
 
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.datatype.BooleanProcessor;
 import org.tohasan.pduxml.lib.processors.datatype.LongUnsignedProcessor;
@@ -14,7 +15,7 @@ public final class ReadDataBlockAccessProcessor extends MessageByteProcessor {
     private LongUnsignedProcessor c;
     private OctetStringProcessor d;
 
-    public ReadDataBlockAccessProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public ReadDataBlockAccessProcessor(int var1, XmlParser var2) throws XmlPduException {
         this.tagKey = 384;
         var2.c(384);
         this.a = new BooleanProcessor(314, var2);

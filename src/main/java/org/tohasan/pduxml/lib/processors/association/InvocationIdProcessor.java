@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.association;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -11,7 +12,7 @@ import org.tohasan.pduxml.lib.utils.CommonUtils;
 public final class InvocationIdProcessor extends MessageByteProcessor {
     private int a;
 
-    public InvocationIdProcessor(int tagKey, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public InvocationIdProcessor(int tagKey, XmlParser var2) throws XmlPduException {
         this.tagKey = tagKey;
         var2.b(tagKey);
         byte[] var4;

@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.accessrequestspecification;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -12,7 +13,7 @@ public final class AccessSelectionProcessor extends MessageByteProcessor {
     private SelectorProcessor a;
     private ParameterProcessor c;
 
-    public AccessSelectionProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public AccessSelectionProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 189;
         var2.c(189);
         this.a = new SelectorProcessor(190, var2);

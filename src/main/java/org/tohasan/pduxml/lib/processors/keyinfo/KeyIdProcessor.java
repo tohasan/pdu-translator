@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.keyinfo;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -9,7 +10,7 @@ import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 public final class KeyIdProcessor extends MessageByteProcessor {
     private int a;
 
-    KeyIdProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    KeyIdProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 311;
         var2.b(311);
         String var3;

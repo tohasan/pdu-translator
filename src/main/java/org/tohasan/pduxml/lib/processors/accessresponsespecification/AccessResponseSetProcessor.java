@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.accessresponsespecification;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -10,7 +11,7 @@ import org.tohasan.pduxml.lib.processors.common.ResultProcessor;
 public final class AccessResponseSetProcessor extends MessageByteProcessor {
     private ResultProcessor a;
 
-    public AccessResponseSetProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public AccessResponseSetProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 187;
         var2.c(187);
         this.a = new ResultProcessor(403, var2);

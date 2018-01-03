@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.actionresponse;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -12,7 +13,7 @@ public final class SingleActionResponseProcessor extends MessageByteProcessor {
     private ResultProcessor a;
     private ReturnParametersProcessor c;
 
-    SingleActionResponseProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    SingleActionResponseProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 149;
         var2.c(149);
         this.a = new ResultProcessor(var2);

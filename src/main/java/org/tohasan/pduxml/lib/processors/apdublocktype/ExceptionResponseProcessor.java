@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -12,7 +13,7 @@ public final class ExceptionResponseProcessor extends MessageByteProcessor {
     private StateErrorProcessor a;
     private ServiceErrorProcessor c;
 
-    public ExceptionResponseProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public ExceptionResponseProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 273;
         var2.c(273);
         this.a = new StateErrorProcessor(var2);

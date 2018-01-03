@@ -1,16 +1,18 @@
 package org.tohasan.pduxml.lib.processors.initiate;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
+import org.tohasan.pduxml.lib.processors.association.AssociationParameterProcessor;
 
 import java.util.BitSet;
 
-public final class ConformanceProcessor extends org.tohasan.pduxml.lib.infra.a {
+public final class ConformanceProcessor extends AssociationParameterProcessor {
     private int c;
 
-    public ConformanceProcessor(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public ConformanceProcessor(int var1, XmlParser var2) throws XmlPduException {
         this.tagKey = var1;
         this.c = 247;
         BitSet var5 = new BitSet(24);
@@ -85,7 +87,7 @@ public final class ConformanceProcessor extends org.tohasan.pduxml.lib.infra.a {
                 var5.set(var7);
                 var2.a();
             } else {
-                org.tohasan.pduxml.lib.infra.m.g(var4);
+                XmlParser.g(var4);
             }
         }
 

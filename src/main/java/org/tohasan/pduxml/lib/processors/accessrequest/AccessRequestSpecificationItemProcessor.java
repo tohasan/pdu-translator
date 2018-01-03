@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.accessrequest;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlOutputBuilder;
+import org.tohasan.pduxml.lib.utils.XmlParser;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
@@ -11,7 +12,7 @@ public final class AccessRequestSpecificationItemProcessor extends MessageBytePr
     private int a;
     private MessageByteProcessor c;
 
-    AccessRequestSpecificationItemProcessor(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    AccessRequestSpecificationItemProcessor(XmlParser var2) throws XmlPduException {
         this.tagKey = 14;
         var2.c(14);
 
