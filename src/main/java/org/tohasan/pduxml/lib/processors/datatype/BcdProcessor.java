@@ -4,6 +4,8 @@ import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 import org.tohasan.pduxml.lib.infra.*;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
+import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
+import org.tohasan.pduxml.lib.processors.ValueProcessor;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public final class BcdProcessor extends MessageByteProcessor {
@@ -36,9 +38,9 @@ public final class BcdProcessor extends MessageByteProcessor {
         var2.process(messageOutputStream);
     }
 
-    public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
+    public final void a(XmlOutputBuilder var1) throws XmlPduException {
         ValueProcessor var2;
         (var2 = new ValueProcessor(1, 1)).process(this.a);
-        var1.a(this.tagKey, 454, var2.f(), 1);
+        var1.appendEmptyTag(this.tagKey, 454, var2.f());
     }
 }

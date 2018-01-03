@@ -1,6 +1,7 @@
-package org.tohasan.pduxml.lib.infra;
+package org.tohasan.pduxml.lib.processors;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
@@ -16,15 +17,15 @@ public abstract class MessageItemsProcessor extends MessageByteProcessor {
         }
     }
 
-    public final void a(n var1, int var2) throws XmlPduException {
+    public final void a(XmlOutputBuilder var1, int var2) throws XmlPduException {
         int numberOfItems = this.items.length;
 
         if (NUMBER_OF_ITEMS_LIMIT < numberOfItems) {
             numberOfItems = NUMBER_OF_ITEMS_LIMIT;
         }
 
-        var1.a(this.tagKey, 381, CommonUtils.intToHex(numberOfItems), 0);
-        var1.a();
+        var1.appendTagWithQuantity(this.tagKey, numberOfItems);
+        var1.appendWithNewLine();
 
         for (int i = 0; i < numberOfItems; i++) {
             MessageByteProcessor processor = this.items[i];

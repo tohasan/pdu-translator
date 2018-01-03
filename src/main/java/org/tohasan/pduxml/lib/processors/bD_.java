@@ -1,7 +1,7 @@
 package org.tohasan.pduxml.lib.processors;
 
+import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
@@ -62,22 +62,22 @@ public final class bD_ extends MessageByteProcessor {
             case 161:
                 var2.readByte();
                 var2.readByte(2);
-                this.c = new d(170, var2);
+                this.c = new d(var2);
                 return;
             case 162:
                 var2.readByte();
                 var2.readByte(2);
-                this.c = new c(169, var2);
+                this.c = new c(var2);
                 return;
             default:
                 throw new XmlPduException("_ResultSourceDiagnostic: Unexpected tag1 -".concat(Integer.toString(this.a)));
         }
     }
 
-    public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
+    public final void a(XmlOutputBuilder var1) throws XmlPduException {
         if (this.tagKey != 297) {
-            var1.a(this.tagKey);
-            var1.a();
+            var1.appendTag(this.tagKey);
+            var1.appendWithNewLine();
             this.c.a(var1);
             var1.b();
             var1.b(this.tagKey);

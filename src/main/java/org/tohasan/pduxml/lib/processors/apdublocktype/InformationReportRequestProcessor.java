@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
+import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
+import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.bc;
@@ -20,7 +21,7 @@ public final class InformationReportRequestProcessor extends MessageByteProcesso
             this.a = new OctetStringProcessor(249, var2);
         }
 
-        this.c = new bh(317, var2);
+        this.c = new bh(var2);
         this.d = new bc(315, var2);
         var2.d(301);
     }
@@ -31,7 +32,7 @@ public final class InformationReportRequestProcessor extends MessageByteProcesso
             this.a = new OctetStringProcessor(249, messageInputStream);
         }
 
-        this.c = new bh(317, messageInputStream);
+        this.c = new bh(messageInputStream);
         this.d = new bc(315, messageInputStream);
     }
 
@@ -47,9 +48,9 @@ public final class InformationReportRequestProcessor extends MessageByteProcesso
         this.d.a(messageOutputStream);
     }
 
-    public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
-        var1.a(this.tagKey);
-        var1.a();
+    public final void a(XmlOutputBuilder var1) throws XmlPduException {
+        var1.appendTag(this.tagKey);
+        var1.appendWithNewLine();
         if (this.a != null) {
             this.a.a(var1);
         }

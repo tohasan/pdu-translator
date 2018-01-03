@@ -1,7 +1,8 @@
 package org.tohasan.pduxml.lib.processors.apdublocktype;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
+import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
+import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.ab;
@@ -57,9 +58,9 @@ public final class InitiateResponseProcessor extends MessageByteProcessor {
         this.f = new VariableNameProcessor(453, messageInputStream);
     }
 
-    public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
-        var1.a(this.tagKey);
-        var1.a();
+    public final void a(XmlOutputBuilder var1) throws XmlPduException {
+        var1.appendTag(this.tagKey);
+        var1.appendWithNewLine();
         if (this.a != null) {
             this.a.a(var1);
         }

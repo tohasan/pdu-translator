@@ -30,8 +30,9 @@ public final class O_ extends MessageByteProcessor {
         var2.process(messageOutputStream);
     }
 
-    public O_(int var1, MessageInputStream var2) throws XmlPduException {
+    public O_(MessageInputStream var2) throws XmlPduException {
         this.tagKey = 213;
+        int var1;
         if ((var1 = var2.readByte()) != 1) {
             throw new XmlPduException("_AssociationResult: Illegal data size, expected " + "1" + " ,found " + var1);
         } else {
@@ -41,9 +42,9 @@ public final class O_ extends MessageByteProcessor {
         }
     }
 
-    public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
+    public final void a(XmlOutputBuilder var1) throws XmlPduException {
         ValueProcessor var2;
         (var2 = new ValueProcessor(1, 2)).process(this.a);
-        var1.a(this.tagKey, 454, var2.f(), 1);
+        var1.appendEmptyTag(this.tagKey, 454, var2.f());
     }
 }

@@ -36,9 +36,9 @@ public final class bq extends MessageByteProcessor {
         this.a = var3.b();
     }
 
-    public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
+    public final void a(XmlOutputBuilder var1) throws XmlPduException {
         ValueProcessor var2;
         (var2 = new ValueProcessor(1, 1)).process(this.a);
-        var1.a(this.tagKey, 454, var2.f(), 1);
+        var1.appendEmptyTag(this.tagKey, 454, var2.f());
     }
 }

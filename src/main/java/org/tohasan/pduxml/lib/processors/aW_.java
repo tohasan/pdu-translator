@@ -1,7 +1,7 @@
 package org.tohasan.pduxml.lib.processors;
 
+import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
@@ -29,12 +29,12 @@ public final class aW_ extends MessageByteProcessor {
         this.a = var2.readByte();
     }
 
-    public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
+    public final void a(XmlOutputBuilder var1) throws XmlPduException {
         StringBuffer var2 = new StringBuffer();
         switch (this.a) {
             case 0:
                 var2.append("MasterKey");
-                var1.a(this.tagKey, 454, var2, 1);
+                var1.appendEmptyTag(this.tagKey, 454, var2);
                 return;
             default:
                 throw new XmlPduException("_KekId: case range");

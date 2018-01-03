@@ -1,7 +1,7 @@
 package org.tohasan.pduxml.lib.processors;
 
+import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
@@ -14,7 +14,7 @@ public final class bL_ extends MessageByteProcessor {
         this.tagKey = 421;
         var2.c(421);
         this.a = new aV_(308, var2);
-        this.c = new bb(218, var2);
+        this.c = new bb(var2);
         this.d = new bc(455, var2);
         var2.d(421);
     }
@@ -28,13 +28,13 @@ public final class bL_ extends MessageByteProcessor {
     public bL_(int var1, MessageInputStream var2) throws XmlPduException {
         this.tagKey = 421;
         this.a = new aV_(308, var2);
-        this.c = new bb(218, var2);
+        this.c = new bb(var2);
         this.d = new bc(455, var2);
     }
 
-    public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
-        var1.a(this.tagKey);
-        var1.a();
+    public final void a(XmlOutputBuilder var1) throws XmlPduException {
+        var1.appendTag(this.tagKey);
+        var1.appendWithNewLine();
         this.a.a(var1);
         this.c.a(var1);
         this.d.a(var1);

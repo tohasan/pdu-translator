@@ -1,7 +1,7 @@
 package org.tohasan.pduxml.lib.processors;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
+import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.apdublocktype.*;
@@ -430,10 +430,10 @@ public class MessageProcessor extends MessageByteProcessor {
         this.processor.a(messageOutputStream);
     }
 
-    public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
+    public final void a(XmlOutputBuilder var1) throws XmlPduException {
         if (this.tagKey != 297) {
-            var1.a(this.tagKey);
-            var1.a();
+            var1.appendTag(this.tagKey);
+            var1.appendWithNewLine();
             this.processor.a(var1);
             var1.b();
             var1.b(this.tagKey);

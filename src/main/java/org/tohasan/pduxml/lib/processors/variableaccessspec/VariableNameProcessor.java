@@ -4,6 +4,8 @@ import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 import org.tohasan.pduxml.lib.infra.*;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
+import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
+import org.tohasan.pduxml.lib.processors.ValueProcessor;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public final class VariableNameProcessor extends MessageByteProcessor {
@@ -23,12 +25,6 @@ public final class VariableNameProcessor extends MessageByteProcessor {
         }
     }
 
-    public final void a(MessageOutputStream messageOutputStream) {
-        ValueProcessor var2;
-        (var2 = new ValueProcessor(2, 1)).process(this.a);
-        var2.process(messageOutputStream);
-    }
-
     public VariableNameProcessor(int tagKey, MessageInputStream messageStream) throws XmlPduException {
         this.tagKey = tagKey;
         ValueProcessor valueProcessor = new ValueProcessor(2, 1);
@@ -36,9 +32,15 @@ public final class VariableNameProcessor extends MessageByteProcessor {
         this.a = valueProcessor.b();
     }
 
-    public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
-        ValueProcessor var2;
-        (var2 = new ValueProcessor(2, 1)).process(this.a);
-        var1.a(this.tagKey, 454, var2.f(), 1);
+    public final void a(MessageOutputStream messageOutputStream) {
+        ValueProcessor valueProcessor = new ValueProcessor(2, 1);
+        valueProcessor.process(this.a);
+        valueProcessor.process(messageOutputStream);
+    }
+
+    public final void a(XmlOutputBuilder var1) throws XmlPduException {
+        ValueProcessor valueProcessor = new ValueProcessor(2, 1);
+        valueProcessor.process(this.a);
+        var1.appendEmptyTag(this.tagKey, 454, valueProcessor.f());
     }
 }

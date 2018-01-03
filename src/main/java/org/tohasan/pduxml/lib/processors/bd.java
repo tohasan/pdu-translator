@@ -1,16 +1,15 @@
 package org.tohasan.pduxml.lib.processors;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
-import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
-import org.tohasan.pduxml.lib.infra.MessageItemsProcessor;
+import org.tohasan.pduxml.lib.infra.*;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public final class bd extends MessageItemsProcessor {
-    public bd(int var1, org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
+    public bd(org.tohasan.pduxml.lib.infra.m var2) throws XmlPduException {
         this.tagKey = 403;
         var2.b(403);
-        var1 = var2.e(381);
+        int var1 = var2.e(381);
         this.items = new MessageByteProcessor[var1];
         var1 = 0;
         var2.a();
@@ -22,18 +21,18 @@ public final class bd extends MessageItemsProcessor {
         var2.d(403);
     }
 
-    public bd(int var1, MessageInputStream var2) throws XmlPduException {
+    public bd(MessageInputStream messageInputStream) throws XmlPduException {
         this.tagKey = 403;
-        var1 = CommonUtils.decodeVarLengthUnsignedInteger(var2);
+        int var1 = CommonUtils.decodeVarLengthUnsignedInteger(messageInputStream);
         this.items = new MessageByteProcessor[var1];
 
         for (int var3 = 0; var3 < var1; ++var3) {
-            this.items[var3] = new ad(55, var2);
+            this.items[var3] = new ad(55, messageInputStream);
         }
 
     }
 
-    public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
+    public final void a(XmlOutputBuilder var1) throws XmlPduException {
         this.a(var1, 0);
     }
 }

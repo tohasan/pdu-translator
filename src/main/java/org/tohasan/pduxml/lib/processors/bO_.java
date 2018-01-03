@@ -1,9 +1,9 @@
 package org.tohasan.pduxml.lib.processors;
 
+import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.datatype.DoubleLongUnsignedProcessor;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
-import org.tohasan.pduxml.lib.infra.MessageByteProcessor;
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 
 public final class bO_ extends MessageByteProcessor {
@@ -29,9 +29,9 @@ public final class bO_ extends MessageByteProcessor {
         this.c = new DoubleLongUnsignedProcessor(225, messageInputStream);
     }
 
-    public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
-        var1.a(this.tagKey);
-        var1.a();
+    public final void a(XmlOutputBuilder var1) throws XmlPduException {
+        var1.appendTag(this.tagKey);
+        var1.appendWithNewLine();
         this.a.a(var1);
         this.c.a(var1);
         var1.b();

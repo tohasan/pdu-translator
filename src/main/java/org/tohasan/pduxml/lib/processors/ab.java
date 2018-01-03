@@ -1,5 +1,6 @@
 package org.tohasan.pduxml.lib.processors;
 
+import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
@@ -120,7 +121,7 @@ public final class ab extends org.tohasan.pduxml.lib.infra.a {
         this.a(var2);
     }
 
-    public final void a(org.tohasan.pduxml.lib.infra.n var1) throws XmlPduException {
+    public final void a(XmlOutputBuilder var1) throws XmlPduException {
         // $FF: Couldn't be decompiled
     }
 }

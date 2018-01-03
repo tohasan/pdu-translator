@@ -101,17 +101,18 @@ public class CommonUtils {
         return var3;
     }
 
-    public static StringBuffer intToHex(int var0) {
-        StringBuffer var2 = new StringBuffer();
-        if (var0 >= 256) {
-            var2.append(toHexChar(var0 >>> 12 & 15));
-            var2.append(toHexChar(var0 >>> 8 & 15));
+    public static StringBuffer intToHex(int value) {
+        StringBuffer hexValue = new StringBuffer();
+
+        if (256 <= value) {
+            hexValue.append(toHexChar(value >>> 12 & 15));
+            hexValue.append(toHexChar(value >>> 8 & 15));
         }
 
-        var2.append(toHexChar(var0 >>> 4 & 15));
-        var2.append(toHexChar(var0 & 15));
+        hexValue.append(toHexChar(value >>> 4 & 15));
+        hexValue.append(toHexChar(value & 15));
 
-        return var2;
+        return hexValue;
     }
 
     private static char toHexChar(int var0) {

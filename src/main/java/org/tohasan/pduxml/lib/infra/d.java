@@ -3,6 +3,7 @@ package org.tohasan.pduxml.lib.infra;
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
+import org.tohasan.pduxml.lib.processors.MessageByteProcessor;
 import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public class d extends MessageByteProcessor {
@@ -75,7 +76,7 @@ public class d extends MessageByteProcessor {
         this.a = var7.toString();
     }
 
-    public final void a(n var1) throws XmlPduException {
-        var1.a(this.tagKey, 454, new StringBuffer(this.a), 1);
+    public final void a(XmlOutputBuilder var1) throws XmlPduException {
+        var1.appendEmptyTag(this.tagKey, 454, new StringBuffer(this.a));
     }
 }

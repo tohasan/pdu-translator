@@ -1,8 +1,8 @@
 package org.tohasan.pduxml.lib;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
+import org.tohasan.pduxml.lib.infra.XmlOutputBuilder;
 import org.tohasan.pduxml.lib.infra.m;
-import org.tohasan.pduxml.lib.infra.n;
 import org.tohasan.pduxml.lib.io.MessageInputStream;
 import org.tohasan.pduxml.lib.io.MessageOutputStream;
 import org.tohasan.pduxml.lib.processors.MessageProcessor;
@@ -19,8 +19,8 @@ public final class XmlPduTranslator {
     public static StringBuffer pduToXml(byte[] message) throws XmlPduException {
         MessageInputStream inputStream = new MessageInputStream(message);
         MessageProcessor messageProcessor = new MessageProcessor(297, inputStream);
-        n var1 = new n();
+        XmlOutputBuilder var1 = new XmlOutputBuilder();
         messageProcessor.a(var1);
-        return var1.a;
+        return var1.buffer;
     }
 }
