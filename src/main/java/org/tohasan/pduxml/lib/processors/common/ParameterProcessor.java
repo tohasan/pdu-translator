@@ -195,20 +195,20 @@ public final class ParameterProcessor extends MessageByteProcessor {
         }
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
         messageOutputStream.write((byte) this.paramTypeCode);
-        this.processor.a(messageOutputStream);
+        this.processor.encode(messageOutputStream);
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
         if (this.tagKey != 297) {
-            var1.appendTag(this.tagKey);
-            var1.appendWithNewLine();
-            this.processor.a(var1);
-            var1.b();
-            var1.b(this.tagKey);
+            xmlOutputBuilder.appendTag(this.tagKey);
+            xmlOutputBuilder.addIndent();
+            this.processor.printTo(xmlOutputBuilder);
+            xmlOutputBuilder.removeIndent();
+            xmlOutputBuilder.appendClosingTag(this.tagKey);
         } else {
-            this.processor.a(var1);
+            this.processor.printTo(xmlOutputBuilder);
         }
     }
 }

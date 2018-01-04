@@ -17,10 +17,10 @@ public class DoNothingProcessor extends MessageByteProcessor {
         this.tagKey = tagKey;
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
-        var1.appendWithNewLine("<" + TagMap.getKeyByValue(this.tagKey) + " />");
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
+        xmlOutputBuilder.appendWithNewLine("<" + TagMap.getKeyByValue(this.tagKey) + " />");
     }
 }

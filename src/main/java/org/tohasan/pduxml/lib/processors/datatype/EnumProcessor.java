@@ -33,15 +33,15 @@ public final class EnumProcessor extends MessageByteProcessor {
         this.a = valueProcessor.b();
     }
 
-    public final void a(MessageOutputStream messageOutputStream) {
+    public final void encode(MessageOutputStream messageOutputStream) {
         ValueProcessor valueProcessor = new ValueProcessor(1, 2);
         valueProcessor.process(this.a);
         valueProcessor.process(messageOutputStream);
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
         ValueProcessor valueProcessor = new ValueProcessor(1, 2);
         valueProcessor.process(this.a);
-        var1.appendEmptyTag(this.tagKey, 454, valueProcessor.f());
+        xmlOutputBuilder.appendEmptyTag(this.tagKey, 454, valueProcessor.f());
     }
 }

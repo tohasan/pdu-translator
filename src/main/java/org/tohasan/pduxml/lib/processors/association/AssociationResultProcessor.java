@@ -27,7 +27,7 @@ public final class AssociationResultProcessor extends MessageByteProcessor {
         }
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
         ValueProcessor valueProcessor = new ValueProcessor(1, 2);
         valueProcessor.process(this.a);
         messageOutputStream.write(1);
@@ -47,9 +47,9 @@ public final class AssociationResultProcessor extends MessageByteProcessor {
         }
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
         ValueProcessor valueProcessor = new ValueProcessor(1, 2);
         valueProcessor.process(this.a);
-        var1.appendEmptyTag(this.tagKey, 454, valueProcessor.f());
+        xmlOutputBuilder.appendEmptyTag(this.tagKey, 454, valueProcessor.f());
     }
 }

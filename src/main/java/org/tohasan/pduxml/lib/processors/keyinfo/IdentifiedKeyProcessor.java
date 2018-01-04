@@ -17,8 +17,8 @@ public final class IdentifiedKeyProcessor extends MessageByteProcessor {
         var2.d(296);
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
-        this.a.a(messageOutputStream);
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
+        this.a.encode(messageOutputStream);
     }
 
     public IdentifiedKeyProcessor(MessageInputStream messageInputStream) throws XmlPduException {
@@ -26,11 +26,11 @@ public final class IdentifiedKeyProcessor extends MessageByteProcessor {
         this.a = new KeyIdProcessor(messageInputStream);
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
-        var1.appendTag(this.tagKey);
-        var1.appendWithNewLine();
-        this.a.a(var1);
-        var1.b();
-        var1.b(this.tagKey);
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
+        xmlOutputBuilder.appendTag(this.tagKey);
+        xmlOutputBuilder.addIndent();
+        this.a.printTo(xmlOutputBuilder);
+        xmlOutputBuilder.removeIndent();
+        xmlOutputBuilder.appendClosingTag(this.tagKey);
     }
 }

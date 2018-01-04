@@ -48,7 +48,7 @@ public final class BitStringProcessor extends MessageByteProcessor {
         this.a = var7.toString();
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
         int var3 = this.a.length();
         int var4 = 0;
         int var5 = 0;
@@ -78,7 +78,7 @@ public final class BitStringProcessor extends MessageByteProcessor {
 
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
-        var1.appendEmptyTag(this.tagKey, 454, new StringBuffer(this.a));
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
+        xmlOutputBuilder.appendEmptyTag(this.tagKey, 454, new StringBuffer(this.a));
     }
 }

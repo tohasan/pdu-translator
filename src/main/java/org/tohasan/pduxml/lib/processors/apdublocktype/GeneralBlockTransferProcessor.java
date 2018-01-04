@@ -34,21 +34,21 @@ public final class GeneralBlockTransferProcessor extends MessageByteProcessor {
         this.e = new OctetStringProcessor(224, messageInputStream);
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
-        this.a.a(messageOutputStream);
-        this.c.a(messageOutputStream);
-        this.d.a(messageOutputStream);
-        this.e.a(messageOutputStream);
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
+        this.a.encode(messageOutputStream);
+        this.c.encode(messageOutputStream);
+        this.d.encode(messageOutputStream);
+        this.e.encode(messageOutputStream);
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
-        var1.appendTag(this.tagKey);
-        var1.appendWithNewLine();
-        this.a.a(var1);
-        this.c.a(var1);
-        this.d.a(var1);
-        this.e.a(var1);
-        var1.b();
-        var1.b(this.tagKey);
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
+        xmlOutputBuilder.appendTag(this.tagKey);
+        xmlOutputBuilder.addIndent();
+        this.a.printTo(xmlOutputBuilder);
+        this.c.printTo(xmlOutputBuilder);
+        this.d.printTo(xmlOutputBuilder);
+        this.e.printTo(xmlOutputBuilder);
+        xmlOutputBuilder.removeIndent();
+        xmlOutputBuilder.appendClosingTag(this.tagKey);
     }
 }

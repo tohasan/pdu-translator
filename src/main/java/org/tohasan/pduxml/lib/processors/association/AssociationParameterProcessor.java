@@ -55,7 +55,7 @@ public class AssociationParameterProcessor extends MessageByteProcessor {
         this.a = result.toString();
     }
 
-    public void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+    public void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
         int var4 = 0;
         int var5 = 0;
         messageOutputStream.write(0);
@@ -88,7 +88,7 @@ public class AssociationParameterProcessor extends MessageByteProcessor {
         messageOutputStream.a(var3 + 1, 8 - var4);
     }
 
-    public void a(XmlOutputBuilder var1) throws XmlPduException {
-        var1.appendEmptyTag(this.tagKey, 454, new StringBuffer(this.a));
+    public void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
+        xmlOutputBuilder.appendEmptyTag(this.tagKey, 454, new StringBuffer(this.a));
     }
 }

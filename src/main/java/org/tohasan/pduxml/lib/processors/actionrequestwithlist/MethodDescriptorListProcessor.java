@@ -35,7 +35,7 @@ public final class MethodDescriptorListProcessor extends MessageItemsProcessor {
         }
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
-        this.a(var1, 0);
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
+        this.a(xmlOutputBuilder, 0);
     }
 }

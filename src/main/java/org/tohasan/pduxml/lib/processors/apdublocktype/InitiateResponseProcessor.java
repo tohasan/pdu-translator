@@ -33,18 +33,18 @@ public final class InitiateResponseProcessor extends MessageByteProcessor {
         var2.d(304);
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
         if (this.a != null) {
             messageOutputStream.write(1);
-            this.a.a(messageOutputStream);
+            this.a.encode(messageOutputStream);
         } else {
             messageOutputStream.write(0);
         }
 
-        this.c.a(messageOutputStream);
-        this.d.a(messageOutputStream);
-        this.e.a(messageOutputStream);
-        this.f.a(messageOutputStream);
+        this.c.encode(messageOutputStream);
+        this.d.encode(messageOutputStream);
+        this.e.encode(messageOutputStream);
+        this.f.encode(messageOutputStream);
     }
 
     public InitiateResponseProcessor(MessageInputStream messageInputStream) throws XmlPduException {
@@ -60,18 +60,18 @@ public final class InitiateResponseProcessor extends MessageByteProcessor {
         this.f = new VariableNameProcessor(453, messageInputStream);
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
-        var1.appendTag(this.tagKey);
-        var1.appendWithNewLine();
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
+        xmlOutputBuilder.appendTag(this.tagKey);
+        xmlOutputBuilder.addIndent();
         if (this.a != null) {
-            this.a.a(var1);
+            this.a.printTo(xmlOutputBuilder);
         }
 
-        this.c.a(var1);
-        this.d.a(var1);
-        this.e.a(var1);
-        this.f.a(var1);
-        var1.b();
-        var1.b(this.tagKey);
+        this.c.printTo(xmlOutputBuilder);
+        this.d.printTo(xmlOutputBuilder);
+        this.e.printTo(xmlOutputBuilder);
+        this.f.printTo(xmlOutputBuilder);
+        xmlOutputBuilder.removeIndent();
+        xmlOutputBuilder.appendClosingTag(this.tagKey);
     }
 }

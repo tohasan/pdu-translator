@@ -54,11 +54,11 @@ public final class ResultProcessor extends MessageByteProcessor {
         this.a = messageInputStream.readByte();
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
         messageOutputStream.write((byte) this.a);
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
         StringBuffer var2 = new StringBuffer();
         switch (this.a) {
             case 0:
@@ -104,6 +104,6 @@ public final class ResultProcessor extends MessageByteProcessor {
                 throw new XmlPduException("_ActionResult: case range");
         }
 
-        var1.appendEmptyTag(this.tagKey, 454, var2);
+        xmlOutputBuilder.appendEmptyTag(this.tagKey, 454, var2);
     }
 }

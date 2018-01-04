@@ -27,16 +27,16 @@ public final class EventNotificationRequestProcessor extends MessageByteProcesso
         var2.d(272);
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
         if (this.a != null) {
             messageOutputStream.write(1);
-            this.a.a(messageOutputStream);
+            this.a.encode(messageOutputStream);
         } else {
             messageOutputStream.write(0);
         }
 
-        this.c.a(messageOutputStream);
-        this.d.a(messageOutputStream);
+        this.c.encode(messageOutputStream);
+        this.d.encode(messageOutputStream);
     }
 
     public EventNotificationRequestProcessor(MessageInputStream messageInputStream) throws XmlPduException {
@@ -49,16 +49,16 @@ public final class EventNotificationRequestProcessor extends MessageByteProcesso
         this.d = new ParameterProcessor(220, messageInputStream);
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
-        var1.appendTag(this.tagKey);
-        var1.appendWithNewLine();
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
+        xmlOutputBuilder.appendTag(this.tagKey);
+        xmlOutputBuilder.addIndent();
         if (this.a != null) {
-            this.a.a(var1);
+            this.a.printTo(xmlOutputBuilder);
         }
 
-        this.c.a(var1);
-        this.d.a(var1);
-        var1.b();
-        var1.b(this.tagKey);
+        this.c.printTo(xmlOutputBuilder);
+        this.d.printTo(xmlOutputBuilder);
+        xmlOutputBuilder.removeIndent();
+        xmlOutputBuilder.appendClosingTag(this.tagKey);
     }
 }

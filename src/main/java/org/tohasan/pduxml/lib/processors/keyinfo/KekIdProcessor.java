@@ -27,17 +27,17 @@ public final class KekIdProcessor extends MessageByteProcessor {
         this.a = messageInputStream.readByte();
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
         messageOutputStream.write((byte) this.a);
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
         StringBuffer var2 = new StringBuffer();
 
         switch (this.a) {
             case 0:
                 var2.append("MasterKey");
-                var1.appendEmptyTag(this.tagKey, 454, var2);
+                xmlOutputBuilder.appendEmptyTag(this.tagKey, 454, var2);
                 return;
             default:
                 throw new XmlPduException("_KekId: case range");

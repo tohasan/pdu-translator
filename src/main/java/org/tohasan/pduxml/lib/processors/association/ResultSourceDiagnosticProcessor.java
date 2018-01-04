@@ -52,7 +52,7 @@ public final class ResultSourceDiagnosticProcessor extends MessageByteProcessor 
         }
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
         messageOutputStream.write(0);
         int var2 = messageOutputStream.size() - 1;
         messageOutputStream.write(this.a);
@@ -63,14 +63,14 @@ public final class ResultSourceDiagnosticProcessor extends MessageByteProcessor 
                 messageOutputStream.write(0);
                 var3 = messageOutputStream.size() - 1;
                 messageOutputStream.write(2);
-                this.c.a(messageOutputStream);
+                this.c.encode(messageOutputStream);
                 messageOutputStream.a(var3, (byte) (messageOutputStream.size() - var3 - 1));
                 break;
             case 162:
                 messageOutputStream.write(0);
                 var3 = messageOutputStream.size() - 1;
                 messageOutputStream.write(2);
-                this.c.a(messageOutputStream);
+                this.c.encode(messageOutputStream);
                 messageOutputStream.a(var3, (byte) (messageOutputStream.size() - var3 - 1));
                 break;
             default:
@@ -80,15 +80,15 @@ public final class ResultSourceDiagnosticProcessor extends MessageByteProcessor 
         messageOutputStream.a(var2, (byte) (messageOutputStream.size() - var2 - 1));
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
         if (this.tagKey != 297) {
-            var1.appendTag(this.tagKey);
-            var1.appendWithNewLine();
-            this.c.a(var1);
-            var1.b();
-            var1.b(this.tagKey);
+            xmlOutputBuilder.appendTag(this.tagKey);
+            xmlOutputBuilder.addIndent();
+            this.c.printTo(xmlOutputBuilder);
+            xmlOutputBuilder.removeIndent();
+            xmlOutputBuilder.appendClosingTag(this.tagKey);
         } else {
-            this.c.a(var1);
+            this.c.printTo(xmlOutputBuilder);
         }
     }
 }

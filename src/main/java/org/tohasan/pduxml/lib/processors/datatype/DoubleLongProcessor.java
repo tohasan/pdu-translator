@@ -26,7 +26,7 @@ public final class DoubleLongProcessor extends MessageByteProcessor {
         }
     }
 
-    public final void a(MessageOutputStream messageOutputStream) {
+    public final void encode(MessageOutputStream messageOutputStream) {
         ValueProcessor var2;
         (var2 = new ValueProcessor(4, 1)).process(this.a);
         var2.process(messageOutputStream);
@@ -39,9 +39,9 @@ public final class DoubleLongProcessor extends MessageByteProcessor {
         this.a = valueProcessor.b();
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
         ValueProcessor var2;
         (var2 = new ValueProcessor(4, 1)).process(this.a);
-        var1.appendEmptyTag(this.tagKey, 454, var2.f());
+        xmlOutputBuilder.appendEmptyTag(this.tagKey, 454, var2.f());
     }
 }

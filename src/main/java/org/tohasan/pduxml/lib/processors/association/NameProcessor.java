@@ -57,7 +57,7 @@ public class NameProcessor extends MessageByteProcessor {
         }
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
         messageOutputStream.write(7);
         messageOutputStream.write(96);
         messageOutputStream.write(133);
@@ -169,8 +169,8 @@ public class NameProcessor extends MessageByteProcessor {
         }
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
         StringBuffer var2 = new StringBuffer(a(this.c));
-        var1.appendEmptyTag(this.tagKey, 454, var2);
+        xmlOutputBuilder.appendEmptyTag(this.tagKey, 454, var2);
     }
 }

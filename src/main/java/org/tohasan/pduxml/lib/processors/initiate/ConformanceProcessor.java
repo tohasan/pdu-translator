@@ -117,13 +117,13 @@ public final class ConformanceProcessor extends AssociationParameterProcessor {
         this.a(messageInputStream);
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
         messageOutputStream.write(95);
         messageOutputStream.write(31);
-        super.a(messageOutputStream);
+        super.encode(messageOutputStream);
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
         // $FF: Couldn't be decompiled
     }
 }

@@ -9,11 +9,11 @@ public abstract class MessageItemsProcessor extends MessageByteProcessor {
     private final static int NUMBER_OF_ITEMS_LIMIT = 10;
     public MessageByteProcessor[] items;
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
         CommonUtils.encodeVarLengthUnsignedInteger(messageOutputStream, this.items.length);
 
         for (MessageByteProcessor requestItem : this.items) {
-            requestItem.a(messageOutputStream);
+            requestItem.encode(messageOutputStream);
         }
     }
 
@@ -25,7 +25,7 @@ public abstract class MessageItemsProcessor extends MessageByteProcessor {
         }
 
         var1.appendTagWithQuantity(this.tagKey, numberOfItems);
-        var1.appendWithNewLine();
+        var1.addIndent();
 
         for (int i = 0; i < numberOfItems; i++) {
             MessageByteProcessor processor = this.items[i];
@@ -34,10 +34,10 @@ public abstract class MessageItemsProcessor extends MessageByteProcessor {
                 processor.tagKey = 297;
             }
 
-            processor.a(var1);
+            processor.printTo(var1);
         }
 
-        var1.b();
-        var1.b(this.tagKey);
+        var1.removeIndent();
+        var1.appendClosingTag(this.tagKey);
     }
 }

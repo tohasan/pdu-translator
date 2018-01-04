@@ -33,15 +33,15 @@ public final class MethodIdProcessor extends MessageByteProcessor {
         this.a = var3.b();
     }
 
-    public final void a(MessageOutputStream messageOutputStream) {
+    public final void encode(MessageOutputStream messageOutputStream) {
         ValueProcessor valueProcessor = new ValueProcessor(1, 1);
         valueProcessor.process(this.a);
         valueProcessor.process(messageOutputStream);
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
         ValueProcessor var2;
         (var2 = new ValueProcessor(1, 1)).process(this.a);
-        var1.appendEmptyTag(this.tagKey, 454, var2.f());
+        xmlOutputBuilder.appendEmptyTag(this.tagKey, 454, var2.f());
     }
 }

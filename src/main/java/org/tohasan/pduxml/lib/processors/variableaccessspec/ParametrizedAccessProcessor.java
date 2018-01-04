@@ -30,19 +30,19 @@ public final class ParametrizedAccessProcessor extends MessageByteProcessor {
         this.parameterProcessor = new ParameterProcessor(367, messageByteStream);
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
-        this.variableNameProcessor.a(messageOutputStream);
-        this.selectorProcessor.a(messageOutputStream);
-        this.parameterProcessor.a(messageOutputStream);
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
+        this.variableNameProcessor.encode(messageOutputStream);
+        this.selectorProcessor.encode(messageOutputStream);
+        this.parameterProcessor.encode(messageOutputStream);
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
-        var1.appendTag(this.tagKey);
-        var1.appendWithNewLine();
-        this.variableNameProcessor.a(var1);
-        this.selectorProcessor.a(var1);
-        this.parameterProcessor.a(var1);
-        var1.b();
-        var1.b(this.tagKey);
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
+        xmlOutputBuilder.appendTag(this.tagKey);
+        xmlOutputBuilder.addIndent();
+        this.variableNameProcessor.printTo(xmlOutputBuilder);
+        this.selectorProcessor.printTo(xmlOutputBuilder);
+        this.parameterProcessor.printTo(xmlOutputBuilder);
+        xmlOutputBuilder.removeIndent();
+        xmlOutputBuilder.appendClosingTag(this.tagKey);
     }
 }

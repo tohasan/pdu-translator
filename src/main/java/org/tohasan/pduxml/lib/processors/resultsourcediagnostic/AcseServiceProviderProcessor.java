@@ -39,16 +39,16 @@ public final class AcseServiceProviderProcessor extends MessageByteProcessor {
         }
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
         ValueProcessor var2;
         (var2 = new ValueProcessor(1, 2)).process(this.a);
         messageOutputStream.write(1);
         var2.process(messageOutputStream);
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
         ValueProcessor var2;
         (var2 = new ValueProcessor(1, 2)).process(this.a);
-        var1.appendEmptyTag(this.tagKey, 454, var2.f());
+        xmlOutputBuilder.appendEmptyTag(this.tagKey, 454, var2.f());
     }
 }

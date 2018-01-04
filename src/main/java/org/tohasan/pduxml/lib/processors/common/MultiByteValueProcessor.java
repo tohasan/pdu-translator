@@ -19,7 +19,7 @@ public class MultiByteValueProcessor extends MessageByteProcessor {
         }
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
         int var2;
         if (this.a == -1) {
             CommonUtils.encodeVarLengthUnsignedInteger(messageOutputStream, this.c.length);
@@ -33,8 +33,8 @@ public class MultiByteValueProcessor extends MessageByteProcessor {
         }
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
-        var1.appendEmptyTag(this.tagKey, 454, CommonUtils.byteArraytoHexStr(this.c));
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
+        xmlOutputBuilder.appendEmptyTag(this.tagKey, 454, CommonUtils.byteArraytoHexStr(this.c));
     }
 
     public final void a(MessageInputStream messageInputStream) throws XmlPduException {

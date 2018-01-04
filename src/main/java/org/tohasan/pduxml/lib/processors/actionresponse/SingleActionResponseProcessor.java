@@ -34,25 +34,25 @@ public final class SingleActionResponseProcessor extends MessageByteProcessor {
         }
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
-        this.a.a(messageOutputStream);
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
+        this.a.encode(messageOutputStream);
         if (this.c != null) {
             messageOutputStream.write(1);
-            this.c.a(messageOutputStream);
+            this.c.encode(messageOutputStream);
         } else {
             messageOutputStream.write(0);
         }
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
-        var1.appendTag(this.tagKey);
-        var1.appendWithNewLine();
-        this.a.a(var1);
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
+        xmlOutputBuilder.appendTag(this.tagKey);
+        xmlOutputBuilder.addIndent();
+        this.a.printTo(xmlOutputBuilder);
         if (this.c != null) {
-            this.c.a(var1);
+            this.c.printTo(xmlOutputBuilder);
         }
 
-        var1.b();
-        var1.b(this.tagKey);
+        xmlOutputBuilder.removeIndent();
+        xmlOutputBuilder.appendClosingTag(this.tagKey);
     }
 }

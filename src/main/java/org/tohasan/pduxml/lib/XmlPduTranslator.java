@@ -12,15 +12,15 @@ public final class XmlPduTranslator {
         XmlParser var2 = new XmlParser(message);
         MessageProcessor var3 = new MessageProcessor(297, var2);
         MessageOutputStream var1 = new MessageOutputStream();
-        var3.a(var1);
+        var3.encode(var1);
         return var1.toByteArray();
     }
 
     public static StringBuffer pduToXml(byte[] message) throws XmlPduException {
         MessageInputStream inputStream = new MessageInputStream(message);
         MessageProcessor messageProcessor = new MessageProcessor(inputStream);
-        XmlOutputBuilder var1 = new XmlOutputBuilder();
-        messageProcessor.a(var1);
-        return var1.buffer;
+        XmlOutputBuilder xmlOutputBuilder = new XmlOutputBuilder();
+        messageProcessor.printTo(xmlOutputBuilder);
+        return xmlOutputBuilder.buffer;
     }
 }

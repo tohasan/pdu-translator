@@ -30,17 +30,17 @@ public final class SetRequestWithFirstDataBlockProcessor extends MessageByteProc
         var2.d(420);
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
-        this.a.a(messageOutputStream);
-        this.c.a(messageOutputStream);
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
+        this.a.encode(messageOutputStream);
+        this.c.encode(messageOutputStream);
         if (this.d != null) {
             messageOutputStream.write(1);
-            this.d.a(messageOutputStream);
+            this.d.encode(messageOutputStream);
         } else {
             messageOutputStream.write(0);
         }
 
-        this.e.a(messageOutputStream);
+        this.e.encode(messageOutputStream);
     }
 
     public SetRequestWithFirstDataBlockProcessor(MessageInputStream var2) throws XmlPduException {
@@ -55,17 +55,17 @@ public final class SetRequestWithFirstDataBlockProcessor extends MessageByteProc
         this.e = new DataBlockProcessor(253, var2);
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
-        var1.appendTag(this.tagKey);
-        var1.appendWithNewLine();
-        this.a.a(var1);
-        this.c.a(var1);
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
+        xmlOutputBuilder.appendTag(this.tagKey);
+        xmlOutputBuilder.addIndent();
+        this.a.printTo(xmlOutputBuilder);
+        this.c.printTo(xmlOutputBuilder);
         if (this.d != null) {
-            this.d.a(var1);
+            this.d.printTo(xmlOutputBuilder);
         }
 
-        this.e.a(var1);
-        var1.b();
-        var1.b(this.tagKey);
+        this.e.printTo(xmlOutputBuilder);
+        xmlOutputBuilder.removeIndent();
+        xmlOutputBuilder.appendClosingTag(this.tagKey);
     }
 }

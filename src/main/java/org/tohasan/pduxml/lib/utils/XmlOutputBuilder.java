@@ -2,19 +2,18 @@ package org.tohasan.pduxml.lib.utils;
 
 import org.tohasan.pduxml.lib.exceptions.XmlPduException;
 import org.tohasan.pduxml.lib.processors.TagMap;
-import org.tohasan.pduxml.lib.utils.CommonUtils;
 
 public final class XmlOutputBuilder {
     public StringBuffer buffer = new StringBuffer();
-    private int b = 0;
-    private boolean c = true;
+    private int indentCount = 0;
+    private boolean isNeedIndent = true;
 
-    public final void appendWithNewLine() {
-        this.b++;
+    public final void addIndent() {
+        this.indentCount++;
     }
 
-    public final void b() {
-        this.b--;
+    public final void removeIndent() {
+        this.indentCount--;
     }
 
     public final void appendTag(int var1) throws XmlPduException {
@@ -22,23 +21,23 @@ public final class XmlOutputBuilder {
     }
 
     public final void appendWithNewLine(String var1) {
-        this.b(var1 + "\r\n");
-        this.c = true;
+        this.appendWithIndent(var1 + "\r\n");
+        this.isNeedIndent = true;
     }
 
-    private void b(String var1) {
-        if (this.c) {
-            for (int var2 = 1; var2 <= this.b; ++var2) {
+    private void appendWithIndent(String str) {
+        if (this.isNeedIndent) {
+            for (int i = 1; i <= this.indentCount; i++) {
                 this.buffer.append("  ");
             }
         }
 
-        this.buffer.append(var1);
-        this.c = false;
+        this.buffer.append(str);
+        this.isNeedIndent = false;
     }
 
-    public final void b(int var1) throws XmlPduException {
-        this.appendWithNewLine("</" + TagMap.getKeyByValue(var1) + ">");
+    public final void appendClosingTag(int tagKey) throws XmlPduException {
+        this.appendWithNewLine("</" + TagMap.getKeyByValue(tagKey) + ">");
     }
 
     private void appendTag(int tagKey, int attrKey, StringBuffer attrValue, boolean emptyTag) throws XmlPduException {

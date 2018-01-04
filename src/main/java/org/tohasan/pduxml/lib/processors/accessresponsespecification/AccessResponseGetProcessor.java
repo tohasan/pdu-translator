@@ -23,15 +23,15 @@ public final class AccessResponseGetProcessor extends MessageByteProcessor {
         this.a = new ResultProcessor(403, messageInputStream);
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
-        this.a.a(messageOutputStream);
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
+        this.a.encode(messageOutputStream);
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
-        var1.appendTag(this.tagKey);
-        var1.appendWithNewLine();
-        this.a.a(var1);
-        var1.b();
-        var1.b(this.tagKey);
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
+        xmlOutputBuilder.appendTag(this.tagKey);
+        xmlOutputBuilder.addIndent();
+        this.a.printTo(xmlOutputBuilder);
+        xmlOutputBuilder.removeIndent();
+        xmlOutputBuilder.appendClosingTag(this.tagKey);
     }
 }

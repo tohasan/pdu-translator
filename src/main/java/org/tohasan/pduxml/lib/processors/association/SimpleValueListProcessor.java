@@ -15,7 +15,7 @@ public class SimpleValueListProcessor extends MessageByteProcessor {
         this.a = CommonUtils.hexStrToByteArray(var1.f(454));
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
         CommonUtils.encodeVarLengthUnsignedInteger(messageOutputStream, this.a.length);
 
         for (byte anA : this.a) {
@@ -23,8 +23,8 @@ public class SimpleValueListProcessor extends MessageByteProcessor {
         }
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
-        var1.appendEmptyTag(this.tagKey, 454, CommonUtils.byteArraytoHexStr(this.a));
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
+        xmlOutputBuilder.appendEmptyTag(this.tagKey, 454, CommonUtils.byteArraytoHexStr(this.a));
     }
 
     public final void a(MessageInputStream messageInputStream) throws XmlPduException {

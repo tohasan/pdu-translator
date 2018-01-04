@@ -159,11 +159,11 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
 
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
         MessageOutputStream var3 = new MessageOutputStream();
         if (this.a != null) {
             var3.write(128);
-            this.a.a(var3);
+            this.a.encode(var3);
         }
 
         if (this.c == null) {
@@ -173,7 +173,7 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
             var3.write(0);
             int var2 = var3.size() - 1;
             var3.write(6);
-            this.c.a(var3);
+            this.c.encode(var3);
             var3.a(var2, (byte) (var3.size() - var2 - 1));
             if (this.d == null) {
                 throw new XmlPduException("_AssociationResponse: Field AssociationResult missing");
@@ -182,19 +182,19 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
                 var3.write(0);
                 var2 = var3.size() - 1;
                 var3.write(2);
-                this.d.a(var3);
+                this.d.encode(var3);
                 var3.a(var2, (byte) (var3.size() - var2 - 1));
                 if (this.e == null) {
                     throw new XmlPduException("_AssociationResponse: Field ResultSourceDiagnostic missing");
                 } else {
                     var3.write(163);
-                    this.e.a(var3);
+                    this.e.encode(var3);
                     if (this.apTitleProcessor != null) {
                         var3.write(164);
                         var3.write(0);
                         var2 = var3.size() - 1;
                         var3.write(4);
-                        this.apTitleProcessor.a(var3);
+                        this.apTitleProcessor.encode(var3);
                         var3.a(var2, (byte) (var3.size() - var2 - 1));
                     }
 
@@ -203,7 +203,7 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
                         var3.write(0);
                         var2 = var3.size() - 1;
                         var3.write(4);
-                        this.g.a(var3);
+                        this.g.encode(var3);
                         var3.a(var2, (byte) (var3.size() - var2 - 1));
                     }
 
@@ -212,7 +212,7 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
                         var3.write(0);
                         var2 = var3.size() - 1;
                         var3.write(2);
-                        this.h.a(var3);
+                        this.h.encode(var3);
                         var3.a(var2, (byte) (var3.size() - var2 - 1));
                     }
 
@@ -221,18 +221,18 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
                         var3.write(0);
                         var2 = var3.size() - 1;
                         var3.write(2);
-                        this.i.a(var3);
+                        this.i.encode(var3);
                         var3.a(var2, (byte) (var3.size() - var2 - 1));
                     }
 
                     if (this.j != null) {
                         var3.write(136);
-                        this.j.a(var3);
+                        this.j.encode(var3);
                     }
 
                     if (this.k != null) {
                         var3.write(137);
-                        this.k.a(var3);
+                        this.k.encode(var3);
                     }
 
                     if (this.l != null) {
@@ -240,7 +240,7 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
                         var3.write(0);
                         var2 = var3.size() - 1;
                         var3.write(128);
-                        this.l.a(var3);
+                        this.l.encode(var3);
                         var3.a(var2, (byte) (var3.size() - var2 - 1));
                     }
 
@@ -249,7 +249,7 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
                         var3.write(0);
                         var2 = var3.size() - 1;
                         var3.write(4);
-                        this.m.a(var3);
+                        this.m.encode(var3);
                         var3.a(var2, (byte) (var3.size() - var2 - 1));
                     }
 
@@ -260,49 +260,49 @@ public final class AssociationResponseProcessor extends MessageByteProcessor {
         }
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
-        var1.appendTag(this.tagKey);
-        var1.appendWithNewLine();
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
+        xmlOutputBuilder.appendTag(this.tagKey);
+        xmlOutputBuilder.addIndent();
         if (this.a != null) {
-            this.a.a(var1);
+            this.a.printTo(xmlOutputBuilder);
         }
 
-        this.c.a(var1);
-        this.d.a(var1);
-        this.e.a(var1);
+        this.c.printTo(xmlOutputBuilder);
+        this.d.printTo(xmlOutputBuilder);
+        this.e.printTo(xmlOutputBuilder);
         if (this.apTitleProcessor != null) {
-            this.apTitleProcessor.a(var1);
+            this.apTitleProcessor.printTo(xmlOutputBuilder);
         }
 
         if (this.g != null) {
-            this.g.a(var1);
+            this.g.printTo(xmlOutputBuilder);
         }
 
         if (this.h != null) {
-            this.h.a(var1);
+            this.h.printTo(xmlOutputBuilder);
         }
 
         if (this.i != null) {
-            this.i.a(var1);
+            this.i.printTo(xmlOutputBuilder);
         }
 
         if (this.j != null) {
-            this.j.a(var1);
+            this.j.printTo(xmlOutputBuilder);
         }
 
         if (this.k != null) {
-            this.k.a(var1);
+            this.k.printTo(xmlOutputBuilder);
         }
 
         if (this.l != null) {
-            this.l.a(var1);
+            this.l.printTo(xmlOutputBuilder);
         }
 
         if (this.m != null) {
-            this.m.a(var1);
+            this.m.printTo(xmlOutputBuilder);
         }
 
-        var1.b();
-        var1.b(this.tagKey);
+        xmlOutputBuilder.removeIndent();
+        xmlOutputBuilder.appendClosingTag(this.tagKey);
     }
 }

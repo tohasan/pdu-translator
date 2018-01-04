@@ -16,13 +16,13 @@ public final class UserInformationProcessor extends MessageProcessor {
 
         this.tagKey = tagKey;
         messageInputStream.readByte();
-        this.a(messageInputStream);
+        this.decode(messageInputStream);
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
         messageOutputStream.write(0);
         int var2 = messageOutputStream.size() - 1;
-        super.a(messageOutputStream);
+        super.encode(messageOutputStream);
         messageOutputStream.a(var2, messageOutputStream.size() - var2 - 1);
     }
 }

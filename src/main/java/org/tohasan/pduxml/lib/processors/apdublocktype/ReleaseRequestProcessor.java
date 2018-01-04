@@ -53,11 +53,11 @@ public final class ReleaseRequestProcessor extends MessageByteProcessor {
 
     }
 
-    public final void a(MessageOutputStream messageOutputStream) throws XmlPduException {
+    public final void encode(MessageOutputStream messageOutputStream) throws XmlPduException {
         MessageOutputStream var3 = new MessageOutputStream();
         if (this.a != null) {
             var3.write(128);
-            this.a.a(var3);
+            this.a.encode(var3);
         }
 
         if (this.c != null) {
@@ -65,7 +65,7 @@ public final class ReleaseRequestProcessor extends MessageByteProcessor {
             var3.write(0);
             int var2 = var3.size() - 1;
             var3.write(4);
-            this.c.a(var3);
+            this.c.encode(var3);
             var3.a(var2, (byte) (var3.size() - var2 - 1));
         }
 
@@ -73,18 +73,18 @@ public final class ReleaseRequestProcessor extends MessageByteProcessor {
         messageOutputStream.write(var3.toByteArray(), 0, var3.size());
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
-        var1.appendTag(this.tagKey);
-        var1.appendWithNewLine();
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
+        xmlOutputBuilder.appendTag(this.tagKey);
+        xmlOutputBuilder.addIndent();
         if (this.a != null) {
-            this.a.a(var1);
+            this.a.printTo(xmlOutputBuilder);
         }
 
         if (this.c != null) {
-            this.c.a(var1);
+            this.c.printTo(xmlOutputBuilder);
         }
 
-        var1.b();
-        var1.b(this.tagKey);
+        xmlOutputBuilder.removeIndent();
+        xmlOutputBuilder.appendClosingTag(this.tagKey);
     }
 }

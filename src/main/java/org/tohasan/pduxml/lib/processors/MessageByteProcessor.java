@@ -7,7 +7,7 @@ import org.tohasan.pduxml.lib.io.MessageOutputStream;
 public abstract class MessageByteProcessor {
     public int tagKey;
 
-    public abstract void a(MessageOutputStream messageOutputStream) throws XmlPduException;
+    public abstract void encode(MessageOutputStream messageOutputStream) throws XmlPduException;
 
-    public abstract void a(XmlOutputBuilder var1) throws XmlPduException;
+    public abstract void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException;
 }

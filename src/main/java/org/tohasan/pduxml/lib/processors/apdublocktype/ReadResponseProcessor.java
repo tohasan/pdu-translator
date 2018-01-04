@@ -36,7 +36,7 @@ public final class ReadResponseProcessor extends MessageItemsProcessor {
 
     }
 
-    public final void a(XmlOutputBuilder var1) throws XmlPduException {
-        this.a(var1, 1);
+    public final void printTo(XmlOutputBuilder xmlOutputBuilder) throws XmlPduException {
+        this.a(xmlOutputBuilder, 1);
     }
 }
