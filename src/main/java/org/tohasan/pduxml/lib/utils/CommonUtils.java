@@ -118,4 +118,19 @@ public class CommonUtils {
     private static char toHexChar(int var0) {
         return var0 >= 0 && var0 <= 9 ? (char) (var0 + 48) : (char) (65 + (var0 - 10));
     }
+
+    public static byte[] hexStringToByteArray(String string) {
+        int len = string.length();
+        byte[] data = new byte[len / 2];
+        for (int i = 0; i < len; i += 2) {
+            data[i / 2] = (byte) ((Character.digit(string.charAt(i), 16) << 4)
+                    + Character.digit(string.charAt(i + 1), 16));
+        }
+        return data;
+    }
+
+    public static String removeSpaces(String string) {
+        return string.replaceAll(" ", "");
+    }
+
 }

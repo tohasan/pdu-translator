@@ -11,7 +11,8 @@ import static XmlPduTranslator.pduToXml
  */
 class XmlPduTranslatorSpec extends Specification {
 
-    def "read response"() {
+    def "read response - read first block of response day profile '050102CF08' "() {
+        // Чтение первого блока ответа на запрос дневного профиля
         given:
         byte[] bytes = AppRunner.hexStringToByteArray(
                 "0C01020000016401000155021D090C07E10418010E0120FF800000120420110112000" +
